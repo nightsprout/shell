@@ -1,5 +1,5 @@
 // Create main Angular module/app.
-var AngularApp = angular.module("QuizForge", ["ngRoute", "ngTagsInput", "ui.bootstrap", "ngAnimate", 'ui.sortable']);
+var AngularApp = angular.module("AngularApp", ["ngRoute", "ngTagsInput", "ui.bootstrap", "ngAnimate", 'ui.sortable']);
 
 // Global Angular JavaScript code initialization.
 // QuizForge.run(["$rootScope", function($rootScope) {  }]);
