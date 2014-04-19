@@ -20,6 +20,19 @@
 //= require angular-route
 //= require angular-animate
 //
+//  ANGULAR: Angular App
+//= require angular/angular_app
+//= require angular/routes
+//
+//  ANGULAR: Angular App - Services
+//= require angular/services/httpService
+//
+//  ANGULAR: Angular App - Controllers
+//= require angular/controllers/sampleController
+//
+//  ANGULAR: Angular App - Directives
+//= require angular/directives/sampleDirective
+//
 //  SHELL: Core Shell Files
 //= require main
 //
