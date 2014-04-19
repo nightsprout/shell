@@ -1,3 +1,83 @@
+/****************************************************************************************************
+  0.  SCSS Variables
+****************************************************************************************************/
+
+
+/* Color Theme */
+/************************************************/
+
+$font-header-color: #404040;
+$font-body-color: #404040;
+
+$background-color: #efefef;
+
+$white: #ffffff;
+
+$teal: #6bc6b5;
+$teal-dark: #49877c;
+$red: #cd252f;
+$dark-red: #a50508;
+$gunmetal: #20484a;
+$charcoal: #191818;
+$light-grey: #f6f6f6;
+
+$line-color: #e6e6e6;
+
+
+/* Media Size Breakpoints */
+/************************************************/
+
+$monitor-breakpoint: 1200px;
+$laptop-breakpoint: 980px;
+$tablet-breakpoint: 768px;
+$phone-breakpoint: 480px;
+
+@mixin screen-format($media-type) {
+  @if $media-type == monitor {
+    @media (min-width: $monitor-breakpoint) { @content; }
+  }
+  @else if $media-type == laptop {
+    @media (min-width: $laptop-breakpoint) and (max-width: $monitor-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == tablet {
+    @media (min-width: $tablet-breakpoint) and (max-width: $laptop-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == phone {
+    @media (min-width: $phone-breakpoint) and (max-width: $tablet-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == nano {
+    @media (max-width: $phone-breakpoint - 1) { @content; }
+  }
+}
+
+/* Susy Grid Settings */
+/************************************************/
+
+$total-columns: 12;
+$column-width: 56px;
+$gutter-width: 48px;
+$grid-padding: 0;
+
+
+/* Font Stacks */
+/************************************************/
+
+$header-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$body-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$symbolset-standard: "SSStandard";
+$symbolset-symbolicons: "SSSymbolicons";
+$symbolset-social: "SSSocial";
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/hacks";
+@import "susy";
+
+@import "_button";
+
+
 body {
-  background: red;
+  font-family: 'Source Sans Pro', sans-serif;
 }
