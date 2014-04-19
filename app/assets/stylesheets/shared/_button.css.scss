@@ -22,16 +22,6 @@ button {
   -webkit-appearance: none;
   @include box-sizing(border-box);
   @include border-radius(2px);
-  > span {
-    @include screen-format(phone) {
-      display: none;
-      visibility: hidden;
-    }
-    @include screen-format(nano) {
-      display: none;
-      visibility: hidden;
-    }
-  }
 }
 
 .ns-button:active,

@@ -10,7 +10,26 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//  RAILS: Core Rails Files
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//
+//  ANGULAR: Core Angular Files
+//= require angular
+//= require angular-route
+//= require angular-animate
+//
+//  SHELL: Core Shell Files
+//= require main
+//
+//= require_tree ./components
+
+
+
+
+
+
+
+
+

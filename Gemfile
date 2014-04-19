@@ -31,8 +31,12 @@ gem 'jbuilder', '~> 1.2'
 
 ### NIGHTSPROUT STACK ###
 gem 'pg'
+gem 'jquery-ui-rails'
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
 gem 'compass-rails'
 gem 'susy'
+
 
 
 
