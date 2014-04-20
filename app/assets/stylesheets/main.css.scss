@@ -239,7 +239,9 @@ nav.ns-section-main.ns-nav-shadow-state {}
     position: absolute;
   }
   #ns-slide-controls.ns-section-main {}
-  #ns-banner.ns-section-main {}
+  #ns-banner.ns-section-main {
+    background: $color-tertiary;
+  }
   section.ns-section-main {}
   main.ns-section-main {}
   footer.ns-section-main {}
@@ -295,7 +297,26 @@ aside {} // not sure
 
 h1, h2, h3, h4, h5, h6 {}
 
+h1.ns-header-basic {
+  margin: 0 0 20px 0;
+  font-size: 72px;
+  line-height: 80px;
+}
+
+h2.ns-header-basic {
+  margin: 0 0 20px 0;
+  font-size: 48px;
+  line-height: 60px;
+}
+
+h3.ns-header-basic {
+  margin: 0 0 10px 0;
+  font-size: 32px;
+  line-height: 40px;
+}
+
 a {
+  cursor: pointer;
   text-decoration: none;
 }
 a:hover {
@@ -303,6 +324,9 @@ a:hover {
 }
 
 p {}
+p.ns-paragraph-basic {
+  margin: 0 0 10px 0;
+}
 
 strong {
   font-weight: 700;
