@@ -301,18 +301,21 @@ h1.ns-header-basic {
   margin: 0 0 20px 0;
   font-size: 72px;
   line-height: 80px;
+  font-weight: 700;
 }
 
 h2.ns-header-basic {
   margin: 0 0 20px 0;
   font-size: 48px;
   line-height: 60px;
+  font-weight: 700;
 }
 
 h3.ns-header-basic {
   margin: 0 0 10px 0;
   font-size: 32px;
   line-height: 40px;
+  font-weight: 700;
 }
 
 a {
@@ -368,7 +371,7 @@ ol.ns-module-triple {
       @include span-columns(12 omega, 12);
     }
   }
-  > li:last-child {
+  > li:nth-child(3n) {
     @include span-columns(4 omega, 12);
     @include screen-format(phone) {
       @include span-columns(12 omega, 12);

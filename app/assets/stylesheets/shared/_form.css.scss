@@ -1,6 +1,23 @@
 /* Forms */
 /************************************************/
 
+input,
+textarea,
+select,
+label {
+  display: inline-block;
+  margin: 0;
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-form-input-text;
+  -webkit-font-smoothing: antialiased;
+}
+
+label {
+  padding: 6px 0 9px 0;
+}
+
 input[type="date"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -19,11 +36,6 @@ textarea {
   padding: 5px 9px 8px 9px;
   border: 1px solid $color-form-input-outline;
   background: $color-form-input-background;
-  font-family: $font-body;
-  font-size: 14px;
-  line-height: 20px;
-  color: $color-form-input-text;
-  -webkit-font-smoothing: antialiased;
   @include box-sizing(border-box);
   @include border-radius(2px);
 }
@@ -31,6 +43,42 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {}
+
+
+
+
+
+form.ns-form-basic {
+  @include span-columns(12 omega, 12);
+  .ns-form-row {
+    margin: 0 0 20px 0;
+    @include span-columns(12 omega, 12);
+    .ns-form-row-left {
+      @include span-columns(3, 12);
+      > label {
+        font-weight: 700;
+      }
+    }
+    .ns-form-row-right {
+      @include span-columns(9 omega, 12);
+      > input[type="date"],   > input[type="datetime"],
+      > input[type="datetime-local"],
+      > input[type="email"],  > input[type="month"],
+      > input[type="number"], > input[type="password"],
+      > input[type="search"], > input[type="tel"],
+      > input[type="text"],   > input[type="time"],
+      > input[type="url"],    > input[type="week"],
+      > select,               > textarea {
+        width: 100%;
+        @include box-sizing(border-box);
+      }
+    }
+  }
+}
+
+
+
+
 
 
 
