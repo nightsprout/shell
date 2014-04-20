@@ -13,7 +13,6 @@
 //  RAILS: Core Rails Files
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //
 //  ANGULAR: Core Angular Files
 //= require angular
