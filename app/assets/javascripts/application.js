@@ -43,6 +43,40 @@
 
 
 
+$(document).ready(function() {
+
+  // This code controls the nav when it is a mobile view.
+  $("#ns-slide-controls").click(function() {
+    $("body").toggleClass("ns-slider-expanded");
+  });
+  // $("#ns-slide-controls").click(function() {
+  //   $("body").toggleClass("ns-slider-expanded");
+  // });
+
+  $(window).scroll(function() {
+
+    // Show or hide the top bar background.
+    if ( $(window).scrollTop() > 0 ) {
+      $("nav.ns-section-main").addClass("ns-nav-shadow-state");
+    }
+    else if ( $(window).scrollTop() <= 0 ) {
+      $("nav.ns-section-main").removeClass("ns-nav-shadow-state");
+    }
+
+  });
+
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 

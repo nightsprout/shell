@@ -35,6 +35,13 @@ $color-form-input-text: #404040;
 
 
 
+/* Layout Sizing */
+/************************************************/
+
+$height-top-bar: 60px;
+$height-top-bar-collapsed: 40px;
+
+
 /* Media Size Breakpoints */
 /************************************************/
 
@@ -139,11 +146,20 @@ body {
 /************************************************/
 
 nav.ns-section-main {
-  position: fixed;
+  height: $height-top-bar;
   background: $color-top-bar-background;
   color: $color-top-bar-text;
+  position: fixed;
   top: 0;
   left: 0;
+  @include screen-format(phone) {
+    width: 100%;
+    height: 100%;
+  }
+  @include screen-format(nano) {
+    width: 100%;
+    height: 100%;
+  }
   #ns-home {
     display: inline-block;
     float: left;
@@ -155,17 +171,51 @@ nav.ns-section-main {
   ol#ns-navigation {
     display: inline-block;
     float: right;
+    height: $height-top-bar;
+    @include screen-format(phone) {
+      width: 100%;
+    }
+    @include screen-format(nano) {
+      width: 100%;
+    }
     > li {
       display: inline-block;
       float: left;
+      height: $height-top-bar;
+      @include screen-format(phone) {
+        width: 100%;
+        height: $height-top-bar-collapsed;
+      }
+      @include screen-format(nano) {
+        width: 100%;
+        height: $height-top-bar-collapsed;
+      }
       > a {
         display: inline-block;
         float: left;
+        height: $height-top-bar;
+        margin: 0 0 0 30px;
+        line-height: $height-top-bar;
         color: $color-top-bar-text;
+        @include screen-format(phone) {
+          width: 100%;
+          height: $height-top-bar-collapsed;
+          margin: 0;
+        }
+        @include screen-format(nano) {
+          width: 100%;
+          height: $height-top-bar-collapsed;
+          margin: 0;
+        }
       }
     }
   }
 }
+
+nav.ns-section-main.ns-nav-shadow-state {}
+
+
+
 
 /* Main Page */
 /************************************************/
@@ -174,7 +224,20 @@ nav.ns-section-main {
   display: inline-block;
   float: left;
   width: 100%;
+  padding: $height-top-bar 0 0 0;
+  background: $color-page-background;
   position: relative;
+  left: 0;
+  @include transition-property(left);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(ease-in); 
+  @include transition-delay(0);
+  @include screen-format(phone) {
+    position: absolute;
+  }
+  @include screen-format(nano) {
+    position: absolute;
+  }
   #ns-slide-controls.ns-section-main {}
   #ns-banner.ns-section-main {}
   section.ns-section-main {}
@@ -182,11 +245,36 @@ nav.ns-section-main {
   footer.ns-section-main {}
 }
 
+body.ns-slider-expanded #ns-page-main,
+body.ns-slider-expanded #ns-slide-controls.ns-section-main {
+  left: 80%;
+}
+
 
 
 #ns-slide-controls.ns-section-main {
+  float: left;
+  width: 100%;
+  height: $height-top-bar;
+  background: $color-top-bar-background;
+  color: $color-top-bar-text;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: none;
   visibility: hidden;
+  @include transition-property(left);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(ease-in); 
+  @include transition-delay(0);
+  @include screen-format(phone) {
+    display: inline-block;
+    visibility: visible;
+  }
+  @include screen-format(nano) {
+    display: inline-block;
+    visibility: visible;
+  }
 }
 #ns-banner.ns-section-main {}
 section.ns-section-main {}
@@ -244,6 +332,39 @@ hr {
 
 
 
+ol.ns-module-triple {
+  @include span-columns(12 omega, 12);
+  > li {
+    margin: 0 0 20px 0;
+    @include span-columns(4, 12);
+    @include screen-format(phone) {
+      @include span-columns(12 omega, 12);
+    }
+    @include screen-format(nano) {
+      @include span-columns(12 omega, 12);
+    }
+  }
+  > li:last-child {
+    @include span-columns(4 omega, 12);
+    @include screen-format(phone) {
+      @include span-columns(12 omega, 12);
+    }
+    @include screen-format(nano) {
+      @include span-columns(12 omega, 12);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Z-Indices */
@@ -251,6 +372,13 @@ hr {
 
 nav.ns-section-main {     z-index: 400; }
 #ns-page-main {           z-index: 300; }
+
+nav.ns-section-main {
+  @include screen-format(phone) {
+                          z-index: 200; }
+  @include screen-format(nano) {
+                          z-index: 200; }
+}
 
 
 
