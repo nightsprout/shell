@@ -9,8 +9,8 @@ button {
   padding: 9px 20px 11px 20px;
   margin: 0;
   border: none;
-  color: $white;
-  background: $teal;
+  color: $color-button-text;
+  background: $color-button-background;
   font-size: 20px;
   font-weight: 700;
   font-family: $body-font;
@@ -58,8 +58,8 @@ button:before {
 .ns-button.ns-button-red,
 input[type="submit"].ns-button-red,
 button.ns-button-red {
-  background: $red;
-  color: $white;
+  background: $color-primary;
+  color: $color-button-text;
 }
 
 .ns-button.ns-button-cta,

@@ -6,22 +6,31 @@
 /* Color Theme */
 /************************************************/
 
-$font-header-color: #404040;
-$font-body-color: #404040;
+$color-primary: #6bc6b5;
+$color-secondary: #20484a;
+$color-tertiary: #cd252f;
+$color-accent: #20484a;
 
-$background-color: #efefef;
+$color-anchor-text: #20484a;
+$color-body-text: #404040;
+$color-header-text: #404040;
 
-$white: #ffffff;
+$color-line: #e6e6e6;
 
-$teal: #6bc6b5;
-$teal-dark: #49877c;
-$red: #cd252f;
-$dark-red: #a50508;
-$gunmetal: #20484a;
-$charcoal: #191818;
-$light-grey: #f6f6f6;
+$color-body-background: #ffffff;
+$color-page-background: #ffffff;
 
-$line-color: #e6e6e6;
+$color-top-bar-background: #191818;
+$color-top-bar-text: #ffffff;
+
+$color-footer-background: #191818;
+$color-footer-text: #ffffff;
+
+$color-button-background: #191818;
+$color-button-text: #ffffff;
+
+
+
 
 
 /* Media Size Breakpoints */
@@ -81,3 +90,87 @@ $symbolset-social: "SSSocial";
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+
+
+
+
+
+
+
+/* Scaffolding Tools */
+/************************************************/
+
+.ns-section-main {          // This class denotes a main page section.
+  display: inline-block;
+  float: left;
+  width: 100%;
+  > .ns-section-wrapper {   // This class wraps content inside of a main page section, to give it width.
+    display: block;
+    padding: 0 20px;
+    margin: 0 auto;
+    @include legacy-pie-clearfix;
+    @include screen-format(monitor) {
+      width: $monitor-breakpoint - 40px; // The subtraction of 40px accounts for the container padding.
+    }
+  }
+}
+
+
+/* Main Page Section: Navigation */
+/************************************************/
+
+nav.ns-section-main {
+  position: fixed;
+  > #ns-home {
+    display: inline-block;
+    float: left;
+    > img {
+      display: inline-block;
+      float: left;
+    }
+  }
+  ol#ns-navigation {
+    display: inline-block;
+    float: right;
+    > li {
+      display: inline-block;
+      float: left;
+      > a {
+        display: inline-block;
+        float: left;
+      }
+    }
+  }
+}
+
+/* Main Page */
+/************************************************/
+
+#ns-page-main {   // This holds all the content that can slide right when the slider is activated in "mobile mode".
+  #ns-slide-controls.ns-section-main {}
+  #ns-banner.ns-section-main {}
+  section.ns-section-main {}
+  main.ns-section-main {}
+  footer.ns-section-main {}
+}
+
+
+
+#ns-slide-controls.ns-section-main {}
+#ns-banner.ns-section-main {}
+section.ns-section-main {}
+main.ns-section-main {}
+footer.ns-section-main {}
+
+
+
+
+
+header {}
+article {} // not sure
+aside {} // not sure
+
+
+
+
