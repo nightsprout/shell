@@ -92,10 +92,21 @@ $font-icons-social: "SSSocial";
 @import "shared/_form";
 
 
+html {
+  // height: 100%;
+  // overflow: hidden;
+}
+
 body {
+  width: 100%;
+  // height: 100%;
   font-family: $font-body;
   font-size: 14px;
   line-height: 20px;
+  font-weight: 400;
+  color: $color-body-text;
+  -webkit-font-smoothing: antialiased;
+  background: $color-page-background;
 }
 
 
@@ -129,7 +140,11 @@ body {
 
 nav.ns-section-main {
   position: fixed;
-  > #ns-home {
+  background: $color-top-bar-background;
+  color: $color-top-bar-text;
+  top: 0;
+  left: 0;
+  #ns-home {
     display: inline-block;
     float: left;
     > img {
@@ -146,6 +161,7 @@ nav.ns-section-main {
       > a {
         display: inline-block;
         float: left;
+        color: $color-top-bar-text;
       }
     }
   }
@@ -155,6 +171,10 @@ nav.ns-section-main {
 /************************************************/
 
 #ns-page-main {   // This holds all the content that can slide right when the slider is activated in "mobile mode".
+  display: inline-block;
+  float: left;
+  width: 100%;
+  position: relative;
   #ns-slide-controls.ns-section-main {}
   #ns-banner.ns-section-main {}
   section.ns-section-main {}
@@ -164,11 +184,17 @@ nav.ns-section-main {
 
 
 
-#ns-slide-controls.ns-section-main {}
+#ns-slide-controls.ns-section-main {
+  display: none;
+  visibility: hidden;
+}
 #ns-banner.ns-section-main {}
 section.ns-section-main {}
 main.ns-section-main {}
-footer.ns-section-main {}
+footer.ns-section-main {
+  background: $color-top-bar-background;
+  color: $color-top-bar-text;
+}
 
 
 
@@ -181,13 +207,21 @@ aside {} // not sure
 
 h1, h2, h3, h4, h5, h6 {}
 
-a {}
-a:hover {}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 p {}
 
-strong {}
-em {}
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: italic;
+}
 
 ol.ns-bulleted-list,
 ul.ns-bulleted-list {
@@ -208,6 +242,15 @@ hr {
 
 
 
+
+
+
+
+/* Z-Indices */
+/************************************************/
+
+nav.ns-section-main {     z-index: 400; }
+#ns-page-main {           z-index: 300; }
 
 
 
