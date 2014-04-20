@@ -29,7 +29,9 @@ $color-footer-text: #ffffff;
 $color-button-background: #191818;
 $color-button-text: #ffffff;
 
-
+$color-form-input-outline: #e6e6e6;
+$color-form-input-background: transparent;
+$color-form-input-text: #404040;
 
 
 
@@ -71,12 +73,14 @@ $grid-padding: 0;
 /* Font Stacks */
 /************************************************/
 
-$header-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$body-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
-$symbolset-standard: "SSStandard";
-$symbolset-symbolicons: "SSSymbolicons";
-$symbolset-social: "SSSocial";
+
+$font-header: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-body: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$font-icons: "SSStandard";
+$font-icons-social: "SSSocial";
+
 
 @import "compass/reset";
 @import "compass/css3";
@@ -85,10 +89,13 @@ $symbolset-social: "SSSocial";
 @import "susy";
 
 @import "shared/_button";
+@import "shared/_form";
 
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: $font-body;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 
@@ -170,6 +177,39 @@ footer.ns-section-main {}
 header {}
 article {} // not sure
 aside {} // not sure
+
+
+h1, h2, h3, h4, h5, h6 {}
+
+a {}
+a:hover {}
+
+p {}
+
+strong {}
+em {}
+
+ol.ns-bulleted-list,
+ul.ns-bulleted-list {
+  > li {}
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  padding: 0;
+  margin: 15px 0 24px 0;
+  border: none;
+  color: $color-line;
+  background: $color-line;
+}
+
+
+
+
+
+
+
 
 
 

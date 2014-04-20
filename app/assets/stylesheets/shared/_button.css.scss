@@ -1,9 +1,10 @@
-
 /* Buttons */
 /************************************************/
 
 .ns-button,
 input[type="submit"],
+input[type="button"],
+input[type="reset"],
 button {
   display: inline-block;
   padding: 9px 20px 11px 20px;
@@ -13,7 +14,7 @@ button {
   background: $color-button-background;
   font-size: 20px;
   font-weight: 700;
-  font-family: $body-font;
+  font-family: $font-body;
   line-height: 30px;
   text-transform: uppercase;
   cursor: pointer;
@@ -26,6 +27,8 @@ button {
 
 .ns-button:active,
 input[type="submit"]:active,
+input[type="button"]:active,
+input[type="reset"]:active,
 button:active {
   position: relative;
   top: 2px;
@@ -33,6 +36,8 @@ button:active {
 
 .ns-button:hover,
 input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
 button:hover {
   text-decoration: none;
   @include opacity(.66);
@@ -40,12 +45,16 @@ button:hover {
 
 .ns-button:focus,
 input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
 button:focus {
   outline: none;
 }
 
 .ns-button:before,
 input[type="submit"]:before,
+input[type="button"]:before,
+input[type="reset"]:before,
 button:before {
   position: absolute;
   top: 0;
@@ -57,6 +66,8 @@ button:before {
 
 .ns-button.ns-button-red,
 input[type="submit"].ns-button-red,
+input[type="button"].ns-button-red,
+input[type="reset"].ns-button-red,
 button.ns-button-red {
   background: $color-primary;
   color: $color-button-text;
@@ -64,10 +75,12 @@ button.ns-button-red {
 
 .ns-button.ns-button-cta,
 input[type="submit"].ns-button-cta,
+input[type="button"].ns-button-cta,
+input[type="reset"].ns-button-cta,
 button.ns-button-cta {
   text-transform: uppercase;
   font-size: 36px;
   line-height: 50px;
   font-weight: 700;
-  font-family: $header-font;
+  font-family: $font-header;
 }
