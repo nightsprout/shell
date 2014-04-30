@@ -3,6 +3,8 @@ AngularApp.controller("masteriesController", ["$scope", "httpService", function(
   // This will hold the mastery data.
   $scope.masteries = {};
 
+  $scope.spellImagePath = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/mastery/";
+
   // This will hold the number of skill points the summoner has.
   $scope.skillPointsRemaining = 30;
 
