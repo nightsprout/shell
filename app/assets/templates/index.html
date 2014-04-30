@@ -4,7 +4,7 @@
 
       <p>Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.</p>
 
-      <ol class="ns-module-triple">
+      <ol>
         <li ng-repeat="champion in champions">
           <h3>{{champion.name}}</h3>
           <ul>
@@ -29,9 +29,20 @@
             <li><strong>Magic Resistance:</strong> {{champion.stats.spellblock}}</li>
             <li><strong>Magic Resistance / Lvl:</strong> {{champion.stats.spellblockperlevel}}</li>
           </ul>
+          <hr />
+          <ul>
+            <li ng-repeat="spell in champion.spells">
+              <div>
+                <h4>{{spell.name}}</h4>
+                <p>{{spell.description}}</p>
+                <p>{{spell.tooltip}}</p>
+                <hr />
+              </div>
+            </li>
+          </ul>
         </li>
       </ol>
-      <!-- .ns-module-triple -->
+      <!-- . -->
 
     </div>
     <!-- .ns-section-wrapper -->
