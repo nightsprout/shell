@@ -9,6 +9,9 @@ AngularApp.controller("indexController", ["$scope", "httpService", function($sco
   // The API endpoint that contains all champion data.
   var apiEndpoint = 'testData.json';
 
+  // Path to large champion images
+  $scope.imagePath   = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/champion/"
+
   // This is the callback function that executes if the HTTP requests returns
   // successfully.
   var getChampionsSuccess = function(payload, status) {
