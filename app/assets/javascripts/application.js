@@ -46,6 +46,10 @@ function parseTooltips( tooltip_array ){
   return $.map(tooltip_array, function(element, index){
     var var_template = {};
 
+    if( typeof element["costBurn"] != "undefined" ){
+      var_template["cost"] = element["costBurn"];  
+    }
+    
     if( typeof element["effect"] != "undefined" ){
       var_template["e1"] = ( typeof element["effect"][0] != "undefined" ? element["effect"][0].join("/") : "" );
       var_template["e2"] = ( typeof element["effect"][1] != "undefined" ? element["effect"][1].join("/") : "" );
@@ -65,7 +69,7 @@ function parseTooltips( tooltip_array ){
 
     var retval = {}
     if( typeof element["resource"] != "undefined" ){
-      retval["cost"] = Handlebars.compile( element["resource"] )({cost: element["costBurn"]});
+      retval["cost"] = Handlebars.compile( element["resource"] )(var_template);
     }
     if( typeof element["tooltip"] != "undefined" ){
       retval["tooltip"] = Handlebars.compile( element["tooltip"] )(var_template);
