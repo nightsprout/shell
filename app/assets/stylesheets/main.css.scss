@@ -244,6 +244,7 @@ nav.ns-section-main.ns-nav-shadow-state {}
     padding: 40px 0;
     text-align: center;
     p {
+      margin: 0 0 30px 0;
       font-size: 20px;
       line-height: 30px;
       @include box-sizing(border-box);
@@ -258,6 +259,13 @@ nav.ns-section-main.ns-nav-shadow-state {}
         @include prefix(0);
         @include suffix(0);
       }
+    }
+    input#ns-search-champions {
+      width: 80%;
+      padding: 5px 14px 10px 14px;
+      margin: 0 0 30px 0;
+      font-size: 32px;
+      line-height: 50px;
     }
   }
   section.ns-section-main {}
@@ -333,6 +341,13 @@ h3.ns-header-basic {
   margin: 0 0 10px 0;
   font-size: 32px;
   line-height: 40px;
+  font-weight: 700;
+}
+
+h4.ns-header-basic {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  line-height: 30px;
   font-weight: 700;
 }
 
@@ -414,8 +429,98 @@ ol.ns-module-triple {
 /************************************************/
 
 
-#ns-tmp-champions {
-  > li {}
+ol#ns-champions {
+  @include span-columns(12 omega, 12);
+  > li {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 25px 30px 5px 30px;
+    margin: 0 0 20px 0;
+    border: 1px solid $color-line;
+    @include border-radius(2px);
+    @include box-sizing(border-box);
+    > ul.ns-champion-stats {
+      @include span-columns(12 omega, 12);
+      > li {
+        @include span-columns(3, 12);
+        @include screen-format(tablet) {
+          @include span-columns(4, 12);
+        }
+        @include screen-format(phone) {
+          @include span-columns(6, 12);
+        }
+        @include screen-format(nano) {
+          @include span-columns(12 omega, 12);
+        }
+        > strong {
+          display: block;
+          float: left;
+          width: 75%;
+          text-align: left;
+        }
+        > span {
+          display: block;
+          float: left;
+          width: 20%;
+          text-align: right;
+        }
+      }
+      > li:nth-child(4n) {
+        @include span-columns(3 omega, 12);
+        @include screen-format(tablet) {
+          @include span-columns(4, 12);
+        }
+        @include screen-format(phone) {
+          @include span-columns(6, 12);
+        }
+        @include screen-format(nano) {
+          @include span-columns(12 omega, 12);
+        }
+      }
+      > li:nth-child(2n) {
+        @include screen-format(tablet) {
+          @include span-columns(4, 12);
+        }
+        @include screen-format(phone) {
+          @include span-columns(6 omega, 12);
+        }
+        @include screen-format(nano) {
+          @include span-columns(12 omega, 12);
+        }
+      }
+      > li:nth-child(3n) {
+        @include screen-format(tablet) {
+          @include span-columns(4 omega, 12);
+        }
+        @include screen-format(phone) {
+          @include span-columns(6, 12);
+        }
+        @include screen-format(nano) {
+          @include span-columns(12 omega, 12);
+        }
+      }
+      > li:nth-child(6n) {
+        @include screen-format(phone) {
+          @include span-columns(6 omega, 12);
+        }
+      }
+    }
+    > ol.ns-champion-skills {
+      @include span-columns(12 omega, 12);
+      > li {
+        padding: 20px 0 0 0;
+        margin: 20px 0 0 0;
+        border-top: 1px dotted $color-line;
+        > h4 {
+          margin: 0 0 25px 0;
+        }
+        > p {
+          margin: 0 0 25px 0;
+        }
+      }
+    }
+  }
 }
 
 

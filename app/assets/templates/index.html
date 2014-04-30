@@ -3,7 +3,7 @@
     <div class="ns-section-wrapper">
       <h1 class="ns-header-basic">Solo Queue</h1>
       <p>Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.</p>
-      <input type="text" ng-model="searchChampions.name" />
+      <input id="ns-search-champions" type="text" ng-model="searchChampions.name" placeholder="Search for a champion ..." />
     </div>
     <!-- .ns-section-wrapper -->
   </div>
@@ -12,45 +12,43 @@
   <main class="ns-section-main">
     <div class="ns-section-wrapper">
 
-      <ol>
-        <li ng-repeat="champion in champions | filter:searchChampions " >
-          <h3>{{champion.name}}</h3>
-          <ul>
-            <li><strong>Armor:</strong> {{champion.stats.armor}}</li>
-            <li><strong>Armor / Lvl:</strong> {{champion.stats.armorperlevel}}</li>
-            <li><strong>Attack Dmg:</strong> {{champion.stats.attackdamage}}</li>
-            <li><strong>Attack Dmg / Lvl:</strong> {{champion.stats.attackdamageperlevel}}</li>
-            <li><strong>Range:</strong> {{champion.stats.attackrange}}</li>
-            <li><strong>ASPD:</strong> {{champion.stats.attackspeedoffset}}</li>
-            <li><strong>ASPD / Lvl:</strong> {{champion.stats.attackspeedperlevel}}</li>
-            <li><strong>Crit:</strong> {{champion.stats.crit}}</li>
-            <li><strong>Crit / Lvl:</strong> {{champion.stats.critperlevel}}</li>
-            <li><strong>HP:</strong> {{champion.stats.hp}}</li>
-            <li><strong>HP / Lvl:</strong> {{champion.stats.hpperlevel}}</li>
-            <li><strong>HP Regen:</strong> {{champion.stats.hpregen}}</li>
-            <li><strong>HP Regen / Lvl:</strong> {{champion.stats.hpregenperlevel}}</li>
-            <li><strong>Move Speed:</strong> {{champion.stats.movespeed}}</li>
-            <li><strong>MP:</strong> {{champion.stats.mp}}</li>
-            <li><strong>MP / Lvl:</strong> {{champion.stats.mpperlevel}}</li>
-            <li><strong>MP Regen:</strong> {{champion.stats.mpregen}}</li>
-            <li><strong>MP Regen / Lvl:</strong> {{champion.stats.mpregenperlevel}}</li>
-            <li><strong>MR:</strong> {{champion.stats.spellblock}}</li>
-            <li><strong>MR / Lvl:</strong> {{champion.stats.spellblockperlevel}}</li>
+      <ol id="ns-champions">
+        <li ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampions" >
+          <h3 class="ns-header-basic">{{champion.name}}</h3>
+          <ul class="ns-champion-stats">
+            <li><strong>Armor:</strong> <span>{{champion.stats.armor}}</span></li>
+            <li><strong>Armor / Lvl:</strong> <span>{{champion.stats.armorperlevel}}</span></li>
+            <li><strong>Attack Dmg:</strong> <span>{{champion.stats.attackdamage}}</span></li>
+            <li><strong>Attack Dmg / Lvl:</strong> <span>{{champion.stats.attackdamageperlevel}}</span></li>
+            <li><strong>Range:</strong> <span>{{champion.stats.attackrange}}</span></li>
+            <li><strong>ASPD:</strong> <span>{{champion.stats.attackspeedoffset}}</span></li>
+            <li><strong>ASPD / Lvl:</strong> <span>{{champion.stats.attackspeedperlevel}}</span></li>
+            <li><strong>Crit:</strong> <span>{{champion.stats.crit}}</span></li>
+            <li><strong>Crit / Lvl:</strong> <span>{{champion.stats.critperlevel}}</span></li>
+            <li><strong>HP:</strong> <span>{{champion.stats.hp}}</span></li>
+            <li><strong>HP / Lvl:</strong> <span>{{champion.stats.hpperlevel}}</span></li>
+            <li><strong>HP Regen:</strong> <span>{{champion.stats.hpregen}}</span></li>
+            <li><strong>HP Regen / Lvl:</strong> <span>{{champion.stats.hpregenperlevel}}</span></li>
+            <li><strong>Move Speed:</strong> <span>{{champion.stats.movespeed}}</span></li>
+            <li><strong>MP:</strong> <span>{{champion.stats.mp}}</span></li>
+            <li><strong>MP / Lvl:</strong> <span>{{champion.stats.mpperlevel}}</span></li>
+            <li><strong>MP Regen:</strong> <span>{{champion.stats.mpregen}}</span></li>
+            <li><strong>MP Regen / Lvl:</strong> <span>{{champion.stats.mpregenperlevel}}</span></li>
+            <li><strong>MR:</strong> <span>{{champion.stats.spellblock}}</span></li>
+            <li><strong>MR / Lvl:</strong> <span>{{champion.stats.spellblockperlevel}}</span></li>
           </ul>
-          <hr />
-          <ul>
+          <!-- .ns-champion-stats -->
+          <ol class="ns-champion-skills">
             <li ng-repeat="spell in champion.spells">
-              <div>
-                <h4>{{spell.name}}</h4>
-                <p>{{spell.description}}</p>
-                <p>{{spell.tooltip}}</p>
-                <hr />
-              </div>
+              <h4 class="ns-header-basic">{{evaluateSkillSlot($index);}} - {{spell.name}}</h4>
+              <p>{{spell.description}}</p>
+              <p ng-bind-html="spell.tooltip"></p>
             </li>
-          </ul>
+          </ol>
+          <!-- .ns-champion-skills -->
         </li>
       </ol>
-      <!-- . -->
+      <!-- .ns-champions -->
 
     </div>
     <!-- .ns-section-wrapper -->

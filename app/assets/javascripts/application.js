@@ -18,6 +18,7 @@
 //= require angular
 //= require angular-route
 //= require angular-animate
+//= require angular-sanitize
 //
 //  ANGULAR: Angular App
 //= require angular/angular_app
