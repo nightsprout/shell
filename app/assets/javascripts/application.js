@@ -29,6 +29,7 @@
 //
 //  ANGULAR: Angular App - Controllers
 //= require angular/controllers/indexController
+//= require angular/controllers/masteriesController
 //
 //  ANGULAR: Angular App - Directives
 //= require angular/directives/sampleDirective
