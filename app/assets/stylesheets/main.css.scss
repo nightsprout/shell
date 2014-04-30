@@ -108,8 +108,8 @@ body {
   width: 100%;
   // height: 100%;
   font-family: $font-body;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 25px;
   font-weight: 400;
   color: $color-body-text;
   -webkit-font-smoothing: antialiased;
@@ -195,6 +195,7 @@ nav.ns-section-main {
         float: left;
         height: $height-top-bar;
         margin: 0 0 0 30px;
+        font-size: 14px;
         line-height: $height-top-bar;
         color: $color-top-bar-text;
         @include screen-format(phone) {
@@ -240,7 +241,24 @@ nav.ns-section-main.ns-nav-shadow-state {}
   }
   #ns-slide-controls.ns-section-main {}
   #ns-banner.ns-section-main {
-    background: $color-tertiary;
+    padding: 40px 0;
+    text-align: center;
+    p {
+      font-size: 20px;
+      line-height: 30px;
+      @include box-sizing(border-box);
+      @include span-columns(12 omega, 12);
+      @include prefix(1);
+      @include suffix(1);
+      @include screen-format(phone) {
+        @include prefix(0);
+        @include suffix(0);
+      }
+      @include screen-format(nano) {
+        @include prefix(0);
+        @include suffix(0);
+      }
+    }
   }
   section.ns-section-main {}
   main.ns-section-main {}
@@ -381,6 +399,25 @@ ol.ns-module-triple {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* TEMPORARY STYLES */
+/************************************************/
+
+
+#ns-tmp-champions {
+  > li {}
+}
+
 
 
 

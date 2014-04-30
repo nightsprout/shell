@@ -1,12 +1,19 @@
 AngularApp.controller("indexController", ["$scope", "httpService", function($scope, httpService) {
 
-  $scope.champions = {};
+  $scope.champions = [];
 
   var apiEndpoint = 'testData.json';
 
   // This is the callback function that executes if the HTTP requests returns successfully.
   var getChampionsSuccess = function(payload, status) {
-    $scope.champions = payload.data; // Remove .data if API is not formatted to store data in a data property.
+    var championObject = payload.data;
+    var championArray = [];
+    for (var champion in championObject) {
+      if(championObject.hasOwnProperty(champion)){
+        championArray.push(championObject[champion]);
+      }
+    }
+    $scope.champions = championArray;
   };
 
   // This is the callback function that executes if the HTTP requests returns unsuccessfully.
