@@ -3,6 +3,18 @@ AngularApp.config(function($routeProvider, $locationProvider) {
     templateUrl: '<%= asset_path("index.html") %>',
     controller: 'indexController',
     activetab: 'index'
+  }).when('/masteries', {
+    templateUrl: '<%= asset_path("masteries.html") %>',
+    controller: 'indexController',
+    activetab: 'masteries'
+  }).when('/damage', {
+    templateUrl: '<%= asset_path("damage.html") %>',
+    controller: 'indexController',
+    activetab: 'damage'
+  }).when('/about', {
+    templateUrl: '<%= asset_path("about.html") %>',
+    controller: 'indexController',
+    activetab: 'about'
   }).
   otherwise({
     templateUrl: '<%= asset_path("index.html") %>',
