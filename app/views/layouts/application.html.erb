@@ -10,7 +10,15 @@
 </head>
 <body>
 
-<%= yield %>
+<%= render :partial => "shared/navigation" %>
+
+<div id="ns-page-main">
+
+  <%= yield %>
+  <%= render :partial => "shared/footer" %>
+
+</div>
+<!-- #ns-page-main -->
 
 </body>
 </html>

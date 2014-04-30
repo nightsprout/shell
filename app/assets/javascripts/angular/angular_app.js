@@ -1,5 +1,5 @@
 // Create main Angular module/app.
-var AngularApp = angular.module("AngularApp", ["ngRoute", "ngTagsInput", "ui.bootstrap", "ngAnimate", 'ui.sortable']);
+var AngularApp = angular.module("AngularApp", ["ngRoute", "ngAnimate"]);
 
 // Global Angular JavaScript code initialization.
 // AngularApp.run(["$rootScope", function($rootScope) {  }]);
