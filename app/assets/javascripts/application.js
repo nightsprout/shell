@@ -32,7 +32,7 @@
 //= require angular/controllers/masteriesController
 //
 //  ANGULAR: Angular App - Directives
-//= require angular/directives/sampleDirective
+//= require angular/directives/rightClickDirective
 //
 //  SHELL: Core Shell Files
 //= require main

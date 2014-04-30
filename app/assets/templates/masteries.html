@@ -3,42 +3,58 @@
   <main class="ns-section-main">
     <div class="ns-section-wrapper">
 
+      <h1>{{skillPointsRemaining}}</h1>
+
+      <hr />
+
       <table>
         <tr>
-          <td>{{masteryTree.defense.tier1[0].name}}</td>
-          <td>{{masteryTree.defense.tier1[1].name}}</td>
-          <td>{{masteryTree.defense.tier1[2].name}}</td>
-          <td>{{masteryTree.defense.tier1[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier1"
+            ng-click="incrementSkillRank('defense', '1', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '1', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
         <tr>
-          <td>{{masteryTree.defense.tier2[0].name}}</td>
-          <td>{{masteryTree.defense.tier2[1].name}}</td>
-          <td>{{masteryTree.defense.tier2[2].name}}</td>
-          <td>{{masteryTree.defense.tier2[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier2"
+            ng-click="incrementSkillRank('defense', '2', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '2', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
         <tr>
-          <td>{{masteryTree.defense.tier3[0].name}}</td>
-          <td>{{masteryTree.defense.tier3[1].name}}</td>
-          <td>{{masteryTree.defense.tier3[2].name}}</td>
-          <td>{{masteryTree.defense.tier3[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier3"
+            ng-click="incrementSkillRank('defense', '3', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '3', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
         <tr>
-          <td>{{masteryTree.defense.tier4[0].name}}</td>
-          <td>{{masteryTree.defense.tier4[1].name}}</td>
-          <td>{{masteryTree.defense.tier4[2].name}}</td>
-          <td>{{masteryTree.defense.tier4[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier4"
+            ng-click="incrementSkillRank('defense', '4', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '4', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
         <tr>
-          <td>{{masteryTree.defense.tier5[0].name}}</td>
-          <td>{{masteryTree.defense.tier5[1].name}}</td>
-          <td>{{masteryTree.defense.tier5[2].name}}</td>
-          <td>{{masteryTree.defense.tier5[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier5"
+            ng-click="incrementSkillRank('defense', '5', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '5', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
         <tr>
-          <td>{{masteryTree.defense.tier6[0].name}}</td>
-          <td>{{masteryTree.defense.tier6[1].name}}</td>
-          <td>{{masteryTree.defense.tier6[2].name}}</td>
-          <td>{{masteryTree.defense.tier6[3].name}}</td>
+          <td
+            ng-repeat="mastery in masteryTree.defense.tier6"
+            ng-click="incrementSkillRank('defense', '6', $index, mastery[0].prereq, mastery[0].id)"
+            ng-right-click="decrementSkillRank('defense', '6', $index, mastery[0].prereq, mastery[0].id)">
+            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
+          </td>
         </tr>
       </table>
 
