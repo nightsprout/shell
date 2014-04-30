@@ -7,42 +7,51 @@
 
       <hr />
 
-      <table>
-        <tr ng-repeat="tier in masteryTree.offense">
-          <td
-            ng-repeat="mastery in tier"
-            ng-click="incrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
-            ng-right-click="decrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
-            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
-          </td>
-        </tr>
-      </table>
+      <ol id="ns-mastery-tree">
+        <li>
+          <ol class="ns-mastery-branch" ng-repeat="tier in masteryTree.offense">
+            <li
+              ng-repeat="mastery in tier"
+              ng-click="incrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
+              ng-right-click="decrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
+              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
+            </li>
+          </ol>
+          <!-- .ns-mastery-branch -->
+        </li>
 
-      <hr />
+        <li>
+          <ol class="ns-mastery-branch" ng-repeat="tier in masteryTree.defense">
+            <li
+              ng-repeat="mastery in tier"
+              ng-click="incrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
+              ng-right-click="decrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
+              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
+            </li>
+          </ol>
+          <!-- .ns-mastery-branch -->
+        </li>
 
-      <table>
-        <tr ng-repeat="tier in masteryTree.defense">
-          <td
-            ng-repeat="mastery in tier"
-            ng-click="incrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
-            ng-right-click="decrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
-            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
-          </td>
-        </tr>
-      </table>
-
-      <hr />
-
-      <table>
-        <tr ng-repeat="tier in masteryTree.utility">
-          <td
-            ng-repeat="mastery in tier"
-            ng-click="incrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
-            ng-right-click="decrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
-            <span ng-show="mastery[0] != null">{{mastery[0].name}}: {{mastery[1]}}/{{mastery[0].ranks}}</span>
-          </td>
-        </tr>
-      </table>
+        <li>
+          <ol class="ns-mastery-branch" ng-repeat="tier in masteryTree.utility">
+            <li
+              ng-repeat="mastery in tier"
+              ng-click="incrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
+              ng-right-click="decrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
+              style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;">
+              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
+            </li>
+          </ol>
+          <!-- .ns-mastery-branch -->
+        </li>
+      </ol>
+      <!-- #ns-mastery-tree -->
 
     </div>
     <!-- .ns-section-wrapper -->

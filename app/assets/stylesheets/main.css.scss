@@ -428,6 +428,49 @@ ol.ns-module-triple {
 /* TEMPORARY STYLES */
 /************************************************/
 
+ol#ns-mastery-tree {
+  display: inline-block;
+  float: left;
+  width: 100%;
+  height: 479px;
+  margin: 0 0 40px 0;
+  background: transparent url(http://ddragon.leagueoflegends.com/cdn/img/mastery/masteryback.jpg) no-repeat 0 0;
+  > li {
+    display: inline-block;
+    float: left;
+    width: 274px;
+    > ol.ns-mastery-branch {
+      display: inline-block;
+      float: left;
+      width: 100%;
+      > li {
+        display: inline-block;
+        float: left;
+        width: 48px;
+        height: 48px;
+        margin: 20px 6px 0 14px;      
+        > .ns-mastery-image {
+          display: inline-block;
+          float: left;
+          width: 48px;
+          height: 48px;
+          background: transparent url(http://ddragon.leagueoflegends.com/cdn/4.6.3/img/sprite/mastery0.png) no-repeat 0 0;
+          position: absolute;
+        }
+        > .ns-mastery-overlay {
+          position: absolute;
+        }
+        > .ns-mastery-spec {
+          color: $color-button-text;
+          font-size: 14px;
+          line-height: 25px;
+          font-weight: 900;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
 
 ol#ns-champions {
   @include span-columns(12 omega, 12);
