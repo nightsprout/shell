@@ -10,7 +10,8 @@ AngularApp.controller("indexController", ["$scope", "httpService", function($sco
   var apiEndpoint = 'testData.json';
 
   // Path to large champion images
-  $scope.imagePath   = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/champion/"
+  $scope.championImagePath  = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/champion/";
+  $scope.spellImagePath     = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/spell/";
 
   // This is the callback function that executes if the HTTP requests returns
   // successfully.
