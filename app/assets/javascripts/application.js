@@ -27,7 +27,7 @@
 //= require angular/services/httpService
 //
 //  ANGULAR: Angular App - Controllers
-//= require angular/controllers/sampleController
+//= require angular/controllers/indexController
 //
 //  ANGULAR: Angular App - Directives
 //= require angular/directives/sampleDirective
