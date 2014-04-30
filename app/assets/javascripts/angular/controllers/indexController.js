@@ -22,6 +22,10 @@ AngularApp.controller("indexController", ["$scope", "httpService", function($sco
     var championArray = [];
     for (var champion in championObject) {
       if(championObject.hasOwnProperty(champion)){
+        var parsed_tooltips = parseTooltips( championObject[champion].spells );
+        for( var spell in championObject[champion].spells ){
+          championObject[champion].spells[spell].parsedTooltips = parsed_tooltips[spell];
+        }
         championArray.push(championObject[champion]);
       }
     }

@@ -33,7 +33,8 @@
             <li ng-repeat="spell in champion.spells">
               <h4 class="ns-header-basic"><img ng-src="{{spellImagePath + spell.image.full}}" /> {{evaluateSkillSlot($index);}} - {{spell.name}}</h4>
               <p>{{spell.description}}</p>
-              <p ng-bind-html="spell.tooltip"></p>
+              <p ng-bind-html="spell.parsedTooltips.tooltip"></p>
+              <p>Cost: {{spell.parsedTooltips.cost}}</p>
             </li>
           </ol>
           <!-- .ns-champion-skills -->

@@ -44,25 +44,37 @@
 function parseTooltips( tooltip_array ){
 
   return $.map(tooltip_array, function(element, index){
-    var var_template = {
-      "e1": ( typeof element["effect"][0] != "undefined" ? element["effect"][0].join("/") : "" ),
-      "e2": ( typeof element["effect"][1] != "undefined" ? element["effect"][1].join("/") : "" ),
-      "e3": ( typeof element["effect"][2] != "undefined" ? element["effect"][2].join("/") : "" ),
-      "e4": ( typeof element["effect"][3] != "undefined" ? element["effect"][3].join("/") : "" ),
-      "e5": ( typeof element["effect"][4] != "undefined" ? element["effect"][4].join("/") : "" ),
-      "e6": ( typeof element["effect"][5] != "undefined" ? element["effect"][5].join("/") : "" ),
-      "e7": ( typeof element["effect"][6] != "undefined" ? element["effect"][6].join("/") : "" ),
-      "a1": ( typeof element["vars"][0] != "undefined" ? element["vars"][0]["coeff"].join("/") : "" ),
-      "a2": ( typeof element["vars"][1] != "undefined" ? element["vars"][1]["coeff"].join("/") : "" ),
-      "a3": ( typeof element["vars"][2] != "undefined" ? element["vars"][2]["coeff"].join("/") : "" ),
-      "a4": ( typeof element["vars"][3] != "undefined" ? element["vars"][3]["coeff"].join("/") : "" )
+    var var_template = {};
+
+    if( typeof element["effect"] != "undefined" ){
+      var_template["e1"] = ( typeof element["effect"][0] != "undefined" ? element["effect"][0].join("/") : "" );
+      var_template["e2"] = ( typeof element["effect"][1] != "undefined" ? element["effect"][1].join("/") : "" );
+      var_template["e3"] = ( typeof element["effect"][2] != "undefined" ? element["effect"][2].join("/") : "" );
+      var_template["e4"] = ( typeof element["effect"][3] != "undefined" ? element["effect"][3].join("/") : "" );
+      var_template["e5"] = ( typeof element["effect"][4] != "undefined" ? element["effect"][4].join("/") : "" );
+      var_template["e6"] = ( typeof element["effect"][5] != "undefined" ? element["effect"][5].join("/") : "" );
+      var_template["e7"] = ( typeof element["effect"][6] != "undefined" ? element["effect"][6].join("/") : "" );
+    }
+    if( typeof element["vars"] != "undefined" ){
+      var_template["a1"] = ( typeof element["vars"][0] != "undefined" ? element["vars"][0]["coeff"].join("/") : "" );
+      var_template["a2"] = ( typeof element["vars"][1] != "undefined" ? element["vars"][1]["coeff"].join("/") : "" );
+      var_template["a3"] = ( typeof element["vars"][2] != "undefined" ? element["vars"][2]["coeff"].join("/") : "" );
+      var_template["a4"] = ( typeof element["vars"][3] != "undefined" ? element["vars"][3]["coeff"].join("/") : "" );
     }
 
-    return {
-      "cost":             Handlebars.compile( element["resource"] )({cost: element["costBurn"]}),
-      "tooltip":          Handlebars.compile( element["tooltip"] )( var_template ),
-      "sanitizedTooltip": Handlebars.compile( element["sanitizedTooltip"] )( var_template )
+
+    var retval = {}
+    if( typeof element["resource"] != "undefined" ){
+      retval["cost"] = Handlebars.compile( element["resource"] )({cost: element["costBurn"]});
     }
+    if( typeof element["tooltip"] != "undefined" ){
+      retval["tooltip"] = Handlebars.compile( element["tooltip"] )(var_template);
+    }
+    if( typeof element["sanitizedTooltip"] != "undefined" ){
+      retval["sanitizedTooltip"] = Handlebars.compile( element["sanitizedTooltip"] )(var_template);
+    }
+
+    return retval;
   });
 
 }
