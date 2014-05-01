@@ -41,6 +41,9 @@ $color-form-input-text: #404040;
 $height-top-bar: 60px;
 $height-top-bar-collapsed: 40px;
 
+$font-body-text-size: 14px;
+$font-body-text-line-height: 20px;
+
 
 /* Media Size Breakpoints */
 /************************************************/
@@ -108,8 +111,8 @@ body {
   width: 100%;
   // height: 100%;
   font-family: $font-body;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: $font-body-text-size;
+  line-height: $font-body-text-line-height;
   font-weight: 400;
   color: $color-body-text;
   -webkit-font-smoothing: antialiased;
@@ -160,12 +163,16 @@ nav.ns-section-main {
     width: 100%;
     height: 100%;
   }
-  #ns-home {
+  a#ns-home {
     display: inline-block;
     float: left;
+    height: $height-top-bar;
+    width: 200px;
     > img {
       display: inline-block;
       float: left;
+      height: $height-top-bar;
+      width: 200px;
     }
   }
   ol#ns-navigation {
@@ -260,6 +267,7 @@ body.ns-slider-expanded #ns-slide-controls.ns-section-main {
   height: $height-top-bar;
   background: $color-top-bar-background;
   color: $color-top-bar-text;
+  cursor: pointer;
   position: fixed;
   top: 0;
   left: 0;
@@ -276,6 +284,14 @@ body.ns-slider-expanded #ns-slide-controls.ns-section-main {
   @include screen-format(nano) {
     display: inline-block;
     visibility: visible;
+  }
+  #ns-slide-control-left {
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 25px;
+    margin: 17px 0 0 0;
+    background: transparent url("/assets/core/ns-nav-expander.png") no-repeat 0 0;
   }
 }
 #ns-banner.ns-section-main {}
