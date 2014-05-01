@@ -2,11 +2,12 @@
   <div id="ns-banner" class="ns-section-main">
     <div class="ns-section-wrapper">
       <h1 class="ns-header-basic">Solo Queue</h1>
-      <p>Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.</p>
+      <p>Solo Queue is a fast, easy way to get data for League of Legends.</p>
       <div class="ns-dropdown-suggest">
         <input
           class="ns-dropdown-suggest-input"
-          type="text" ng-model="searchChampion.name"
+          type="text"
+          ng-model="searchChampion.name"
           placeholder="Search for a champion ..."
           ng-focus="showChampionDropdown()"
           ng-blur="setSearchChampion()" />
