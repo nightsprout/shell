@@ -1,5 +1,6 @@
 AngularApp.controller("indexController", ["$scope", "httpService", "$timeout", function($scope, httpService, $timeout) {
 
+  $scope.queuedChampion = null;
   $scope.searchChampion = null;
   $scope.currentChampion = null;
   $scope.championDropdownState = false;
@@ -8,9 +9,13 @@ AngularApp.controller("indexController", ["$scope", "httpService", "$timeout", f
     $scope.championDropdownState = true;
   };
 
+  $scope.queueSearchChampion = function(championName) {
+    $scope.queuedChampion = championName;
+  };
+
   $scope.setSearchChampion = function(championName) {
-    $scope.currentChampion = championName;
-    $scope.searchChampions = null;
+    $scope.currentChampion = $scope.queuedChampion;
+    $scope.queuedChampion = null;
     $scope.championDropdownState = false;
   };
 

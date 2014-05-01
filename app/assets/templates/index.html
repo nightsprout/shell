@@ -8,11 +8,12 @@
           class="ns-dropdown-suggest-input"
           type="text" ng-model="searchChampion.name"
           placeholder="Search for a champion ..."
-          ng-focus="showChampionDropdown()" />
+          ng-focus="showChampionDropdown()"
+          ng-blur="setSearchChampion()" />
         <ol class="ns-dropdown-suggest-suggestions" ng-show="championDropdownState">
           <li
             ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampion"
-            ng-click="setSearchChampion(champion.name)">
+            ng-mouseover="queueSearchChampion(champion.name)">
             {{champion.name}}
           </li>
         </ol>
