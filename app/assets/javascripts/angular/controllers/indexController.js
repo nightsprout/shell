@@ -1,4 +1,18 @@
-AngularApp.controller("indexController", ["$scope", "httpService", function($scope, httpService) {
+AngularApp.controller("indexController", ["$scope", "httpService", "$timeout", function($scope, httpService, $timeout) {
+
+  $scope.searchChampion = null;
+  $scope.currentChampion = null;
+  $scope.championDropdownState = false;
+
+  $scope.showChampionDropdown = function() {
+    $scope.championDropdownState = true;
+  };
+
+  $scope.setSearchChampion = function(championName) {
+    $scope.currentChampion = championName;
+    $scope.searchChampions = null;
+    $scope.championDropdownState = false;
+  };
 
   // This will hold the array of champion data.
   $scope.champions = [];

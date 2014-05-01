@@ -30,7 +30,7 @@ $color-button-background: #191818;
 $color-button-text: #ffffff;
 
 $color-form-input-outline: #e6e6e6;
-$color-form-input-background: transparent;
+$color-form-input-background: #ffffff;
 $color-form-input-text: #404040;
 
 
@@ -260,13 +260,19 @@ nav.ns-section-main.ns-nav-shadow-state {}
         @include suffix(0);
       }
     }
-    input#ns-search-champions {
-      width: 80%;
-      padding: 5px 14px 10px 14px;
-      margin: 0 0 30px 0;
-      font-size: 32px;
-      line-height: 50px;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
   section.ns-section-main {}
   main.ns-section-main {}
@@ -569,7 +575,49 @@ ol#ns-champions {
 
 
 
-
+.ns-dropdown-suggest {
+  display: inline-block;
+  width: 80%;
+  position: relative;
+  > input.ns-dropdown-suggest-input {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 14px 10px 14px;
+    font-size: 32px;
+    line-height: 50px;
+    position: relative;
+  }
+  ol.ns-dropdown-suggest-suggestions {
+    display: inline-block;
+    width: 100%;
+    max-height: 300px;
+    font-size: 32px;
+    line-height: 50px;
+    background: $color-form-input-background;
+    color: $color-form-input-text;
+    position: absolute;
+    left: 0;
+    overflow: scroll;
+    @include box-sizing(border-box);
+    @include box-shadow(0 1px 5px rgba(0, 0, 0, .5));
+    > li {
+      display: inline-block;
+      width: 100%;
+      padding: 5px 14px 10px 14px;
+      text-align: left;
+      border-top: 1px solid $color-form-input-outline;
+      cursor: pointer;
+      @include box-sizing(border-box);
+    }
+    > li:hover {
+      background: $color-button-background;
+      color: $color-button-text;
+    }
+    > li:nth-child(1) {
+      border: none;
+    }
+  }
+}
 
 
 

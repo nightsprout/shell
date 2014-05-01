@@ -3,7 +3,22 @@
     <div class="ns-section-wrapper">
       <h1 class="ns-header-basic">Solo Queue</h1>
       <p>Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.</p>
-      <input id="ns-search-champions" type="text" ng-model="searchChampions.name" placeholder="Search for a champion ..." />
+      <div class="ns-dropdown-suggest">
+        <input
+          class="ns-dropdown-suggest-input"
+          type="text" ng-model="searchChampion.name"
+          placeholder="Search for a champion ..."
+          ng-focus="showChampionDropdown()" />
+        <ol class="ns-dropdown-suggest-suggestions" ng-show="championDropdownState">
+          <li
+            ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampion"
+            ng-click="setSearchChampion(champion.name)">
+            {{champion.name}}
+          </li>
+        </ol>
+        <!-- .ns-dropdown-suggest-suggestions -->
+      </div>
+      <!-- .ns-dropdown-suggest -->
     </div>
     <!-- .ns-section-wrapper -->
   </div>
@@ -13,7 +28,7 @@
     <div class="ns-section-wrapper">
 
       <ol id="ns-champions">
-        <li ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampions" >
+        <li ng-repeat="champion in champions" ng-show="currentChampion == champion.name">
           <h3 class="ns-header-basic"><img ng-src="{{championImagePath + champion.image.full}}" /> {{champion.name}}</h3>
           <ul class="ns-champion-stats">
             <li><strong>Armor:</strong> <span>{{champion.stats.armor}} (+{{champion.stats.armorperlevel}})</span></li>
