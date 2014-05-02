@@ -18,8 +18,8 @@
               ng-repeat="mastery in tier"
               ng-click="incrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
               ng-right-click="decrementSkillRank('offense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
-              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
               <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
               <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
             </li>
           </ol>
@@ -33,8 +33,8 @@
               ng-repeat="mastery in tier"
               ng-click="incrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
               ng-right-click="decrementSkillRank('defense', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)">
-              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
               <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
               <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
             </li>
           </ol>
@@ -49,9 +49,16 @@
               ng-click="incrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
               ng-right-click="decrementSkillRank('utility', $parent.$index + 1, $index, mastery[0].prereq, mastery[0].id)"
               style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;">
-              <div ng-show="mastery[0] != null" class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
-              <div ng-show="mastery[0] != null" class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
-              <div ng-show="mastery[0] != null" class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
+              <div
+                ng-show="mastery[0] != null"
+                class="ns-mastery-overlay"></div><!-- .ns-mastery-overlay -->
+              <div
+                ng-class="{ 'ns-mastery-selected': mastery[1] > 0 }" 
+                ng-show="mastery[0] != null"
+                class="ns-mastery-image" style="background-position: -{{mastery[0].image.x}}px -{{mastery[0].image.y}}px;"></div><!-- .ns-mastery-image -->
+              <div
+                ng-show="mastery[0] != null"
+                class="ns-mastery-spec">{{mastery[1]}}/{{mastery[0].ranks}}</div><!-- .ns-mastery-spec -->
             </li>
           </ol>
           <!-- .ns-mastery-branch -->

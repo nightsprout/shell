@@ -478,9 +478,18 @@ ol#ns-mastery-tree {
           background: transparent url(http://ddragon.leagueoflegends.com/cdn/4.6.3/img/sprite/mastery0.png) no-repeat 0 0;
           position: absolute;
           @include box-shadow(0 1px 5px rgba(0, 0, 0, .75));
+          @include opacity(.5);
+        }
+        > .ns-mastery-image.ns-mastery-selected {
+          @include opacity(1);
         }
         > .ns-mastery-overlay {
           position: absolute;
+          display: inline-block;
+          float: left;
+          width: 48px;
+          height: 48px;
+          background: #000000;
         }
         > .ns-mastery-spec {
           display: inline-block;
