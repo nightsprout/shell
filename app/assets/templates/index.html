@@ -31,7 +31,18 @@
 
       <ol id="ns-champions">
         <li ng-repeat="champion in champions" ng-show="currentChampion == champion.name">
-          <h3 class="ns-header-basic"><img ng-src="{{championImagePath + champion.image.full}}" /> {{champion.name}}</h3>
+          <div class="ns-champion-header">
+            <div class="ns-champion-image">
+              <img ng-src="{{championImagePath + champion.image.full}}" />
+            </div>
+            <!-- .ns-champion-image -->
+            <div class="ns-champion-title">
+              <strong>{{champion.name}}</strong>
+              {{champion.title}}
+            </div>
+            <!-- .ns-champion-title -->
+          </div>
+          <!-- .ns-champion-header -->
           <ul class="ns-champion-stats">
             <li><strong>Armor:</strong> <span>{{champion.stats.armor}} (+{{champion.stats.armorperlevel}})</span></li>
             <li><strong>Attack Dmg:</strong> <span>{{champion.stats.attackdamage}} (+{{champion.stats.attackdamageperlevel}})</span></li>
@@ -48,10 +59,22 @@
           <!-- .ns-champion-stats -->
           <ol class="ns-champion-skills">
             <li ng-repeat="spell in champion.spells">
-              <h4 class="ns-header-basic"><img ng-src="{{spellImagePath + spell.image.full}}" /> {{evaluateSkillSlot($index);}} - {{spell.name}}</h4>
+
+
+              <div class="ns-skill-header">
+                <div class="ns-skill-image">
+                  <img ng-src="{{spellImagePath + spell.image.full}}" />
+                </div>
+                <!-- .ns-skill-image -->
+                <div class="ns-skill-title">
+                  <strong>{{evaluateSkillSlot($index);}} - {{spell.name}}</strong>
+                  Cost: {{spell.parsedTooltips.cost}}
+                </div>
+                <!-- .ns-skill-title -->
+              </div>
+              <!-- .ns-skill-header -->
               <p>{{spell.description}}</p>
               <p ng-bind-html="spell.parsedTooltips.tooltip"></p>
-              <p>Cost: {{spell.parsedTooltips.cost}}</p>
             </li>
           </ol>
           <!-- .ns-champion-skills -->

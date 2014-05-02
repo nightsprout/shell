@@ -1,12 +1,15 @@
 
+  <div id="ns-banner" class="ns-section-main">
+    <div class="ns-section-wrapper">
+      <h1 class="ns-header-basic">Masteries Calculator</h1>
+      <p><strong>{{skillPointsRemaining}} Points Remaining</strong> - Your Current Spec Is: {{offenseTotal}}/{{defenseTotal}}/{{utilityTotal}}</p>
+    </div>
+    <!-- .ns-section-wrapper -->
+  </div>
+  <!-- #ns-banner -->
 
   <main class="ns-section-main">
     <div class="ns-section-wrapper">
-
-      <h1>{{skillPointsRemaining}}</h1>
-      <h2>{{offenseTotal}}/{{defenseTotal}}/{{utilityTotal}}</h2>
-
-      <hr />
 
       <ol id="ns-mastery-tree">
         <li>
@@ -21,6 +24,7 @@
             </li>
           </ol>
           <!-- .ns-mastery-branch -->
+          <div class="mastery-branch-spec">Offense: {{offenseTotal}}</div><!-- .mastery-branch-spec -->
         </li>
 
         <li>
@@ -35,6 +39,7 @@
             </li>
           </ol>
           <!-- .ns-mastery-branch -->
+          <div class="mastery-branch-spec">Defense: {{defenseTotal}}</div><!-- .mastery-branch-spec -->
         </li>
 
         <li>
@@ -50,6 +55,7 @@
             </li>
           </ol>
           <!-- .ns-mastery-branch -->
+          <div class="mastery-branch-spec">Utility: {{utilityTotal}}</div><!-- .mastery-branch-spec -->
         </li>
       </ol>
       <!-- #ns-mastery-tree -->
