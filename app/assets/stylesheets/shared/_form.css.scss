@@ -22,6 +22,7 @@ input[type="date"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="email"],
+input[type="file"],
 input[type="month"],
 input[type="number"],
 input[type="password"],
@@ -62,8 +63,8 @@ form.ns-form-basic {
     .ns-form-row-right {
       @include span-columns(9 omega, 12);
       > input[type="date"],   > input[type="datetime"],
-      > input[type="datetime-local"],
-      > input[type="email"],  > input[type="month"],
+      > input[type="datetime-local"], input[type="email"],
+      > input[type="file"],   > input[type="month"],
       > input[type="number"], > input[type="password"],
       > input[type="search"], > input[type="tel"],
       > input[type="text"],   > input[type="time"],
