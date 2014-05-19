@@ -2,8 +2,25 @@
   <div id="ns-banner" class="ns-section-main">
     <div class="ns-section-wrapper">
       <h1 class="ns-header-basic">Solo Queue</h1>
-      <p>Solo Queue is a fast, easy way to get data on champs and items in League of Legends. Put that 30 seconds during ranked champion selection to good use! Just start typing in the search bar to get instant results like counterpicks, champ abilities, and item stats.</p>
-      <input id="ns-search-champions" type="text" ng-model="searchChampions.name" placeholder="Search for a champion ..." />
+      <p>Solo Queue is a fast, easy way to get data for League of Legends.</p>
+      <div class="ns-dropdown-suggest">
+        <input
+          class="ns-dropdown-suggest-input"
+          type="text"
+          ng-model="searchChampion.name"
+          placeholder="Search for a champion ..."
+          ng-focus="showChampionDropdown()"
+          ng-blur="setSearchChampion()" />
+        <ol class="ns-dropdown-suggest-suggestions" ng-show="championDropdownState">
+          <li
+            ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampion"
+            ng-mouseover="queueSearchChampion(champion.name)">
+            {{champion.name}}
+          </li>
+        </ol>
+        <!-- .ns-dropdown-suggest-suggestions -->
+      </div>
+      <!-- .ns-dropdown-suggest -->
     </div>
     <!-- .ns-section-wrapper -->
   </div>
@@ -13,8 +30,19 @@
     <div class="ns-section-wrapper">
 
       <ol id="ns-champions">
-        <li ng-repeat="champion in champions | orderBy:orderPredicate | filter:searchChampions" >
-          <h3 class="ns-header-basic"><img ng-src="{{championImagePath + champion.image.full}}" /> {{champion.name}}</h3>
+        <li ng-repeat="champion in champions" ng-show="currentChampion == champion.name">
+          <div class="ns-champion-header">
+            <div class="ns-champion-image">
+              <img ng-src="{{championImagePath + champion.image.full}}" />
+            </div>
+            <!-- .ns-champion-image -->
+            <div class="ns-champion-title">
+              <strong>{{champion.name}}</strong>
+              {{champion.title}}
+            </div>
+            <!-- .ns-champion-title -->
+          </div>
+          <!-- .ns-champion-header -->
           <ul class="ns-champion-stats">
             <li><strong>Armor:</strong> <span>{{champion.stats.armor}} (+{{champion.stats.armorperlevel}})</span></li>
             <li><strong>Attack Dmg:</strong> <span>{{champion.stats.attackdamage}} (+{{champion.stats.attackdamageperlevel}})</span></li>
@@ -31,10 +59,22 @@
           <!-- .ns-champion-stats -->
           <ol class="ns-champion-skills">
             <li ng-repeat="spell in champion.spells">
-              <h4 class="ns-header-basic"><img ng-src="{{spellImagePath + spell.image.full}}" /> {{evaluateSkillSlot($index);}} - {{spell.name}}</h4>
+
+
+              <div class="ns-skill-header">
+                <div class="ns-skill-image">
+                  <img ng-src="{{spellImagePath + spell.image.full}}" />
+                </div>
+                <!-- .ns-skill-image -->
+                <div class="ns-skill-title">
+                  <strong>{{evaluateSkillSlot($index);}} - {{spell.name}}</strong>
+                  Cost: {{spell.parsedTooltips.cost}}
+                </div>
+                <!-- .ns-skill-title -->
+              </div>
+              <!-- .ns-skill-header -->
               <p>{{spell.description}}</p>
               <p ng-bind-html="spell.parsedTooltips.tooltip"></p>
-              <p>Cost: {{spell.parsedTooltips.cost}}</p>
             </li>
           </ol>
           <!-- .ns-champion-skills -->

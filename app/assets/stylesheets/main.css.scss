@@ -30,7 +30,7 @@ $color-button-background: #191818;
 $color-button-text: #ffffff;
 
 $color-form-input-outline: #e6e6e6;
-$color-form-input-background: transparent;
+$color-form-input-background: #ffffff;
 $color-form-input-text: #404040;
 
 
@@ -100,13 +100,13 @@ $font-icons-social: "SSSocial";
 
 
 html {
-  // height: 100%;
+  height: 100%;
   // overflow: hidden;
 }
 
 body {
   width: 100%;
-  // height: 100%;
+  height: 100%;
   font-family: $font-body;
   font-size: 16px;
   line-height: 25px;
@@ -225,10 +225,12 @@ nav.ns-section-main.ns-nav-shadow-state {}
   display: inline-block;
   float: left;
   width: 100%;
-  padding: $height-top-bar 0 0 0;
+  min-height: 100%;
+  padding: $height-top-bar 0 80px 0;
   background: $color-page-background;
   position: relative;
   left: 0;
+  @include box-sizing(border-box);
   @include transition-property(left);
   @include transition-duration(0.25s);
   @include transition-timing-function(ease-in); 
@@ -244,7 +246,6 @@ nav.ns-section-main.ns-nav-shadow-state {}
     padding: 40px 0;
     text-align: center;
     p {
-      margin: 0 0 30px 0;
       font-size: 20px;
       line-height: 30px;
       @include box-sizing(border-box);
@@ -260,17 +261,27 @@ nav.ns-section-main.ns-nav-shadow-state {}
         @include suffix(0);
       }
     }
-    input#ns-search-champions {
-      width: 80%;
-      padding: 5px 14px 10px 14px;
-      margin: 0 0 30px 0;
-      font-size: 32px;
-      line-height: 50px;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
   section.ns-section-main {}
   main.ns-section-main {}
-  footer.ns-section-main {}
+  footer.ns-section-main {
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 body.ns-slider-expanded #ns-page-main,
@@ -429,16 +440,26 @@ ol.ns-module-triple {
 /************************************************/
 
 ol#ns-mastery-tree {
-  display: inline-block;
-  float: left;
-  width: 100%;
+  display: block;
+  width: 827px;
   height: 479px;
-  margin: 0 0 40px 0;
+  margin: 0 auto 40px auto;
   background: transparent url(http://ddragon.leagueoflegends.com/cdn/img/mastery/masteryback.jpg) no-repeat 0 0;
   > li {
     display: inline-block;
     float: left;
     width: 274px;
+    .mastery-branch-spec {
+      display: inline-block;
+      float: left;
+      width: 274px;
+      font-size: 24px;
+      line-height: 35px;
+      color: $color-button-text;
+      font-weight: 900;
+      padding: 15px 20px;
+      @include box-sizing(border-box);
+    }
     > ol.ns-mastery-branch {
       display: inline-block;
       float: left;
@@ -448,7 +469,7 @@ ol#ns-mastery-tree {
         float: left;
         width: 48px;
         height: 48px;
-        margin: 20px 6px 0 14px;      
+        margin: 20px 6px 0 14px;
         > .ns-mastery-image {
           display: inline-block;
           float: left;
@@ -456,14 +477,27 @@ ol#ns-mastery-tree {
           height: 48px;
           background: transparent url(http://ddragon.leagueoflegends.com/cdn/4.6.3/img/sprite/mastery0.png) no-repeat 0 0;
           position: absolute;
+          @include box-shadow(0 1px 5px rgba(0, 0, 0, .75));
+          @include opacity(.5);
+        }
+        > .ns-mastery-image.ns-mastery-selected {
+          @include opacity(1);
         }
         > .ns-mastery-overlay {
           position: absolute;
+          display: inline-block;
+          float: left;
+          width: 48px;
+          height: 48px;
+          background: #000000;
         }
         > .ns-mastery-spec {
+          display: inline-block;
+          padding: 1px 3px 3px 3px;
+          background: rgba(0, 0, 0, .66);
           color: $color-button-text;
           font-size: 14px;
-          line-height: 25px;
+          line-height: 14px;
           font-weight: 900;
           position: absolute;
         }
@@ -483,6 +517,59 @@ ol#ns-champions {
     border: 1px solid $color-line;
     @include border-radius(2px);
     @include box-sizing(border-box);
+
+    > .ns-champion-header {
+      display: inline-block;
+      float: left;
+      width: 100%;
+      height: 120px;
+      padding: 0 0 30px 0;
+      margin: 0 0 20px 0;
+      border-bottom: 1px dotted $color-line;
+      position: relative;
+      @include screen-format(nano) {
+        height: auto;
+      }
+      > .ns-champion-image {
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        @include screen-format(nano) {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        > img {
+          display: block;
+          width: 120px;
+          height: 120px;
+          @include screen-format(nano) {
+            margin: 0 auto;
+          }
+        }
+      }
+      > .ns-champion-title {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        padding: 0 0 0 140px;
+        font-size: 32px;
+        line-height: 40px;
+        position: absolute;
+        @include box-sizing(border-box);
+        @include screen-format(nano) {
+          padding: 20px 0 0 0;
+          text-align: center;
+          position: relative;
+        }
+        > strong {
+          display: inline-block;
+          width: 100%;
+          font-size: 48px;
+          line-height: 60px;
+        }
+      }
+    }
     > ul.ns-champion-stats {
       @include span-columns(12 omega, 12);
       > li {
@@ -561,7 +648,107 @@ ol#ns-champions {
         > p {
           margin: 0 0 25px 0;
         }
+        > .ns-skill-header {
+          display: inline-block;
+          float: left;
+          width: 100%;
+          height: 64px;
+          padding: 0 0 30px 0;
+          margin: 0 0 20px 0;
+          border-bottom: 1px dotted $color-line;
+          position: relative;
+          @include screen-format(nano) {
+            height: auto;
+          }
+          > .ns-skill-image {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            @include screen-format(nano) {
+              width: 100%;
+              height: auto;
+              position: relative;
+            }
+            > img {
+              display: block;
+              width: 64px;
+              height: 64px;
+              @include screen-format(nano) {
+                margin: 0 auto;
+              }
+            }
+          }
+          > .ns-skill-title {
+            display: inline-block;
+            float: left;
+            width: 100%;
+            padding: 0 0 0 84px;
+            font-size: 18px;
+            line-height: 25px;
+            position: absolute;
+            @include box-sizing(border-box);
+            @include screen-format(nano) {
+              padding: 20px 0 0 0;
+              text-align: center;
+              position: relative;
+            }
+            > strong {
+              display: inline-block;
+              width: 100%;
+              font-size: 28px;
+              line-height: 35px;
+            }
+          }
+        }
       }
+    }
+  }
+}
+
+
+
+
+.ns-dropdown-suggest {
+  display: inline-block;
+  width: 80%;
+  margin: 40px 0 0 0;
+  position: relative;
+  > input.ns-dropdown-suggest-input {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 14px 10px 14px;
+    font-size: 32px;
+    line-height: 50px;
+    position: relative;
+  }
+  ol.ns-dropdown-suggest-suggestions {
+    display: inline-block;
+    width: 100%;
+    max-height: 300px;
+    font-size: 32px;
+    line-height: 50px;
+    background: $color-form-input-background;
+    color: $color-form-input-text;
+    position: absolute;
+    left: 0;
+    overflow: scroll;
+    @include box-sizing(border-box);
+    @include box-shadow(0 1px 5px rgba(0, 0, 0, .5));
+    > li {
+      display: inline-block;
+      width: 100%;
+      padding: 5px 14px 10px 14px;
+      text-align: left;
+      border-top: 1px solid $color-form-input-outline;
+      cursor: pointer;
+      @include box-sizing(border-box);
+    }
+    > li:hover {
+      background: $color-button-background;
+      color: $color-button-text;
+    }
+    > li:nth-child(1) {
+      border: none;
     }
   }
 }
@@ -574,24 +761,19 @@ ol#ns-champions {
 
 
 
-
-
-
-
-
 /* Z-Indices */
 /************************************************/
 
-nav.ns-section-main {     z-index: 400; }
-#ns-page-main {           z-index: 300; }
 
+nav.ns-section-main {             z-index: 400; }
 nav.ns-section-main {
-  @include screen-format(phone) {
-                          z-index: 200; }
-  @include screen-format(nano) {
-                          z-index: 200; }
+  @include screen-format(phone) { z-index: 200; }
+  @include screen-format(nano) {  z-index: 200; }
 }
+#ns-page-main {                   z-index: 300; }
+.ns-dropdown-suggest {            z-index: 500; }
 
+#ns-slide-controls {              z-index: 600; }
 
 
 

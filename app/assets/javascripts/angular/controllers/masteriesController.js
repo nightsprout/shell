@@ -3,6 +3,11 @@ AngularApp.controller("masteriesController", ["$scope", "httpService", function(
   // This will hold the mastery data.
   $scope.masteries = {};
 
+  // These 3 variables will hold skill points in branch.
+  $scope.offenseTotal = 0;
+  $scope.defenseTotal = 0;
+  $scope.utilityTotal = 0;
+
   // Mastery Background: //ddragon.leagueoflegends.com/cdn/img/mastery/masteryback.jpg
   $scope.spellImagePath = "//ddragon.leagueoflegends.com/cdn/4.6.3/img/mastery/";
 
@@ -120,6 +125,20 @@ AngularApp.controller("masteriesController", ["$scope", "httpService", function(
     if ( meetsPointsPrerequisite() && $scope.masteryTree[branch]["tier" + tier][index][1] < $scope.masteryTree[branch]["tier" + tier][index][0].ranks && hasSufficientPoints() && prerequisiteIsMet() ) {
       $scope.masteryTree[branch]["tier" + tier][index][1]++;
       $scope.skillPointsRemaining--;
+      var sumBranch = function(branch) {
+        var total = 0;
+        for (var tier in $scope.masteryTree[branch]) {
+          if($scope.masteryTree[branch].hasOwnProperty(tier)){
+            for(var i=0; i < 4; i++) {
+              total = total + $scope.masteryTree[branch][tier][i][1];
+            }
+          }
+        }
+        return total;
+      };
+      $scope.offenseTotal = sumBranch("offense");
+      $scope.defenseTotal = sumBranch("defense");
+      $scope.utilityTotal = sumBranch("utility");
     }
   };
 
@@ -176,6 +195,20 @@ AngularApp.controller("masteriesController", ["$scope", "httpService", function(
     if ( meetsDependencies() && $scope.masteryTree[branch]["tier" + tier][index][1] > 0 && canRefundPoint() && !hasReliantSkill() ) {
       $scope.masteryTree[branch]["tier" + tier][index][1]--;
       $scope.skillPointsRemaining++;
+      var sumBranch = function(branch) {
+        var total = 0;
+        for (var tier in $scope.masteryTree[branch]) {
+          if($scope.masteryTree[branch].hasOwnProperty(tier)){
+            for(var i=0; i < 4; i++) {
+              total = total + $scope.masteryTree[branch][tier][i][1];
+            }
+          }
+        }
+        return total;
+      };
+      $scope.offenseTotal = sumBranch("offense");
+      $scope.defenseTotal = sumBranch("defense");
+      $scope.utilityTotal = sumBranch("utility");
     }
   };
 
