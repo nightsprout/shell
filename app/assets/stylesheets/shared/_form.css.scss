@@ -8,8 +8,8 @@ label {
   display: inline-block;
   margin: 0;
   font-family: $font-body;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: $font-body-text-size;
+  line-height: $font-body-text-line-height;
   color: $color-form-input-text;
   -webkit-font-smoothing: antialiased;
 }
@@ -56,12 +56,24 @@ form.ns-form-basic {
     @include span-columns(12 omega, 12);
     .ns-form-row-left {
       @include span-columns(3, 12);
+      @include screen-format(phone) {
+        width: 100%;
+      }
+      @include screen-format(nano) {
+        width: 100%;
+      }
       > label {
         font-weight: 700;
       }
     }
     .ns-form-row-right {
       @include span-columns(9 omega, 12);
+      @include screen-format(phone) {
+        width: 100%;
+      }
+      @include screen-format(nano) {
+        width: 100%;
+      }
       > input[type="date"],   > input[type="datetime"],
       > input[type="datetime-local"], input[type="email"],
       > input[type="file"],   > input[type="month"],
