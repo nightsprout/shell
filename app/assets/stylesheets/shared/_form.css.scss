@@ -15,7 +15,7 @@ label {
 }
 
 label {
-  padding: 6px 0 9px 0;
+  padding: 7px 0 9px 0;
 }
 
 input[type="date"],
@@ -33,7 +33,7 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
-  padding: 5px 9px 8px 9px;
+  padding: 6px 9px 8px 9px;
   border: 1px solid $color-form-input-outline;
   background: $color-form-input-background;
   @include box-sizing(border-box);
@@ -59,6 +59,8 @@ textarea:focus {
   -moz-appearance: none;
   border-color: $color-accent;
 }
+
+
 
 
 input[type="checkbox"],
@@ -107,6 +109,9 @@ form.ns-form-basic {
     }
   }
 }
+
+
+
 
 
 

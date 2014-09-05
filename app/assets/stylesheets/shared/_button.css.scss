@@ -7,7 +7,7 @@ input[type="button"],
 input[type="reset"],
 button {
   display: inline-block;
-  padding: 9px 20px 11px 20px;
+  padding: 7px 15px 9px 15px;
   margin: 0;
   border: none;
   color: $color-button-text;
@@ -16,7 +16,6 @@ button {
   line-height: $font-body-text-line-height;
   font-family: $font-body;
   font-weight: 700;
-  text-transform: uppercase;
   cursor: pointer;
   position: relative;
   -webkit-font-smoothing: antialiased;

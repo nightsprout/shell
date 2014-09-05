@@ -7,7 +7,9 @@ var AngularApp = angular.module("AngularApp", ["ngRoute", "ngAnimate"]);
 // Placeholder for a global filter.
 // AngularApp.filter('filterName', function () {  });
 
-
-
-
+// Set some easily accessible properties on $rootScope for use throughout the app.
+AngularApp.run(['$rootScope', function($rootScope){
+  // Property to hold the current year.
+  $rootScope.currentYear = new Date().getFullYear();
+}]);
 
