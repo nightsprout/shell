@@ -299,7 +299,9 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          
+          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -320,7 +322,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'name');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'name' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'name' }"
                 >
                 Metal <i
                   ng-if="columnIsAscending('metal', 'name');"
@@ -338,7 +340,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'description');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'description' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'description' }"
                 >
                 Description <i
                   ng-if="columnIsAscending('metal', 'description');"
@@ -356,7 +358,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'weight');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'weight' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'weight' }"
                 >
                 Weight <i
                   ng-if="columnIsAscending('metal', 'weight');"
@@ -374,7 +376,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'source');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'source' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'source' }"
                 >
                 Source <i
                   ng-if="columnIsAscending('metal', 'source');"
@@ -392,7 +394,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'style_number');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'style_number' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'style_number' }"
                 >
                 Style # <i
                   ng-if="columnIsAscending('metal', 'style_number');"
@@ -410,7 +412,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('metal', 'cost');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'cost' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['metal']['currentColumn'] == 'cost' }"
                 >
                 Cost <i
                   ng-if="columnIsAscending('metal', 'cost');"
@@ -478,7 +480,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'name');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'name' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'name' }"
                 >
                 Name <i
                   ng-if="columnIsAscending('stones', 'name');"
@@ -496,7 +498,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'count');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'count' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'count' }"
                 >
                 Count <i
                   ng-if="columnIsAscending('stones', 'count');"
@@ -514,7 +516,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'weight');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'weight' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'weight' }"
                 >
                 Weight <i
                   ng-if="columnIsAscending('stones', 'weight');"
@@ -532,7 +534,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'lab_rating');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'lab_rating' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'lab_rating' }"
                 >
                 Lab Rating <i
                   ng-if="columnIsAscending('stones', 'lab_rating');"
@@ -550,7 +552,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'certification_number');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'certification_number' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'certification_number' }"
                 >
                 Certification # <i
                   ng-if="columnIsAscending('stones', 'certification_number');"
@@ -568,7 +570,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'measurements');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'measurements' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'measurements' }"
                 >
                 Dimensions <i
                   ng-if="columnIsAscending('stones', 'measurements');"
@@ -586,7 +588,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'source');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'source' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'source' }"
                 >
                 Source <i
                   ng-if="columnIsAscending('stones', 'source');"
@@ -604,7 +606,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'supplier_lot_number');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'supplier_lot_number' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'supplier_lot_number' }"
                 >
                 Lot Number <i
                   ng-if="columnIsAscending('stones', 'supplier_lot_number');"
@@ -622,7 +624,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'dollar_per_carat');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'dollar_per_carat' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'dollar_per_carat' }"
                 >
                 $ Per Carat <i
                   ng-if="columnIsAscending('stones', 'dollar_per_carat');"
@@ -640,7 +642,7 @@
               <th
                 class="ns-sortable-column"
                 ng-click="setActiveColumn('stones', 'cost');"
-                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'cost' }"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'cost' }"
                 >
                 Cost <i
                   ng-if="columnIsAscending('stones', 'cost');"
