@@ -160,7 +160,7 @@
 
 
 
-
+      <h3 class="ns-header-basic">Inventory List</h3><!-- h3.ns-header-basic -->
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
@@ -290,11 +290,13 @@
       </div>
       <!-- .ns-table-wrapper -->
 
+      <h3 class="ns-header-basic">Metal Costs</h3><!-- h3.ns-header-basic -->
+
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
           <input ng-model="metalSearch" type="text" placeholder="Search metal by keyword(s) ..." />
           <label>
-            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.metal.length}} in total.</em>
+            <em><ng-pluralize count="filteredMetal.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.metal.length}} in total.</em>
           </label><!-- .ns-form-label-inline -->
         </div>
         <!-- .ns-table-utilities-left -->
@@ -431,7 +433,7 @@
           </thead>
           <tbody>
             <tr
-              ng-repeat="piece in filteredStones = (piece.piece_pricing.metal
+              ng-repeat="piece in filteredMetal = (piece.piece_pricing.metal
                 | filter: metalSearch
                 | orderBy: tableStates['metal']['currentColumn']:tableStates['metal']['reverseState'])"
               >
@@ -447,6 +449,8 @@
         <!-- .ns-table -->
       </div>
       <!-- .ns-table-wrapper -->
+
+      <h3 class="ns-header-basic">Stones Costs</h3><!-- h3.ns-header-basic -->
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
@@ -674,6 +678,114 @@
               <td>{{piece["source"]}}</td>
               <td>{{piece["supplier_lot_number"]}}</td>
               <td>{{piece["dollar_per_carat"] | currency}}</td>
+              <td>{{piece["cost"] | currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- .ns-table -->
+      </div>
+      <!-- .ns-table-wrapper -->
+
+
+
+
+
+
+
+
+
+      <h3 class="ns-header-basic">Miscellaneous Costs</h3><!-- h3.ns-header-basic -->
+
+      <div class="ns-table-utilities">
+        <div class="ns-table-utilities-left">
+          <input ng-model="miscellaneousSearch" type="text" placeholder="Search miscellaneous by keyword(s) ..." />
+          <label>
+            <em><ng-pluralize count="filteredMiscellaneous.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.miscellaneous.length}} in total.</em>
+          </label><!-- .ns-form-label-inline -->
+        </div>
+        <!-- .ns-table-utilities-left -->
+        <div class="ns-table-utilities-right">
+          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
+        </div>
+        <!-- .ns-table-utilities-right -->
+      </div>
+      <!-- .ns-table-utilities -->
+
+      <div class="ns-table-wrapper">
+        <table class="ns-table">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('miscellaneous', 'name');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'name' }"
+                >
+                Metal <i
+                  ng-if="columnIsAscending('miscellaneous', 'name');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('miscellaneous', 'name');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('miscellaneous', 'description');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'description' }"
+                >
+                Description <i
+                  ng-if="columnIsAscending('miscellaneous', 'description');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('miscellaneous', 'description');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('miscellaneous', 'cost');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'cost' }"
+                >
+                Cost <i
+                  ng-if="columnIsAscending('miscellaneous', 'cost');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('miscellaneous', 'cost');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              ng-repeat="piece in filteredMiscellaneous = (piece.piece_pricing.miscellaneous
+                | filter: miscellaneousSearch
+                | orderBy: tableStates['miscellaneous']['currentColumn']:tableStates['miscellaneous']['reverseState'])"
+              >
+              <td>{{piece["name"]}}</td>
+              <td>{{piece["description"]}}</td>
               <td>{{piece["cost"] | currency}}</td>
             </tr>
           </tbody>
