@@ -15,21 +15,22 @@ AngularApp.controller("sampleController", ["$scope", "httpService", function($sc
   // Some views may have multiple tables.
   // This object stores the the states of multiple tables.
   // The states we track are current column and sort direction.
+  //
   // This is the JSON schema it works with:
   //
   // var exampleTableStates = {
   //   table1: {
   //     currentColumn: "column1",
-  //     reverseState: "ascending"
+  //     reverseState: true
   //   },
   //   table1: {
   //     currentColumn: "column3",
-  //     reverseState: "descending"
+  //     reverseState: false
   //   }
   // }
   $scope.tableStates = {};
 
-  // This string specifies where the API endpoint for this view resides.
+  // These strings specify where the API endpoints for this view reside.
   var apiEndpoint1 = '/sampleResponse.json';
   var apiEndpoint2 = '/sampleResponse2.json';
 
@@ -78,7 +79,7 @@ AngularApp.controller("sampleController", ["$scope", "httpService", function($sc
   // This method is a helper function that looks at the tableStates object.
   // It determines if a given column in a given table is descending.
   $scope.columnIsDescending = function(desiredTable, desiredColumn) {
-    if ( $scope.tableStates[desiredTable] === undefined || $scope.tableStates[desiredTable]['currentColumn'] !== desiredColumn || $scope.tableStates[desiredTable]['reverseState'] === false ) {
+    if ( $scope.tableStates[desiredTable] === undefined || $scope.tableStates[desiredTable]['currentColumn'] != desiredColumn || $scope.tableStates[desiredTable]['reverseState'] === false ) {
       return true
     }
     else {
@@ -92,9 +93,9 @@ AngularApp.controller("sampleController", ["$scope", "httpService", function($sc
   var getInventoryFailure = function(payload, status) {};
 
   // This is the callback function that executes if the HTTP request for $scope.piece returns successfully.
-  var getPieceSuccess = function(payload, status)     { $scope.piece = payload; };
+  var getPieceSuccess =     function(payload, status) { $scope.piece = payload; };
   // This is the callback function that executes if the HTTP request for $scope.piece returns unsuccessfully.
-  var getPieceFailure = function(payload, status)     {};
+  var getPieceFailure =     function(payload, status) {};
 
   // Initiate the HTTP request.
   httpService.getApiEndpoint(apiEndpoint1).success(getInventorySuccess);
