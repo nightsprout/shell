@@ -292,14 +292,172 @@
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
-          <input ng-model="stoneSearch" type="text" placeholder="Search stones by keyword(s) ..." />
+          <input ng-model="metalSearch" type="text" placeholder="Search metal by keyword(s) ..." />
           <label>
-            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{inventory.length}} in total.</em>
+            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.metal.length}} in total.</em>
           </label><!-- .ns-form-label-inline -->
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button">Add Another Stone</button><!-- button.ns-button -->
+          
+        </div>
+        <!-- .ns-table-utilities-right -->
+      </div>
+      <!-- .ns-table-utilities -->
+
+      <div class="ns-table-wrapper">
+        <table class="ns-table">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'name');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'name' }"
+                >
+                Metal <i
+                  ng-if="columnIsAscending('metal', 'name');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'name');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'description');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'description' }"
+                >
+                Description <i
+                  ng-if="columnIsAscending('metal', 'description');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'description');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'weight');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'weight' }"
+                >
+                Weight <i
+                  ng-if="columnIsAscending('metal', 'weight');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'weight');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'source');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'source' }"
+                >
+                Source <i
+                  ng-if="columnIsAscending('metal', 'source');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'source');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'style_number');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'style_number' }"
+                >
+                Style # <i
+                  ng-if="columnIsAscending('metal', 'style_number');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'style_number');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('metal', 'cost');"
+                ng-class="{ 'ns-sortable-column-current' : activeColumn == 'cost' }"
+                >
+                Cost <i
+                  ng-if="columnIsAscending('metal', 'cost');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('metal', 'cost');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              ng-repeat="piece in filteredStones = (piece.piece_pricing.metal
+                | filter: metalSearch
+                | orderBy: tableStates['metal']['currentColumn']:tableStates['metal']['reverseState'])"
+              >
+              <td>{{piece["name"]}}</td>
+              <td>{{piece["description"]}}</td>
+              <td>{{piece["weight"]}}</td>
+              <td>{{piece["source"]}}</td>
+              <td>{{piece["style_number"]}}</td>
+              <td>{{piece["cost"] | currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- .ns-table -->
+      </div>
+      <!-- .ns-table-wrapper -->
+
+      <div class="ns-table-utilities">
+        <div class="ns-table-utilities-left">
+          <input ng-model="stoneSearch" type="text" placeholder="Search stones by keyword(s) ..." />
+          <label>
+            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.stones.length}} in total.</em>
+          </label><!-- .ns-form-label-inline -->
+        </div>
+        <!-- .ns-table-utilities-left -->
+        <div class="ns-table-utilities-right">
+          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
+          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
