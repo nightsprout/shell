@@ -10,6 +10,17 @@
 </head>
 <body ng-app="AngularApp" ng-controller="<%= @angularController || 'sampleController' %>">
 
+<div id="ns-warning-background" ng-if="nsStateMachine.warningPopup.warningIsVisible">
+</div>
+<!-- #ns-warning-background -->
+<div id="ns-warning" ng-if="nsStateMachine.warningPopup.warningIsVisible">
+  <h3>{{nsStateMachine.warningPopup.warningHeaderText}}</h3>
+  <p>{{nsStateMachine.warningPopup.warningBodyText}}</p>
+  <button ng-click="nsStateMachine.warningPopup.warningCallbackFunction()">Confirm Action</button>
+  <button ng-click="nsStateMachine.warningPopup.closeWarning()">Cancel Action</button>
+</div>
+<!-- #ns-warning -->
+
 <%= render :partial => "shared/navigation" %>
 
 <div id="ns-page-main">

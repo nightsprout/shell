@@ -1,4 +1,4 @@
-AngularApp.controller("sampleController", ["$scope", "httpService", function($scope, httpService) {
+AngularApp.controller("sampleController", ["$rootScope", "$scope", "httpService", function($rootScope, $scope, httpService) {
 
   // This object basically serves as the inventory data model.
   // It is set when the main page AJAX request completes successfully.
@@ -29,6 +29,29 @@ AngularApp.controller("sampleController", ["$scope", "httpService", function($sc
   //   }
   // }
   $scope.tableStates = {};
+
+  // This function deletes an item from a table.
+  // It takes a table identifier and item ID.
+  // It also calls a warning before it executes.
+  //
+  // TO DO: ABSTRACT THIS INTO A TABLE PLUGIN.
+  //
+  $scope.deleteTableItem = function(desiredTable, itemID) {
+    var deleteTableItemHeaderWarning = "Delete table item?";
+    var deleteTableItemBodyWarning = "Are you sure you want to delete this table item?";
+    var deleteTableItemCallbackArguments = [desiredTable, itemID];
+    var deleteTableItemCallback = function(desiredTable, itemID) {
+      var arrayLength = $scope.piece['piece_pricing'][desiredTable].length;
+      for (var i = 0; i < arrayLength; i++) {
+        if ( $scope.piece['piece_pricing'][desiredTable][i]['id'] === itemID ) {
+          $scope.piece['piece_pricing'][desiredTable].splice(i, 1);
+          return;
+        }
+      }
+    };
+    // Access the show warning method on root scope and create the warning popup.
+    $rootScope.nsStateMachine.warningPopup.showWarning(deleteTableItemCallback, deleteTableItemCallbackArguments, deleteTableItemHeaderWarning, deleteTableItemBodyWarning);
+  };
 
   // These strings specify where the API endpoints for this view reside.
   var apiEndpoint1 = '/sampleResponse.json';

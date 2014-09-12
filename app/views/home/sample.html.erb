@@ -153,20 +153,18 @@
   <section class="ns-section-main">
     <div class="ns-section-wrapper">
 
-      <h3 class="ns-header-basic">Inventory List</h3><!-- h3.ns-header-basic -->
+      <h3 class="ns-header-lined">Stones Costs</h3><!-- h3.ns-header-lined -->
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
-          <input ng-model="inventorySearch" type="text" placeholder="Search inventory by keyword(s) ..." />
+          <input ng-model="stoneSearch" type="text" placeholder="Search stones by keyword(s) ..." />
           <label>
-            <em><ng-pluralize count="filteredInventory.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{inventory.length}} in total.</em>
+            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.stones.length}} in total.</em>
           </label><!-- .ns-form-label-inline -->
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Stone to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -180,40 +178,27 @@
             <col />
             <col />
             <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
           </colgroup>
           <thead>
             <tr>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('inventory', 'piece_id');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['inventory']['currentColumn'] == 'piece_id' }"
-                >
-                Piece ID <i
-                  ng-if="columnIsAscending('inventory', 'piece_id');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('inventory', 'piece_id');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('inventory', 'piece_name');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['inventory']['currentColumn'] == 'piece_name' }"
+                ng-click="setActiveColumn('stones', 'name');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'name' }"
                 >
                 Name <i
-                  ng-if="columnIsAscending('inventory', 'piece_name');"
+                  ng-if="columnIsAscending('stones', 'name');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('inventory', 'piece_name');"
+                  ng-if="columnIsDescending('stones', 'name');"
                   class="ss-icon"
                   >
                   up
@@ -221,17 +206,17 @@
               </th>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('inventory', 'piece_creation_date');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['inventory']['currentColumn'] == 'piece_creation_date' }"
+                ng-click="setActiveColumn('stones', 'count');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'count' }"
                 >
-                Creation Date <i
-                  ng-if="columnIsAscending('inventory', 'piece_creation_date');"
+                Count <i
+                  ng-if="columnIsAscending('stones', 'count');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('inventory', 'piece_creation_date');"
+                  ng-if="columnIsDescending('stones', 'count');"
                   class="ss-icon"
                   >
                   up
@@ -239,43 +224,180 @@
               </th>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('inventory', 'piece_price');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['inventory']['currentColumn'] == 'piece_price' }"
+                ng-click="setActiveColumn('stones', 'weight');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'weight' }"
                 >
-                Price <i
-                  ng-if="columnIsAscending('inventory', 'piece_price');"
+                Weight <i
+                  ng-if="columnIsAscending('stones', 'weight');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('inventory', 'piece_price');"
+                  ng-if="columnIsDescending('stones', 'weight');"
                   class="ss-icon"
                   >
                   up
                 </i>
               </th>
-              <th>Select?</th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'lab_rating');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'lab_rating' }"
+                >
+                Lab Rating <i
+                  ng-if="columnIsAscending('stones', 'lab_rating');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'lab_rating');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'certification_number');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'certification_number' }"
+                >
+                Cert. # <i
+                  ng-if="columnIsAscending('stones', 'certification_number');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'certification_number');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'measurements');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'measurements' }"
+                >
+                Dimensions <i
+                  ng-if="columnIsAscending('stones', 'measurements');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'measurements');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'source');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'source' }"
+                >
+                Source <i
+                  ng-if="columnIsAscending('stones', 'source');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'source');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'supplier_lot_number');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'supplier_lot_number' }"
+                >
+                Lot Number <i
+                  ng-if="columnIsAscending('stones', 'supplier_lot_number');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'supplier_lot_number');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'dollar_per_carat');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'dollar_per_carat' }"
+                >
+                $ Per Carat <i
+                  ng-if="columnIsAscending('stones', 'dollar_per_carat');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'dollar_per_carat');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th
+                class="ns-sortable-column"
+                ng-click="setActiveColumn('stones', 'cost');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'cost' }"
+                >
+                Cost <i
+                  ng-if="columnIsAscending('stones', 'cost');"
+                  class="ss-icon"
+                  >
+                  down
+                </i>
+                <i
+                  ng-if="columnIsDescending('stones', 'cost');"
+                  class="ss-icon"
+                  >
+                  up
+                </i>
+              </th>
+              <th class="ns-column-align-right">Delete?</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              ng-repeat="piece in filteredInventory = (inventory
-                | filter: inventorySearch
-                | orderBy: tableStates['inventory']['currentColumn']:tableStates['inventory']['reverseState'])"
-              ng-class="{ 'ns-row-current' : selectedItems.hasOwnProperty(piece.piece_id) }"
+              ng-repeat="stone in filteredStones = (piece.piece_pricing.stones
+                | filter: stoneSearch
+                | orderBy: tableStates['stones']['currentColumn']:tableStates['stones']['reverseState'])"
               >
-              <td>{{piece["piece_id"]}}</td>
-              <td>{{piece["piece_name"]}}</td>
-              <td>{{piece["piece_creation_date"] | date: 'medium'}}</td>
-              <td>{{piece["piece_price"] | currency}}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  ng-model="selectedItems[piece.piece_id]"
-                  ng-change="updateselectedItems(selectedItems[piece.piece_id], piece.piece_id);"
-                  />
-                </td>
+              <td>{{stone["name"]}}</td>
+              <td>{{stone["count"]}}</td>
+              <td>{{stone["weight"]}}</td>
+              <td>{{stone["lab_rating"]}}</td>
+              <td>{{stone["certification_number"]}}</td>
+              <td>{{stone["measurements"]}}</td>
+              <td>{{stone["source"]}}</td>
+              <td>{{stone["supplier_lot_number"]}}</td>
+              <td>{{stone["dollar_per_carat"] | currency}}</td>
+              <td>{{stone["cost"] | currency}}</td>
+              <td class="ns-column-align-right">
+                <button
+                  class="ns-button ns-button-small"
+                  ng-click="deleteTableItem('stones', stone['id'])"
+                  >
+                  Delete
+                </button><!-- button.ns-button -->
+              </td>
+            </tr>
+            <tr class="ns-table-total">
+              <td colspan="11" class="ns-column-align-right">
+                Total Stones Cost: {{ totalTableSum('stones', 'cost') | currency }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -283,7 +405,7 @@
       </div>
       <!-- .ns-table-wrapper -->
 
-      <h3 class="ns-header-basic">Metal Costs</h3><!-- h3.ns-header-basic -->
+      <h3 class="ns-header-lined">Metal Costs</h3><!-- h3.ns-header-lined -->
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
@@ -294,9 +416,7 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Metal to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -422,20 +542,34 @@
                   up
                 </i>
               </th>
+              <th class="ns-column-align-right">Delete?</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              ng-repeat="piece in filteredMetal = (piece.piece_pricing.metal
+              ng-repeat="metal in filteredMetal = (piece.piece_pricing.metal
                 | filter: metalSearch
                 | orderBy: tableStates['metal']['currentColumn']:tableStates['metal']['reverseState'])"
               >
-              <td>{{piece["name"]}}</td>
-              <td>{{piece["description"]}}</td>
-              <td>{{piece["weight"]}}</td>
-              <td>{{piece["source"]}}</td>
-              <td>{{piece["style_number"]}}</td>
-              <td>{{piece["cost"] | currency}}</td>
+              <td>{{metal["name"]}}</td>
+              <td>{{metal["description"]}}</td>
+              <td>{{metal["weight"]}}</td>
+              <td>{{metal["source"]}}</td>
+              <td>{{metal["style_number"]}}</td>
+              <td>{{metal["cost"] | currency}}</td>
+              <td class="ns-column-align-right">
+                <button
+                  class="ns-button ns-button-small"
+                  ng-click="deleteTableItem('metal', metal['id'])"
+                  >
+                  Delete
+                </button><!-- button.ns-button -->
+              </td>
+            </tr>
+            <tr class="ns-table-total">
+              <td colspan="11" class="ns-column-align-right">
+                Total Metal Cost: {{ totalTableSum('metal', 'cost') | currency }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -443,256 +577,18 @@
       </div>
       <!-- .ns-table-wrapper -->
 
-      <h3 class="ns-header-basic">Stones Costs</h3><!-- h3.ns-header-basic -->
+      <h3 class="ns-header-lined">Labor Costs</h3><!-- h3.ns-header-lined -->
 
       <div class="ns-table-utilities">
         <div class="ns-table-utilities-left">
-          <input ng-model="stoneSearch" type="text" placeholder="Search stones by keyword(s) ..." />
+          <input ng-model="laborSearch" type="text" placeholder="Search labor by keyword(s) ..." />
           <label>
-            <em><ng-pluralize count="filteredStones.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.stones.length}} in total.</em>
+            <em><ng-pluralize count="filteredLabor.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.miscellaneous.length}} in total.</em>
           </label><!-- .ns-form-label-inline -->
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
-        </div>
-        <!-- .ns-table-utilities-right -->
-      </div>
-      <!-- .ns-table-utilities -->
-
-      <div class="ns-table-wrapper">
-        <table class="ns-table">
-          <colgroup>
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
-          </colgroup>
-          <thead>
-            <tr>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'name');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'name' }"
-                >
-                Name <i
-                  ng-if="columnIsAscending('stones', 'name');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'name');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'count');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'count' }"
-                >
-                Count <i
-                  ng-if="columnIsAscending('stones', 'count');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'count');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'weight');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'weight' }"
-                >
-                Weight <i
-                  ng-if="columnIsAscending('stones', 'weight');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'weight');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'lab_rating');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'lab_rating' }"
-                >
-                Lab Rating <i
-                  ng-if="columnIsAscending('stones', 'lab_rating');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'lab_rating');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'certification_number');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'certification_number' }"
-                >
-                Certification # <i
-                  ng-if="columnIsAscending('stones', 'certification_number');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'certification_number');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'measurements');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'measurements' }"
-                >
-                Dimensions <i
-                  ng-if="columnIsAscending('stones', 'measurements');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'measurements');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'source');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'source' }"
-                >
-                Source <i
-                  ng-if="columnIsAscending('stones', 'source');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'source');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'supplier_lot_number');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'supplier_lot_number' }"
-                >
-                Lot Number <i
-                  ng-if="columnIsAscending('stones', 'supplier_lot_number');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'supplier_lot_number');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'dollar_per_carat');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'dollar_per_carat' }"
-                >
-                $ Per Carat <i
-                  ng-if="columnIsAscending('stones', 'dollar_per_carat');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'dollar_per_carat');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-              <th
-                class="ns-sortable-column"
-                ng-click="setActiveColumn('stones', 'cost');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['stones']['currentColumn'] == 'cost' }"
-                >
-                Cost <i
-                  ng-if="columnIsAscending('stones', 'cost');"
-                  class="ss-icon"
-                  >
-                  down
-                </i>
-                <i
-                  ng-if="columnIsDescending('stones', 'cost');"
-                  class="ss-icon"
-                  >
-                  up
-                </i>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              ng-repeat="piece in filteredStones = (piece.piece_pricing.stones
-                | filter: stoneSearch
-                | orderBy: tableStates['stones']['currentColumn']:tableStates['stones']['reverseState'])"
-              >
-              <td>{{piece["name"]}}</td>
-              <td>{{piece["count"]}}</td>
-              <td>{{piece["weight"]}}</td>
-              <td>{{piece["lab_rating"]}}</td>
-              <td>{{piece["certification_number"]}}</td>
-              <td>{{piece["measurements"]}}</td>
-              <td>{{piece["source"]}}</td>
-              <td>{{piece["supplier_lot_number"]}}</td>
-              <td>{{piece["dollar_per_carat"] | currency}}</td>
-              <td>{{piece["cost"] | currency}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- .ns-table -->
-      </div>
-      <!-- .ns-table-wrapper -->
-
-      <h3 class="ns-header-basic">Miscellaneous Costs</h3><!-- h3.ns-header-basic -->
-
-      <div class="ns-table-utilities">
-        <div class="ns-table-utilities-left">
-          <input ng-model="miscellaneousSearch" type="text" placeholder="Search miscellaneous by keyword(s) ..." />
-          <label>
-            <em><ng-pluralize count="filteredMiscellaneous.length" when="{'0': 'No result found out', 'one': 'Showing 1 result out', 'other': 'Showing {} results out'}"></ng-pluralize> of {{piece.piece_pricing.miscellaneous.length}} in total.</em>
-          </label><!-- .ns-form-label-inline -->
-        </div>
-        <!-- .ns-table-utilities-left -->
-        <div class="ns-table-utilities-right">
-          <button class="ns-button">Table Utility 1</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 2</button><!-- button.ns-button -->
-          <button class="ns-button">Table Utility 3</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Labor to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -709,17 +605,17 @@
             <tr>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('miscellaneous', 'name');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'name' }"
+                ng-click="setActiveColumn('labor', 'name');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['labor']['currentColumn'] == 'name' }"
                 >
                 Name <i
-                  ng-if="columnIsAscending('miscellaneous', 'name');"
+                  ng-if="columnIsAscending('labor', 'name');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('miscellaneous', 'name');"
+                  ng-if="columnIsDescending('labor', 'name');"
                   class="ss-icon"
                   >
                   up
@@ -727,17 +623,17 @@
               </th>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('miscellaneous', 'description');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'description' }"
+                ng-click="setActiveColumn('labor', 'description');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['labor']['currentColumn'] == 'description' }"
                 >
                 Description <i
-                  ng-if="columnIsAscending('miscellaneous', 'description');"
+                  ng-if="columnIsAscending('labor', 'description');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('miscellaneous', 'description');"
+                  ng-if="columnIsDescending('labor', 'description');"
                   class="ss-icon"
                   >
                   up
@@ -745,33 +641,47 @@
               </th>
               <th
                 class="ns-sortable-column"
-                ng-click="setActiveColumn('miscellaneous', 'cost');"
-                ng-class="{ 'ns-sortable-column-current' : tableStates['miscellaneous']['currentColumn'] == 'cost' }"
+                ng-click="setActiveColumn('labor', 'cost');"
+                ng-class="{ 'ns-sortable-column-current' : tableStates['labor']['currentColumn'] == 'cost' }"
                 >
                 Cost <i
-                  ng-if="columnIsAscending('miscellaneous', 'cost');"
+                  ng-if="columnIsAscending('labor', 'cost');"
                   class="ss-icon"
                   >
                   down
                 </i>
                 <i
-                  ng-if="columnIsDescending('miscellaneous', 'cost');"
+                  ng-if="columnIsDescending('labor', 'cost');"
                   class="ss-icon"
                   >
                   up
                 </i>
               </th>
+              <th class="ns-column-align-right">Delete?</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              ng-repeat="piece in filteredMiscellaneous = (piece.piece_pricing.miscellaneous
-                | filter: miscellaneousSearch
-                | orderBy: tableStates['miscellaneous']['currentColumn']:tableStates['miscellaneous']['reverseState'])"
+              ng-repeat="labor in filteredLabor = (piece.piece_pricing.labor
+                | filter: laborSearch
+                | orderBy: tableStates['labor']['currentColumn']:tableStates['labor']['reverseState'])"
               >
-              <td>{{piece["name"]}}</td>
-              <td>{{piece["description"]}}</td>
-              <td>{{piece["cost"] | currency}}</td>
+              <td>{{labor["name"]}}</td>
+              <td>{{labor["description"]}}</td>
+              <td>{{labor["cost"] | currency}}</td>
+              <td class="ns-column-align-right">
+                <button
+                  class="ns-button ns-button-small"
+                  ng-click="deleteTableItem('labor', labor['id'])"
+                  >
+                  Delete
+                </button><!-- button.ns-button -->
+              </td>
+            </tr>
+            <tr class="ns-table-total">
+              <td colspan="11" class="ns-column-align-right">
+                Total Labor Cost: {{ totalTableSum('labor', 'cost') | currency }}
+              </td>
             </tr>
           </tbody>
         </table>

@@ -137,7 +137,7 @@ table.ns-table {
   > thead {
     > tr {
       > th {
-        padding: 9px 15px;
+        padding: 5px 10px 5px 10px;
         font-family: $font-header;
         font-weight: 700;
         font-size: 12px;
@@ -158,14 +158,20 @@ table.ns-table {
       > th.ns-sortable-column:hover {
         background: $color-table-header-background-hover;
       }
+      > th.ns-column-align-right {
+        text-align: right;
+      }
     }
   }
   > tbody {
     // min-height: 500px;
     > tr {
       > td {
-        padding: 12px 15px;
+        padding: 7px 10px 8px 10px;
         background: $color-page-background;
+      }
+      > td.ns-column-align-right {
+        text-align: right;
       }
     }
     > tr:nth-child(even) {
@@ -182,6 +188,15 @@ table.ns-table {
     > tr.ns-row-current {
       > td {
         background: $color-table-header-background-hover;
+      }
+    }
+    > tr.ns-table-total {
+      > td {
+        font-size: 18px;
+        line-height: 30px;
+        text-align: right;
+        font-weight: bold;
+        background: #FFFDDB;
       }
     }
   }

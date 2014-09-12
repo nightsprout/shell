@@ -9,7 +9,13 @@ var AngularApp = angular.module("AngularApp", ["ngRoute", "ngAnimate"]);
 
 // Set some easily accessible properties on $rootScope for use throughout the app.
 AngularApp.run(['$rootScope', function($rootScope){
-  // Property to hold the current year.
-  $rootScope.currentYear = new Date().getFullYear();
+
+  // Object for holding all Nightsprout boilerplate functionality.
+  // Tentatively, we refer to this as "Nightsprout State Machine".
+  $rootScope.nsStateMachine = {
+    // Property to hold the current year.
+    'currentYear': new Date().getFullYear()
+  };
+
 }]);
 
