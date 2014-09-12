@@ -33,6 +33,8 @@
 //
 //  ANGULAR: Angular App - Controllers
 //= require angular/controllers/sampleController
+//= require angular/controllers/tablesController
+//= require angular/controllers/warningsController
 //
 //  ANGULAR: Angular App - Directives
 //= require angular/directives/sampleDirective

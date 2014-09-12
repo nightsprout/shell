@@ -8,4 +8,12 @@ class HomeController < ApplicationController
     @angularController = 'sampleController'
   end
 
+  def tables
+    @angularController = 'tablesController'
+  end
+
+  def warnings
+    @angularController = 'warningsController'
+  end
+
 end
