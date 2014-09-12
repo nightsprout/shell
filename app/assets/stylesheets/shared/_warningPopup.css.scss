@@ -1,0 +1,38 @@
+// **************************************************
+// Begin: "Warning Popup Plugin"
+// **************************************************
+
+#ns-warning-background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 950;
+  background: rgba(0, 0, 0, .85);
+}
+
+#ns-warning {
+  display: block;
+  width: 300px;
+  min-height: 200px;
+  background: #ffffff;
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  z-index: 960;
+  @include translateX(-50%);
+  @include border-radius(4px);
+  @include box-shadow(0 1px 7px #000000);
+}
+
+// **************************************************
+// End: "Warning Popup Plugin"
+// **************************************************
+
+
+
+
+
+
+
+

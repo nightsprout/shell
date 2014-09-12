@@ -21,6 +21,11 @@
 //
 //  ANGULAR: Angular App
 //= require angular/angular_app
+//
+//  ANGULAR: Angular App Nightsprout/In-House Plugins
+//= require angular/nightsprout/warningPopup
+//
+//  ANGULAR: Routing
 //= require angular/routes
 //
 //  ANGULAR: Angular App - Services

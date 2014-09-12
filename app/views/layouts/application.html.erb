@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
-<body ng-app="AngularApp">
+<body ng-app="AngularApp" ng-controller="<%= @angularController || 'sampleController' %>">
 
 <%= render :partial => "shared/navigation" %>
 
@@ -22,8 +22,8 @@
   </div>
   <!-- #ns-slide-controls.ns-section-main -->
 
-  <%= yield %>
-  <%= render :partial => "shared/footer" %>
+<%= yield %>
+<%= render :partial => "shared/footer" %>
 
 </div>
 <!-- #ns-page-main -->
