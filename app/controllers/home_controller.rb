@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
 
   def index
-    @angularController = 'sampleController'
+    @angularController = 'baseController'
   end
 
   def sample
-    @angularController = 'sampleController'
+    @angularController = 'baseController'
   end
 
   def tables

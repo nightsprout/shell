@@ -1,17 +1,6 @@
 $(document).ready(function() {
 
-  // This code controls the nav when it is a mobile view.
-  $("#ns-slide-controls").click(function() {
-    $("body").toggleClass("ns-slider-expanded");
-  });
-  $("nav.ns-section-main ol#ns-navigation > li > a").click(function() {
-    $("body").removeClass("ns-slider-expanded");
-  });
 
-  // Make sure that if the user resizes, the dynamic states are also reset.
-  $(window).resize(function() {
-    $("body").removeClass("ns-slider-expanded");
-  });
 
   $(window).scroll(function() {
 
