@@ -1,4 +1,4 @@
-AngularApp.controller("baseController", ["$rootScope", "$scope", "httpService", function($rootScope, $scope, httpService) {
+AngularApp.controller("warningsController", ["$rootScope", "$scope", "httpService", function($rootScope, $scope, httpService) {
 
   // This object basically serves as the basic data model.
   // It is set when the main page AJAX request completes successfully.

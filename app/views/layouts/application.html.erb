@@ -15,17 +15,15 @@
   ng-controller="<%= @angularController || 'baseController' %>"
   >
 
+<%= render :partial => "shared/modal" %>
 
 <%= render :partial => "shared/warning" %>
+
 <%= render :partial => "shared/navigation" %>
+
 <%= render :partial => "shared/slider" %>
 
-<div id="ns-page-main">
-
 <%= yield %>
-
-</div>
-<!-- #ns-page-main -->
 
 <%= render :partial => "shared/footer" %>
 

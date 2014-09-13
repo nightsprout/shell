@@ -190,15 +190,6 @@ table.ns-table {
         background: $color-table-header-background-hover;
       }
     }
-    > tr.ns-table-total {
-      > td {
-        font-size: 18px;
-        line-height: 30px;
-        text-align: right;
-        font-weight: bold;
-        background: #FFFDDB;
-      }
-    }
   }
   > tbody.ns-table-no-results {
     display: block;

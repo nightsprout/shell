@@ -1,3 +1,19 @@
+
+  <div id="ns-test-modal" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal'">
+    <h3>Modal Header 1</h3>
+    <p>Modal Content 1</p>
+    <button ng-click="nsStateMachine.modal.close()">Close Modal</button>
+  </div>
+  <!-- .ns-modal -->
+
+  <div id="ns-test-modal-2" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-2'">
+    <h3>Modal Header 2</h3>
+    <p>Modal Content 2</p>
+    <button ng-click="nsStateMachine.modal.close()">Close Modal</button>
+  </div>
+  <!-- .ns-modal -->
+
+
   <div id="ns-banner" class="ns-section-main">
     <div class="ns-section-wrapper">
       <h1 class="ns-header-basic">Tables</h1><!-- .ns-header-basic -->
@@ -20,7 +36,7 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Stone to Piece</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="nsStateMachine.modal.open('ns-test-modal')">Add a Stone to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -250,11 +266,6 @@
                 </button><!-- button.ns-button -->
               </td>
             </tr>
-            <tr class="ns-table-total">
-              <td colspan="11" class="ns-column-align-right">
-                Total Stones Cost: {{ totalTableSum('stones', 'cost') | currency }}
-              </td>
-            </tr>
           </tbody>
         </table>
         <!-- .ns-table -->
@@ -272,7 +283,7 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Metal to Piece</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="nsStateMachine.modal.open('ns-test-modal-2')">Add a Metal to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -422,11 +433,6 @@
                 </button><!-- button.ns-button -->
               </td>
             </tr>
-            <tr class="ns-table-total">
-              <td colspan="11" class="ns-column-align-right">
-                Total Metal Cost: {{ totalTableSum('metal', 'cost') | currency }}
-              </td>
-            </tr>
           </tbody>
         </table>
         <!-- .ns-table -->
@@ -532,11 +538,6 @@
                   >
                   Delete
                 </button><!-- button.ns-button -->
-              </td>
-            </tr>
-            <tr class="ns-table-total">
-              <td colspan="11" class="ns-column-align-right">
-                Total Labor Cost: {{ totalTableSum('labor', 'cost') | currency }}
               </td>
             </tr>
           </tbody>

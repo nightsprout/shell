@@ -25,6 +25,7 @@
 //  ANGULAR: Angular App Nightsprout/In-House Plugins
 //= require angular/nightsprout/warningPopup
 //= require angular/nightsprout/dataTables
+//= require angular/nightsprout/modal
 //
 //  ANGULAR: Routing
 //= require angular/routes

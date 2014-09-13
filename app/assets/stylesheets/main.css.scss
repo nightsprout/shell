@@ -46,6 +46,8 @@ $color-table-zebra-background: #e6e6e6;
 $height-top-bar: 60px;
 $height-top-bar-collapsed: 40px;
 
+$height-footer: 60px;
+
 $font-body-text-size: 14px;
 $font-body-text-line-height: 20px;
 
@@ -105,6 +107,7 @@ $font-icons-social: "SSSocial";
 @import "shared/_form";
 @import "shared/_table";
 @import "shared/_warningPopup";
+@import "shared/_modal";
 
 
 html {
@@ -113,7 +116,7 @@ html {
 
 body {
   width: 100%;
-  min-height: 100%;
+  padding: $height-top-bar 0 $height-footer 0;
   font-family: $font-body;
   font-size: $font-body-text-size;
   line-height: $font-body-text-line-height;
@@ -132,6 +135,13 @@ body {
   display: inline-block;
   float: left;
   width: 100%;
+  background: $color-page-background;
+  position: relative;
+  left: 0;
+  @include transition-property(left);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(ease-in); 
+  @include transition-delay(0);
   > .ns-section-wrapper {   // This class wraps content inside of a main page section, to give it width.
     display: block;
     padding: 0 20px;
@@ -153,14 +163,19 @@ nav.ns-section-main {
   color: $color-top-bar-text;
   position: fixed;
   top: 0;
-  left: 0;
+  @include transition-property(none);
+  @include transition-duration(0);
+  @include transition-timing-function(none); 
+  @include transition-delay(0);
   @include screen-format(phone) {
     width: 100%;
     height: 100%;
+    left: 0;
   }
   @include screen-format(nano) {
     width: 100%;
     height: 100%;
+    left: 0;
   }
   a#ns-home {
     display: inline-block;
@@ -226,41 +241,13 @@ nav.ns-section-main.ns-nav-shadow-state {}
 /* Main Page */
 /************************************************/
 
-#ns-page-main {   // This holds all the content that can slide right when the slider is activated in "mobile mode".
-  display: inline-block;
-  float: left;
-  width: 100%;
-  min-height: 100%;
-  padding: $height-top-bar 0 0 0;
-  background: $color-page-background;
-  position: relative;
-  left: 0;
-  @include transition-property(left);
-  @include transition-duration(0.25s);
-  @include transition-timing-function(ease-in); 
-  @include transition-delay(0);
-  @include screen-format(phone) {
-    position: absolute;
-  }
-  @include screen-format(nano) {
-    position: absolute;
-  }
-  #ns-slide-controls.ns-section-main {}
-  #ns-banner.ns-section-main {
-    background: $color-tertiary;
-  }
-  section.ns-section-main {}
-  main.ns-section-main {}
-  footer.ns-section-main {}
-}
 
-body.ns-slider-expanded #ns-page-main,
-body.ns-slider-expanded footer.ns-section-main,
-body.ns-slider-expanded #ns-slide-controls.ns-section-main {
+body.ns-slider-expanded .ns-section-main {
   left: 80%;
 }
-
-
+body.ns-slider-expanded nav.ns-section-main {
+  left: 0;
+}
 
 #ns-slide-controls.ns-section-main {
   float: left;
@@ -271,13 +258,8 @@ body.ns-slider-expanded #ns-slide-controls.ns-section-main {
   cursor: pointer;
   position: fixed;
   top: 0;
-  left: 0;
   display: none;
   visibility: hidden;
-  @include transition-property(left);
-  @include transition-duration(0.25s);
-  @include transition-timing-function(ease-in); 
-  @include transition-delay(0);
   @include screen-format(phone) {
     display: inline-block;
     visibility: visible;
@@ -299,17 +281,13 @@ body.ns-slider-expanded #ns-slide-controls.ns-section-main {
 section.ns-section-main {}
 main.ns-section-main {}
 footer.ns-section-main {
+  min-height: $height-footer;
   font-size: 12px;
   line-height: 20px;
   background: $color-footer-background;
   color: $color-footer-text;
   position: fixed;
-  left: 0;
   bottom: 0;
-  @include transition-property(left);
-  @include transition-duration(0.25s);
-  @include transition-timing-function(ease-in); 
-  @include transition-delay(0);
   a {
     color: $color-footer-text;
   }
@@ -467,11 +445,10 @@ ol.ns-module-triple {
 /************************************************/
 
 nav.ns-section-main {     z-index: 400; }
-footer.ns-section-main {  z-index: 305; }
 #ns-slide-controls.ns-section-main {
-                          z-index: 310; }
-#ns-page-main {           z-index: 300; }
-
+                          z-index: 350; }
+footer.ns-section-main {  z-index: 320; }
+.ns-section-main {        z-index: 300; }
 nav.ns-section-main {
   @include screen-format(phone) {
                           z-index: 200; }

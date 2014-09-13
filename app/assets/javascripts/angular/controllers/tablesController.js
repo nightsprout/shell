@@ -30,8 +30,6 @@ AngularApp.controller("tablesController", ["$rootScope", "$scope", "httpService"
   var apiEndpoint1 = '/sampleResponse.json';
   var apiEndpoint2 = '/sampleResponse2.json';
 
- 
-
 
   // This is the callback function that executes if the HTTP request for $scope.inventory returns successfully.
   var getInventorySuccess = function(payload, status) { $scope.inventory = payload; };

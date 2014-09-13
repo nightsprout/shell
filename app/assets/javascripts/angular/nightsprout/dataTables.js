@@ -42,7 +42,7 @@ AngularApp.run(['$rootScope', function($rootScope){
       var deleteTableItemCallbackArguments = [desiredTable, itemID];
       var deleteTableItemCallback = deleteFunction;
       // Access the show warning method on root scope and create the warning popup.
-      $rootScope.nsStateMachine.warningPopup.showWarning(deleteTableItemCallback, deleteTableItemCallbackArguments, deleteTableItemHeaderWarning, deleteTableItemBodyWarning);
+      $rootScope.nsStateMachine.warningPopup.open(deleteTableItemCallback, deleteTableItemCallbackArguments, deleteTableItemHeaderWarning, deleteTableItemBodyWarning);
     },
 
     // This method is called whenever the user selects a sort column.
