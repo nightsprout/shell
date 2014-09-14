@@ -1,16 +1,10 @@
   <div
-    id="ns-warning-background"
-    ng-if="nsStateMachine.warningPopup.isVisible"
-    >
-  </div>
-  <!-- #ns-warning-background -->
-  <div
     id="ns-warning"
     ng-if="nsStateMachine.warningPopup.isVisible"
     >
-    <h3>{{nsStateMachine.warningPopup.headerText}}</h3>
-    <p>{{nsStateMachine.warningPopup.bodyText}}</p>
-    <button ng-click="nsStateMachine.warningPopup.primaryAction()">Confirm Action</button>
-    <button ng-click="nsStateMachine.warningPopup.close()">Cancel Action</button>
+    <h3 id="ns-warning-header">{{nsStateMachine.warningPopup.headerText}}</h3><!-- #ns-warning-header -->
+    <p id="ns-warning-body">{{nsStateMachine.warningPopup.bodyText}}</p><!-- #ns-warning-body -->
+    <button ng-click="nsStateMachine.warningPopup.primaryAction()">Confirm</button>
+    <button ng-click="nsStateMachine.warningPopup.close()">Cancel</button>
   </div>
   <!-- #ns-warning -->

@@ -1,5 +1,5 @@
-
-  <div id="ns-test-modal" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal'">
+  <div id="ns-test-modal-1" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-1'">
+    <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
     <h3>Modal Header 1</h3>
     <p>Modal Content 1</p>
     <button ng-click="nsStateMachine.modal.close()">Close Modal</button>
@@ -7,11 +7,21 @@
   <!-- .ns-modal -->
 
   <div id="ns-test-modal-2" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-2'">
+    <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
     <h3>Modal Header 2</h3>
     <p>Modal Content 2</p>
     <button ng-click="nsStateMachine.modal.close()">Close Modal</button>
   </div>
   <!-- .ns-modal -->
+
+  <div id="ns-test-modal-3" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-3'">
+    <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
+    <h3>Modal Header 3</h3>
+    <p>Modal Content 3</p>
+    <button ng-click="nsStateMachine.modal.close()">Close Modal</button>
+  </div>
+  <!-- .ns-modal -->
+
 
 
   <div id="ns-banner" class="ns-section-main">
@@ -36,7 +46,7 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button" ng-click="nsStateMachine.modal.open('ns-test-modal')">Add a Stone to Piece</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="nsStateMachine.modal.open('ns-test-modal-1')">Add a Stone to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -260,7 +270,7 @@
               <td class="ns-column-align-right">
                 <button
                   class="ns-button ns-button-small"
-                  ng-click="nsStateMachine.dataTable.methods.deleteItem('stones', stone['id'], deleteComponentAction)"                  ng-click="nsStateMachine.dataTable.methods.deleteItem('stones', stone['id'], deleteComponentAction)"
+                  ng-click="nsStateMachine.dataTable.methods.deleteItem('stones', stone['id'], deleteComponentAction)"
                   >
                   Delete
                 </button><!-- button.ns-button -->
@@ -427,7 +437,7 @@
               <td class="ns-column-align-right">
                 <button
                   class="ns-button ns-button-small"
-                  ng-click="nsStateMachine.dataTable.methods.deleteItem('metal', metal['id'], deleteComponentAction)"                  ng-click="nsStateMachine.dataTable.methods.deleteItem('stones', stone['id'], deleteComponentAction)"
+                  ng-click="nsStateMachine.dataTable.methods.deleteItem('metal', metal['id'], deleteComponentAction)"
                   >
                   Delete
                 </button><!-- button.ns-button -->
@@ -450,7 +460,7 @@
         </div>
         <!-- .ns-table-utilities-left -->
         <div class="ns-table-utilities-right">
-          <button class="ns-button" ng-click="showModal('ns-test-modal')">Add a Labor to Piece</button><!-- button.ns-button -->
+          <button class="ns-button" ng-click="nsStateMachine.modal.open('ns-test-modal-3')">Add a Labor to Piece</button><!-- button.ns-button -->
         </div>
         <!-- .ns-table-utilities-right -->
       </div>
@@ -534,7 +544,7 @@
               <td class="ns-column-align-right">
                 <button
                   class="ns-button ns-button-small"
-                  ng-click="nsStateMachine.dataTable.methods.deleteItem('labor', labor['id'], deleteComponentAction)"                  ng-click="nsStateMachine.dataTable.methods.deleteItem('stones', stone['id'], deleteComponentAction)"
+                  ng-click="nsStateMachine.dataTable.methods.deleteItem('labor', labor['id'], deleteComponentAction)"
                   >
                   Delete
                 </button><!-- button.ns-button -->
