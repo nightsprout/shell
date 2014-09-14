@@ -123,6 +123,8 @@
 
 
 .ns-table-wrapper {
+  display: inline-block;
+  float: left;
   width: 100%;
   overflow-x: scroll;
   min-height: 150px;
