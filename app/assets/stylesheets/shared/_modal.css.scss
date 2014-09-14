@@ -30,7 +30,7 @@
   @include screen-format(laptop) {
     width: 700px;
   }
-  @include screen-format(screen) {
+  @include screen-format(tablet) {
     width: 70%;
   }
   @include screen-format(phone) {
