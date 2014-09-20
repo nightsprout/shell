@@ -1,5 +1,5 @@
 // **************************************************
-// Begin: "Warning Popup Plugin"
+// Begin: "MODAL PLUGIN"
 // **************************************************
 
 // Example Modal Content:
@@ -23,7 +23,7 @@
   position: fixed;
   top: 80px;
   left: 50%;
-  z-index: 950;
+  z-index: 800;
   @include translateX(-50%);
   @include border-radius(4px);
   @include box-shadow(0 1px 7px #000000);
@@ -61,7 +61,7 @@
 }
 
 // **************************************************
-// End: "Warning Popup Plugin"
+// End: "MODAL PLUGIN"
 // **************************************************
 
 

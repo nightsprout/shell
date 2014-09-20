@@ -1,5 +1,5 @@
-/* Forms */
-/************************************************/
+// Forms
+// **************************************************
 
 input,
 textarea,
@@ -7,9 +7,9 @@ select,
 label {
   display: inline-block;
   margin: 0;
-  font-family: $font-body;
-  font-size: $font-body-text-size;
-  line-height: $font-body-text-line-height;
+  font-family: $font-primary;
+  font-size: $font-primary-text-size;
+  line-height: $font-primary-text-line-height;
   color: $color-form-input-text;
   -webkit-font-smoothing: antialiased;
 }

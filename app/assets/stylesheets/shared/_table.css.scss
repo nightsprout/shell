@@ -140,7 +140,7 @@ table.ns-table {
     > tr {
       > th {
         padding: 5px 10px 5px 10px;
-        font-family: $font-header;
+        font-family: $font-secondary;
         font-weight: 700;
         font-size: 12px;
         line-height: 20px;
@@ -156,7 +156,9 @@ table.ns-table {
           font-size: 8px;
         }
       }
-      > th.ns-sortable-column.ns-sortable-column-current,
+      > th.ns-sortable-column.ns-sortable-column-current {
+        background: $color-table-header-background-selected;
+      }
       > th.ns-sortable-column:hover {
         background: $color-table-header-background-hover;
       }
@@ -178,7 +180,7 @@ table.ns-table {
     }
     > tr:nth-child(even) {
       > td {
-        background: $color-table-zebra-background;
+        background: $color-table-row-background-zebra;
       }
     }
     > tr.ns-table-1-result {
@@ -189,7 +191,12 @@ table.ns-table {
     }
     > tr.ns-row-current {
       > td {
-        background: $color-table-header-background-hover;
+        background: $color-table-row-background-selected;
+      }
+    }
+    > tr:hover {
+      > td {
+        background: $color-table-row-background-hover;
       }
     }
   }

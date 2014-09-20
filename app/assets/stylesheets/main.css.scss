@@ -1,23 +1,87 @@
-/****************************************************************************************************
-  0.  SCSS Variables
-****************************************************************************************************/
+// ****************************************************************************************************
+// 
+// 0. Documentation / Introduction
+// 
+// ****************************************************************************************************
+//
+// **************************************************
+// Table of Contents
+// **************************************************
+// 
+// 1. SCSS Variables
+//    - Color Theme
+//    - Layout Sizing
+//    - Media Size Breakpoints
+//    - Susy Grid Settings
+//    - Font Stacks
+// 
+// 2. SCSS Includes
+// 
+// 3. General Cascade
+//    - Fundamental Page Structure
+//    - HTML Primitives
+//    - Togglable Screened Background Fixture
+// 
+// 4. Utility Classes
+//    - Header Formatting
+//    - Paragraph Formatting
+//    - Bulleted List Formatting
+//    - 1*3 Module Formatting
+//    - Page Section Formatting
+// 
+// 5. Z-Indices
+//
+//
+// **************************************************
+// Main Page Hierarchy/Structure
+// **************************************************
+//
+// html {
+//   body {
+//     #ns-screen-background                    { ... }   This section is available on every view. It is activated when Angular code requests a background screen (e.g. modals and warning popups).
+//     #ns-warning                              { ... }   This section is available on every view. It is activated when Angular code requests a warning popup.
+//     nav.ns-section-main                      { ... }   This section is available on every view. It is the main app navigation.
+//     #ns-slide-controls                       { ... }   This section is available on every view. It is the "hamburger slider" controls that display in responsive screen formats.
+//     <!-- BEGIN: "yielded view" content. -->
+//     #ns-modal                                { ... }   This section is optionally included inside of a rails view when a page has a modal.
+//     section.ns-section-main {                          This markup is mandatory to wrap all page content. It controls various page states in responsive or dynamic views. It can be used multiple times per page.
+//       .ns-section-wrapper                    { ... }   This markup is mandatory to wrap all page content. It centers and provides a determined width to page content while still allowing edge-to-edge backgrounds in its wrapping section.
+//     }
+//     <!-- END:   "yielded view" content. -->
+//     footer.ns-section-main                   { ... }   This section is available on every view. It is the main app footer.
+//   }
+// }
+// 
+// ****************************************************************************************************
 
 
-/* Color Theme */
-/************************************************/
+
+// ****************************************************************************************************
+// 
+// 1. SCSS Variables
+// 
+// ****************************************************************************************************
+
+// **************************************************
+// Color Theme
+// **************************************************
 
 $color-primary: #6bc6b5;
 $color-secondary: #20484a;
 $color-tertiary: #cd252f;
+
 $color-accent: #20484a;
 
 $color-anchor-text: #20484a;
-$color-body-text: #404040;
 $color-header-text: #404040;
+$color-body-text: #404040;
+
+$color-anchor-text-on-dark: #20484a;
+$color-header-text-on-dark: #404040;
+$color-body-text-on-dark: #404040;
 
 $color-line: #e6e6e6;
 
-$color-body-background: #ffffff;
 $color-page-background: #ffffff;
 
 $color-top-bar-background: #191818;
@@ -28,6 +92,9 @@ $color-footer-text: #ffffff;
 
 $color-button-background: #191818;
 $color-button-text: #ffffff;
+$color-button-background-warning: red;
+$color-button-background-caution: yellow;
+$color-button-background-confirm: green;
 
 $color-form-input-outline: #e6e6e6;
 $color-form-input-background: transparent;
@@ -35,25 +102,30 @@ $color-form-input-text: #404040;
 
 $color-table-header: #cccccc;
 $color-table-header-background: #cccccc;
-$color-table-header-background-hover: #6bc6b5;
-$color-table-zebra-background: #e6e6e6;
+$color-table-header-background-hover: #B9E4ED;
+$color-table-header-background-selected: #B9E4ED;
+$color-table-row-background: transparent;
+$color-table-row-background-zebra: #e6e6e6;
+$color-table-row-background-hover: #B9E4ED;
+$color-table-row-background-selected: #B9E4ED;
 
 
-
-/* Layout Sizing */
-/************************************************/
+// **************************************************
+// Layout Sizing
+// **************************************************
 
 $height-top-bar: 60px;
 $height-top-bar-collapsed: 40px;
 
 $height-footer: 60px;
 
-$font-body-text-size: 14px;
-$font-body-text-line-height: 20px;
+$font-primary-text-size: 14px;
+$font-primary-text-line-height: 20px;
 
 
-/* Media Size Breakpoints */
-/************************************************/
+// **************************************************
+// Media Size Breakpoints
+// **************************************************
 
 $monitor-breakpoint: 1200px;
 $laptop-breakpoint: 980px;
@@ -78,8 +150,10 @@ $phone-breakpoint: 480px;
   }
 }
 
-/* Susy Grid Settings */
-/************************************************/
+
+// **************************************************
+// Susy Grid Settings
+// **************************************************
 
 $total-columns: 12;
 $column-width: 56px;
@@ -87,22 +161,33 @@ $gutter-width: 48px;
 $grid-padding: 0;
 
 
-/* Font Stacks */
-/************************************************/
+// **************************************************
+// Font Stacks
+// **************************************************
 
-$font-header: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$font-body: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-secondary: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-primary: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 $font-icons: "SSStandard";
 $font-icons-social: "SSSocial";
 
 
+
+// ****************************************************************************************************
+// 
+// 2. SCSS Includes
+// 
+// ****************************************************************************************************
+
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
 @import "compass/utilities/general/hacks";
+
 @import "susy";
 
+@import "shared/_navigation";
+@import "shared/_footer";
 @import "shared/_button";
 @import "shared/_form";
 @import "shared/_table";
@@ -110,228 +195,95 @@ $font-icons-social: "SSSocial";
 @import "shared/_modal";
 
 
+// ****************************************************************************************************
+// 
+// 3. General Cascade
+// 
+// ****************************************************************************************************
+
+// **************************************************
+// Fundamental Page Structure
+// **************************************************
+
 html {
   height: 100%;
 }
 
 body {
+  display: block;
+  float: left;
   width: 100%;
+  height: 100%;
   padding: $height-top-bar 0 $height-footer 0;
-  font-family: $font-body;
-  font-size: $font-body-text-size;
-  line-height: $font-body-text-line-height;
+  font-family: $font-primary;
+  font-size: $font-primary-text-size;
+  line-height: $font-primary-text-line-height;
   font-weight: 400;
   color: $color-body-text;
   -webkit-font-smoothing: antialiased;  // This style targets webkit. It is required so that fonts appear to render with the correct font weight.
   background: $color-page-background;
+  @include box-sizing(border-box);
 }
 
 
+// **************************************************
+// HTML Primitives
+// **************************************************
 
-/* Scaffolding Tools */
-/************************************************/
-
-.ns-section-main {          // This class denotes a main page section.
-  display: inline-block;
-  float: left;
-  width: 100%;
-  background: $color-page-background;
-  position: relative;
-  left: 0;
-  @include transition-property(left);
-  @include transition-duration(0.25s);
-  @include transition-timing-function(ease-in); 
-  @include transition-delay(0);
-  > .ns-section-wrapper {   // This class wraps content inside of a main page section, to give it width.
-    display: block;
-    padding: 0 20px;
-    margin: 0 auto;
-    @include legacy-pie-clearfix;
-    @include screen-format(monitor) {
-      width: $monitor-breakpoint - 40px; // The subtraction of 40px accounts for the container padding.
-    }
-  }
-}
-
-
-/* Main Page Section: Navigation */
-/************************************************/
-
-nav.ns-section-main {
-  height: $height-top-bar;
-  background: $color-top-bar-background;
-  color: $color-top-bar-text;
-  position: fixed;
-  top: 0;
-  @include transition-property(none);
-  @include transition-duration(0);
-  @include transition-timing-function(none); 
-  @include transition-delay(0);
-  @include screen-format(phone) {
-    width: 100%;
-    height: 100%;
-    left: 0;
-  }
-  @include screen-format(nano) {
-    width: 100%;
-    height: 100%;
-    left: 0;
-  }
-  a#ns-home {
-    display: inline-block;
-    float: left;
-    height: $height-top-bar;
-    width: 200px;
-    > img {
-      display: inline-block;
-      float: left;
-      height: $height-top-bar;
-      width: 200px;
-    }
-  }
-  ol#ns-navigation {
-    display: inline-block;
-    float: right;
-    height: $height-top-bar;
-    @include screen-format(phone) {
-      width: 100%;
-    }
-    @include screen-format(nano) {
-      width: 100%;
-    }
-    > li {
-      display: inline-block;
-      float: left;
-      height: $height-top-bar;
-      @include screen-format(phone) {
-        width: 100%;
-        height: $height-top-bar-collapsed;
-      }
-      @include screen-format(nano) {
-        width: 100%;
-        height: $height-top-bar-collapsed;
-      }
-      > a {
-        display: inline-block;
-        float: left;
-        height: $height-top-bar;
-        margin: 0 0 0 30px;
-        line-height: $height-top-bar;
-        color: $color-top-bar-text;
-        @include screen-format(phone) {
-          width: 100%;
-          height: $height-top-bar-collapsed;
-          margin: 0;
-        }
-        @include screen-format(nano) {
-          width: 100%;
-          height: $height-top-bar-collapsed;
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-
-nav.ns-section-main.ns-nav-shadow-state {}
-
-
-
-
-/* Main Page */
-/************************************************/
-
-
-body.ns-slider-expanded .ns-section-main {
-  left: 80%;
-}
-body.ns-slider-expanded nav.ns-section-main {
-  left: 0;
-}
-
-#ns-slide-controls.ns-section-main {
-  float: left;
-  width: 100%;
-  height: $height-top-bar;
-  background: $color-top-bar-background;
-  color: $color-top-bar-text;
+a {
   cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  padding: 0;
+  margin: 15px 0 24px 0;
+  border: none;
+  color: $color-line;
+  background: $color-line;
+}
+
+
+// **************************************************
+// Togglable Screened Background Fixture
+// **************************************************
+
+#ns-screen-background {
+  display: block;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
-  display: none;
-  visibility: hidden;
-  @include screen-format(phone) {
-    display: inline-block;
-    visibility: visible;
-  }
-  @include screen-format(nano) {
-    display: inline-block;
-    visibility: visible;
-  }
-  #ns-slide-control-left {
-    display: inline-block;
-    float: left;
-    width: 30px;
-    height: 25px;
-    margin: 17px 0 0 0;
-    background: transparent url("/assets/core/ns-nav-expander.png") no-repeat 0 0;
-  }
-}
-#ns-banner.ns-section-main {}
-section.ns-section-main {}
-main.ns-section-main {}
-footer.ns-section-main {
-  min-height: $height-footer;
-  font-size: 12px;
-  line-height: 20px;
-  background: $color-footer-background;
-  color: $color-footer-text;
-  position: fixed;
-  bottom: 0;
-  a {
-    color: $color-footer-text;
-  }
-  #ns-footer-left {
-    padding: 20px 0;
-    @include span-columns(7, 12);
-    @include screen-format(phone) {
-      padding: 20px 0 0 0;
-      text-align: center;
-      @include span-columns(12 omega, 12);
-    }
-    @include screen-format(nano) {
-      padding: 20px 0 0 0;
-      text-align: center;
-      @include span-columns(12 omega, 12);
-    }
-  }
-  #ns-footer-right {
-    padding: 20px 0;
-    text-align: right;
-    @include span-columns(5 omega, 12);
-    @include screen-format(phone) {
-      padding: 5px 0 20px 0;
-      text-align: center;
-      @include span-columns(12 omega, 12);
-    }
-    @include screen-format(nano) {
-      padding: 5px 0 20px 0;
-      text-align: center;
-      @include span-columns(12 omega, 12);
-    }
-  }
+  background: rgba(0, 0, 0, .85);
 }
 
 
 
+// ****************************************************************************************************
+// 
+// 4. Utility Classes
+// 
+// ****************************************************************************************************
 
-
-header {}
-article {} // not sure
-aside {} // not sure
-
-
-h1, h2, h3, h4, h5, h6 {}
+// **************************************************
+// Header Formatting
+// **************************************************
 
 h1.ns-header-basic {
   margin: 0 0 20px 0;
@@ -365,46 +317,29 @@ h3.ns-header-lined {
   @include span-columns(12 omega, 12);
 }
 
-a {
-  cursor: pointer;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
 
-p {}
+// **************************************************
+// Paragraph Formatting
+// **************************************************
+
 p.ns-paragraph-basic {
   margin: 0 0 10px 0;
 }
 
-strong {
-  font-weight: 700;
-}
-em {
-  font-style: italic;
-}
+
+// **************************************************
+// Bulleted List Formatting
+// **************************************************
 
 ol.ns-bulleted-list,
 ul.ns-bulleted-list {
   > li {}
 }
 
-hr {
-  width: 100%;
-  height: 1px;
-  padding: 0;
-  margin: 15px 0 24px 0;
-  border: none;
-  color: $color-line;
-  background: $color-line;
-}
 
-
-
-
-
-
+// **************************************************
+// 1*3 Module Formatting
+// **************************************************
 
 ol.ns-module-triple {
   @include span-columns(12 omega, 12);
@@ -430,37 +365,68 @@ ol.ns-module-triple {
 }
 
 
+// **************************************************
+// Page Section Formatting
+// **************************************************
 
-
-
-
-#ns-screen-background {
-  display: block;
+.ns-section-main {                        // This class denotes a main page section.
+  display: inline-block;
+  float: left;
   width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 900;
-  background: rgba(0, 0, 0, .85);
+  background: $color-page-background;
+  position: relative;
+  left: 0;
+  @include transition-property(left);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(ease-in); 
+  @include transition-delay(0);
+  > .ns-section-wrapper {                 // This class wraps content inside of a main page section, to give it width.
+    display: block;
+    padding: 0 20px;
+    margin: 0 auto;
+    @include legacy-pie-clearfix;
+    @include screen-format(monitor) {
+      width: $monitor-breakpoint - 40px;  // The subtraction of 40px accounts for the container padding.
+    }
+  }
 }
 
 
 
+// ****************************************************************************************************
+// 
+// 5. Z-Indices
+// 
+// ****************************************************************************************************
 
+// **************************************************
+// Directory of Z-Indices
+// **************************************************
+//
+// 900-999: RESERVED
+// 800-899: Warnings.
+// 700-799: Modals.
+// 600-699: Page Screen.
+// 500-599: Navigation in Fullscreen Mode.
+// 400-499: Hamburger Slider Controls.
+// 300-399: Footer.
+// 200-299: Main Page Content.
+// 100-199: Navigation in Responsive Mode.
+// 000-099: RESERVED
+//
+// **************************************************
 
-
-/* Z-Indices */
-/************************************************/
-
-nav.ns-section-main {     z-index: 400; }
-#ns-slide-controls.ns-section-main {
-                          z-index: 350; }
-footer.ns-section-main {  z-index: 320; }
-.ns-section-main {        z-index: 300; }
+#ns-screen-background {   z-index: 600; }
+nav.ns-section-main {     z-index: 500; }
+#ns-slide-controls {
+                          z-index: 400; }
+footer.ns-section-main {  z-index: 300; }
+.ns-section-main {        z-index: 200; }
 nav.ns-section-main {
   @include screen-format(phone) {
-                          z-index: 200; }
+                          z-index: 100; }
   @include screen-format(nano) {
-                          z-index: 200; }
+                          z-index: 100; }
 }
 
 

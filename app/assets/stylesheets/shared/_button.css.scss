@@ -1,5 +1,5 @@
-/* Buttons */
-/************************************************/
+// Buttons
+// **************************************************
 
 .ns-button,
 input[type="submit"],
@@ -12,9 +12,9 @@ button {
   border: none;
   color: $color-button-text;
   background: $color-button-background;
-  font-size: $font-body-text-size;
-  line-height: $font-body-text-line-height;
-  font-family: $font-body;
+  font-size: $font-primary-text-size;
+  line-height: $font-primary-text-line-height;
+  font-family: $font-primary;
   font-weight: 700;
   cursor: pointer;
   position: relative;
@@ -81,7 +81,7 @@ button.ns-button-cta {
   font-size: 36px;
   line-height: 50px;
   font-weight: 700;
-  font-family: $font-header;
+  font-family: $font-secondary;
 }
 
 .ns-button.ns-button-small,
@@ -92,7 +92,7 @@ button.ns-button-small {
   padding: 2px 8px 3px 8px;
   text-transform: uppercase;
   font-size: 11px;
-  line-height: $font-body-text-line-height;
+  line-height: $font-primary-text-line-height;
   font-weight: 700;
 }
 

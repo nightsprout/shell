@@ -1,0 +1,134 @@
+// Main Page Section: Navigation
+// **************************************************
+
+nav.ns-section-main {
+  height: $height-top-bar;
+  background: $color-top-bar-background;
+  color: $color-top-bar-text;
+  position: fixed;
+  top: 0;
+  @include transition-property(none);
+  @include transition-duration(0);
+  @include transition-timing-function(none); 
+  @include transition-delay(0);
+  @include screen-format(phone) {
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+  @include screen-format(nano) {
+    width: 100%;
+    height: 100%;
+    left: 0;
+  }
+  a#ns-home {
+    display: inline-block;
+    float: left;
+    height: $height-top-bar;
+    width: 200px;
+    > img {
+      display: inline-block;
+      float: left;
+      height: $height-top-bar;
+      width: 200px;
+    }
+  }
+  ol#ns-navigation {
+    display: inline-block;
+    float: right;
+    height: $height-top-bar;
+    @include screen-format(phone) {
+      width: 100%;
+    }
+    @include screen-format(nano) {
+      width: 100%;
+    }
+    > li {
+      display: inline-block;
+      float: left;
+      height: $height-top-bar;
+      @include screen-format(phone) {
+        width: 100%;
+        height: $height-top-bar-collapsed;
+      }
+      @include screen-format(nano) {
+        width: 100%;
+        height: $height-top-bar-collapsed;
+      }
+      > a {
+        display: inline-block;
+        float: left;
+        height: $height-top-bar;
+        margin: 0 0 0 30px;
+        line-height: $height-top-bar;
+        color: $color-top-bar-text;
+        @include screen-format(phone) {
+          width: 100%;
+          height: $height-top-bar-collapsed;
+          margin: 0;
+        }
+        @include screen-format(nano) {
+          width: 100%;
+          height: $height-top-bar-collapsed;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Shadow State
+// **************************************************
+
+
+
+nav.ns-section-main.ns-nav-shadow-state {}
+
+
+// Slide Out State
+// **************************************************
+
+
+
+body.ns-slider-expanded .ns-section-main {
+  left: 80%;
+}
+body.ns-slider-expanded nav.ns-section-main {
+  left: 0;
+}
+
+
+// Slide Controls
+// **************************************************
+
+
+#ns-slide-controls.ns-section-main {
+  float: left;
+  width: 100%;
+  height: $height-top-bar;
+  background: $color-top-bar-background;
+  color: $color-top-bar-text;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  display: none;
+  visibility: hidden;
+  @include screen-format(phone) {
+    display: inline-block;
+    visibility: visible;
+  }
+  @include screen-format(nano) {
+    display: inline-block;
+    visibility: visible;
+  }
+  #ns-slide-control-left {
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 25px;
+    margin: 17px 0 0 0;
+    background: transparent url("/assets/core/ns-nav-expander.png") no-repeat 0 0;
+  }
+}
