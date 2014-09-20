@@ -3,7 +3,7 @@
 
 ### Nightsprout "Shell Project": Setup
 
-#### Setup is Easy:
+##### Setup is Easy:
 * MORE DOCUMENTATION REQUIRED HERE.
 * Install RVM.
 * Install Ruby Version(s).
@@ -15,12 +15,12 @@
 
 ### Nightsprout "Shell Project": Troubleshooting
 
-#### Installation Issues:
+##### Installation Issues:
 * Problem with RVM? Try completely closing out your Terminal session and starting over.
 * Undiagnosable Rails error? Try restarting your app (`touch tmp/restart.txt`) and restarting Pow via System Manager.
 * Common things to remember: bundle if gemfile is updated; migrate if database is migrated.
 
-#### JS Issues:
+##### JS Issues:
 * Problem with JS on Heroku? Did you remember to use "array syntax" with dependency injection when minifying for Heroku?
 * Can't load your Angular controller? Did you remember to specify the controller inside of the Rails controller?
 * Can't load a JS file? Did you remember to add it to the JS manifest?
@@ -28,7 +28,7 @@
 
 ### Nightsprout "Shell Project": Quirks
 
-#### Quirks:
+##### Quirks:
 * We use the Rails router by default, not the Angular router. Avoid using the Angular router for projects which need to be crawled by search engines. Otherwise, other methods are viable, but will require reworking some core assumptions.
 * Each view needs an Angular controller defined in the Rails controller method. If it is not specified, it falls back to a default "catch all" Angular controller.
 * Nightsprout "plugins" are located in the appropriate CSS/JS/etc. assets subfolder. For CSS, it is in the "shared" subfolder. For JS, it is in "angular/nightsprout".
@@ -42,7 +42,7 @@
 
 ### Nightsprout "Shell Project": Guidelines
 
-#### Guidelines:
+##### Guidelines:
 * Please include inline documentation for all new code you write. Use your best judgement, but often complicated blocks of code require a multi-line comment for documenting functionality.
 * Avoid overriding "basic" Shell Project code. Override where possible.
 * Avoid hard-coding anything in Shell Project. If you must, create a branch with a hard-coded implementation, then refactor it in a generic way before merging to master.
@@ -50,7 +50,7 @@
 
 ### Nightsprout "Shell Project": Deployment
 
-#### Deployment is Easy:
+##### Deployment is Easy:
 * MORE DOCUMENTATION REQUIRED HERE.
 * Make sure Postgres is installed correctly.
 * Make sure AngularJS files are minified properly.
