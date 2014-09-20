@@ -17,8 +17,8 @@
 
 ##### Installation Issues:
 * Problem with RVM? Try completely closing out your Terminal session and starting over.
-* Undiagnosable Rails error? Try restarting your app (`touch tmp/restart.txt`) and restarting Pow via System Manager.
-* Common things to remember: bundle if gemfile is updated; migrate if database is migrated.
+* Undiagnosable Rails error? Try restarting your app with `touch tmp/restart.txt` and restarting Pow via System Manager.
+* Common things to remember: `bundle install` if gemfile is updated; `bundle exec rake db:migrate` if project has new migrations.
 
 ##### JS Issues:
 * Problem with JS on Heroku? Did you remember to use "array syntax" with dependency injection when minifying for Heroku?
@@ -34,10 +34,10 @@
 * Nightsprout "plugins" are located in the appropriate CSS/JS/etc. assets subfolder. For CSS, it is in the "shared" subfolder. For JS, it is in "angular/nightsprout".
 * Be sure to include JS Nightsprout plugins in the appropriate JS. manifest if you want to use them.
 * Likewise, if you don't need the JS plugin, remove it from the ppropriate JS. manifest.
-* CSS plugins are included inside of main.css.scss - no the CSS manifest file.
-* In terms of JS/Angular, "nsStateMachine" is a property on $rootScope that tracks application front end state.
-* Nightsprout Angular plugins are defined on "nsStateMachine".
-* Other globally-relevant data, such as "current date" may also be defined on "nsStateMachine".
+* CSS plugins are included inside of `main.css.scss` - no the CSS manifest file.
+* In terms of JS/Angular, `nsStateMachine` is a property on $rootScope that tracks application front end state.
+* Nightsprout Angular plugins are defined on `nsStateMachine`.
+* Other globally-relevant data, such as "current date" may also be defined on `nsStateMachine`.
 
 
 ### Nightsprout "Shell Project": Guidelines
