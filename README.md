@@ -1,5 +1,6 @@
 # Nightsprout Shell Project
 
+---
 
 ### Nightsprout "Shell Project": Setup
 
@@ -58,6 +59,8 @@
 * MORE DOCUMENTATION REQUIRED HERE.
 * Make sure Postgres is installed correctly.
 * Make sure AngularJS files are minified properly.
+
+---
 
 
 
