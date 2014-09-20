@@ -1,3 +1,16 @@
+// **************************************************
+// Table SCSS
+// **************************************************
+
+$color-table-header: #cccccc;
+$color-table-header-background: #cccccc;
+$color-table-header-background-hover: #B9E4ED;
+$color-table-header-background-selected: #B9E4ED;
+$color-table-row-background: transparent;
+$color-table-row-background-zebra: #e6e6e6;
+$color-table-row-background-hover: #B9E4ED;
+$color-table-row-background-selected: #B9E4ED;
+
 .ns-table-utilities {
   display: inline-block;
   float: left;

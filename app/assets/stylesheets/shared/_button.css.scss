@@ -1,5 +1,12 @@
-// Buttons
 // **************************************************
+// Button SCSS
+// **************************************************
+
+$color-button-background: #191818;
+$color-button-text: #ffffff;
+$color-button-background-warning: red;
+$color-button-background-caution: yellow;
+$color-button-background-confirm: green;
 
 .ns-button,
 input[type="submit"],

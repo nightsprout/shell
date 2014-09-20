@@ -33,6 +33,35 @@
 //
 //
 // **************************************************
+// SCSS Guidelines
+// **************************************************
+//
+// Write SCSS with the following structure:
+//
+// element#id.class {                         <= Styles should be written in that order, but may not contain every specifier in the selector.
+//   display: <value>;                        <= This is optional.
+//   visibility: <value>;                     <= This is optional.
+//   float: <value>;                          <= This is optional.
+//   box-sizing-properties: <value>;          <= E.g. width, height, min-width, min-height, padding, margin, border. etc.
+//   superficial-properties: <value>;         <= E.g. font-size, line-height, font-weight, etc.
+//   positioning-properties: <value>;         <= E.g. position, top, right, bottom, left.
+//   @include mixin-name(<value>);            <= This is optional.
+//   @include screen-format(monitor) { ... }  <= This is optional.
+//   @include screen-format(laptop) { ... }   <= This is optional.
+//   @include screen-format(tablet) { ... }   <= This is optional.
+//   @include screen-format(phone) { ... }    <= This is optional.
+//   @include screen-format(nano) { ... }     <= This is optional.
+//   nested element#id.class { ... }          <= This is optional.
+// }
+//
+// - Use hyphens to separate words for classes and IDs. E.g. #this-is-an-id-selector.
+// - Try and avoid excessive specificity (not absolute rule; just a guideline).
+// - A rule-of-thumb would be to omit the HTML selector if it is a <div> or <span> because they are generic.
+// - You might include an HTML selector if it is more semantic, such as <nav> or <footer>.
+// - When possible, document your code LIBERALLY.
+// - When naming classes or variables, use words that increase in specificity, as in: "general"-"more-specific"-"most-specific". E.g. "color-button-text".
+//
+// **************************************************
 // Main Page Hierarchy/Structure
 // **************************************************
 //
@@ -72,13 +101,13 @@ $color-tertiary: #cd252f;
 
 $color-accent: #20484a;
 
-$color-anchor-text: #20484a;
-$color-header-text: #404040;
-$color-body-text: #404040;
+$color-text-anchor: #20484a;
+$color-text-header: #404040;
+$color-text-body: #404040;
 
-$color-anchor-text-on-dark: #20484a;
-$color-header-text-on-dark: #404040;
-$color-body-text-on-dark: #404040;
+$color-text-anchor-on-dark: #20484a;
+$color-text-header-on-dark: #404040;
+$color-text-body-on-dark: #404040;
 
 $color-line: #e6e6e6;
 
@@ -89,25 +118,6 @@ $color-top-bar-text: #ffffff;
 
 $color-footer-background: #191818;
 $color-footer-text: #ffffff;
-
-$color-button-background: #191818;
-$color-button-text: #ffffff;
-$color-button-background-warning: red;
-$color-button-background-caution: yellow;
-$color-button-background-confirm: green;
-
-$color-form-input-outline: #e6e6e6;
-$color-form-input-background: transparent;
-$color-form-input-text: #404040;
-
-$color-table-header: #cccccc;
-$color-table-header-background: #cccccc;
-$color-table-header-background-hover: #B9E4ED;
-$color-table-header-background-selected: #B9E4ED;
-$color-table-row-background: transparent;
-$color-table-row-background-zebra: #e6e6e6;
-$color-table-row-background-hover: #B9E4ED;
-$color-table-row-background-selected: #B9E4ED;
 
 
 // **************************************************
@@ -219,7 +229,7 @@ body {
   font-size: $font-primary-text-size;
   line-height: $font-primary-text-line-height;
   font-weight: 400;
-  color: $color-body-text;
+  color: $color-text-body;
   -webkit-font-smoothing: antialiased;  // This style targets webkit. It is required so that fonts appear to render with the correct font weight.
   background: $color-page-background;
   @include box-sizing(border-box);
@@ -233,6 +243,7 @@ body {
 a {
   cursor: pointer;
   text-decoration: none;
+  color: $color-text-anchor;
 }
 
 a:hover {
@@ -398,6 +409,11 @@ ol.ns-module-triple {
 // 5. Z-Indices
 // 
 // ****************************************************************************************************
+
+// All z-indices should be contained in this section.
+// One exception to this rule is the z-indices of plugins.
+// As discrete/independent plugins, they should be divorced from everything else.
+// We consolidate z-indices so we can best determine stacking orders.
 
 // **************************************************
 // Directory of Z-Indices
