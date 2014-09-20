@@ -1,5 +1,7 @@
 # Nightsprout Shell Project
 
+The Nightsprout Shell Project is a boilerplate project that allows us to get up and running with robust, powerful, and familiar technology. It is configured by default to use Rails and AngularJS and has an opinionated approach to project organization, application architecture, managing events/scripts, and more.
+
 ---
 
 ### Nightsprout "Shell Project": Setup
@@ -59,11 +61,6 @@
 * MORE DOCUMENTATION REQUIRED HERE.
 * Make sure Postgres is installed correctly.
 * Make sure AngularJS files are minified properly.
-
----
-
-
-
 
 
 
