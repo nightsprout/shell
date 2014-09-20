@@ -16,4 +16,8 @@ class HomeController < ApplicationController
     @angularController = 'warningsController'
   end
 
+  def buttons
+    @angularController = 'baseController'
+  end
+
 end
