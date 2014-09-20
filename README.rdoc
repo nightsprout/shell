@@ -1,7 +1,26 @@
 == Nighsprout "Shell Project": Setup
 
 Setup is Easy:
-* DOCUMENTATION REQUIRED HERE.
+* MORE DOCUMENTATION REQUIRED HERE.
+* Install RVM.
+* Install Ruby Version(s).
+* Install Rails.
+* Install Homebrew.
+* Install Postgres.
+* Install Pow.
+
+
+== Nighsprout "Shell Project": Troubleshooting
+
+Installation Issues:
+* Problem with RVM? Try completely closing out your Terminal session and starting over.
+* Undiagnosable Rails error? Try restarting your app (touch tmp/restart.txt) and restarting Pow via System Manager.
+* Common things to remember: bundle if gemfile is updated; migrate if database is migrated.
+
+JS Issues:
+* Problem with JS on Heroku? Did you remember to use "array syntax" with dependency injection when minifying for Heroku?
+* Can't load your Angular controller? Did you remember to specify the controller inside of the Rails controller?
+* Can't load a JS file? Did you remember to add it to the JS manifest?
 
 
 == Nighsprout "Shell Project": Quirks
@@ -29,7 +48,9 @@ Guidelines:
 == Nighsprout "Shell Project": Deployment
 
 Deployment is Easy:
-* DOCUMENTATION REQUIRED HERE.
+* MORE DOCUMENTATION REQUIRED HERE.
+* Make sure Postgres is installed correctly.
+* Make sure AngularJS files are minified properly.
 
 
 
