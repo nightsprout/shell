@@ -9,6 +9,10 @@
 
 // To use this plugin, see the Shell project's /tables URL.
 
+// TO-DO: ADD IN FUNCTIONALITY FOR AUTOMATICALLY SHOWING A "NO RESULTS" STATE WHEN COMPLETELY FILTERED.
+// THE SCSS IS ALREADY WRITTEN FOR THIS. (See: "tbody.ns-table-no-results")
+// WE JUST NEED TO WRITE IN THE JS LOGIC.
+
 AngularApp.run(['$rootScope', function($rootScope){
 
   // Initialize the "Data Table Plugin" on the Nightsprout State Machine.

@@ -4,6 +4,7 @@
 // 
 // ****************************************************************************************************
 //
+//
 // **************************************************
 // Table of Contents
 // **************************************************
@@ -36,24 +37,25 @@
 // SCSS Guidelines
 // **************************************************
 //
-// Write SCSS with the following structure:
+// - Write SCSS with the following structure:
 //
-// element#id.class {                         <= Styles should be written in that order, but may not contain every specifier in the selector.
-//   display: <value>;                        <= This is optional.
-//   visibility: <value>;                     <= This is optional.
-//   float: <value>;                          <= This is optional.
-//   box-sizing-properties: <value>;          <= E.g. width, height, min-width, min-height, padding, margin, border. etc.
-//   superficial-properties: <value>;         <= E.g. font-size, line-height, font-weight, etc.
-//   positioning-properties: <value>;         <= E.g. position, top, right, bottom, left.
-//   @include mixin-name(<value>);            <= This is optional.
-//   @include screen-format(monitor) { ... }  <= This is optional.
-//   @include screen-format(laptop) { ... }   <= This is optional.
-//   @include screen-format(tablet) { ... }   <= This is optional.
-//   @include screen-format(phone) { ... }    <= This is optional.
-//   @include screen-format(nano) { ... }     <= This is optional.
-//   nested element#id.class { ... }          <= This is optional.
+//   element#id.class {                         <= Styles should be written in that order, but may not contain every specifier in the selector.
+//     display: <value>;                        <= This is optional.
+//     visibility: <value>;                     <= This is optional.
+//     float: <value>;                          <= This is optional.
+//     box-sizing-properties: <value>;          <= This is optional. Examples include: width, height, min-width, min-height, padding, margin, border. etc.
+//     superficial-properties: <value>;         <= This is optional. Examples include: font-size, line-height, font-weight, etc.
+//     positioning-properties: <value>;         <= This is optional. Examples include: position, top, right, bottom, left.
+//     @include mixin-name(<value>);            <= This is optional.
+//     @include screen-format(monitor) { ... }  <= This is optional.
+//     @include screen-format(laptop) { ... }   <= This is optional.
+//     @include screen-format(tablet) { ... }   <= This is optional.
+//     @include screen-format(phone) { ... }    <= This is optional.
+//     @include screen-format(nano) { ... }     <= This is optional.
+//     nested element#id.class { ... }          <= This is optional.
 // }
 //
+// - Include responsive features for any SCSS block you write.
 // - Use hyphens to separate words for classes and IDs. E.g. #this-is-an-id-selector.
 // - Try and avoid excessive specificity (not absolute rule; just a guideline).
 // - A rule-of-thumb would be to omit the HTML selector if it is a <div> or <span> because they are generic.
@@ -81,6 +83,7 @@
 //   }
 // }
 // 
+//
 // ****************************************************************************************************
 
 
@@ -90,6 +93,7 @@
 // 1. SCSS Variables
 // 
 // ****************************************************************************************************
+
 
 // **************************************************
 // Color Theme
@@ -189,6 +193,7 @@ $font-icons-social: "SSSocial";
 // 
 // ****************************************************************************************************
 
+
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
@@ -205,11 +210,13 @@ $font-icons-social: "SSSocial";
 @import "shared/_modal";
 
 
+
 // ****************************************************************************************************
 // 
 // 3. General Cascade
 // 
 // ****************************************************************************************************
+
 
 // **************************************************
 // Fundamental Page Structure
@@ -291,6 +298,7 @@ hr {
 // 4. Utility Classes
 // 
 // ****************************************************************************************************
+
 
 // **************************************************
 // Header Formatting
@@ -409,6 +417,7 @@ ol.ns-module-triple {
 // 5. Z-Indices
 // 
 // ****************************************************************************************************
+
 
 // All z-indices should be contained in this section.
 // One exception to this rule is the z-indices of plugins.

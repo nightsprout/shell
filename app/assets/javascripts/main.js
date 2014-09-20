@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-
   $(window).scroll(function() {
 
     // Show or hide the top bar background.
@@ -15,6 +13,3 @@ $(document).ready(function() {
   });
 
 });
-
-
-console.log("Successfully loaded main.js.");

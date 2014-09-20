@@ -80,18 +80,21 @@ nav.ns-section-main {
 
 
 
-// Shadow State
+// Navigation's "Shadow" State
 // **************************************************
 
-
+// This is the state that changes the navigation's appearance when the page is scrolled down from the top.
+// For example, it could change heights or invert coloration.
 
 nav.ns-section-main.ns-nav-shadow-state {}
 
 
-// Slide Out State
+// Navigation's "Slide Out" State
 // **************************************************
 
-
+// In responsive views, the navigations does not display as a top bar.
+// Instead, it displays as a panel hidden behind the main page content.
+// When the user clicks the "hamburger" menu, the page content slides to the side, revealing the navigation.
 
 body.ns-slider-expanded .ns-section-main {
   left: 80%;
@@ -101,9 +104,11 @@ body.ns-slider-expanded nav.ns-section-main {
 }
 
 
-// Slide Controls
+// Navigations "Hamburger" Menu "Slider"
 // **************************************************
 
+// In responsive views, the navigations does not display as a top bar.
+// This styles the "hamburger" menu, a clickable element that causes the page content to slide to the side, revealing the navigation.
 
 #ns-slide-controls.ns-section-main {
   float: left;

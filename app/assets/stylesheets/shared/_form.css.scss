@@ -2,9 +2,29 @@
 // Form SCSS
 // **************************************************
 
+
+// Basic forms have the following structure:
+//
+// form.ns-form-basic {         <= This is the class that surrounds the form, telling it how to arrange.
+//   .ns-form-row {             <= This is a wrapper that delineates form rows.
+//     .ns-form-row-left {}     <= This side is intended to hold the form element label.
+//     .ns-form-row-right {}    <= This side is intended to hold the form element.
+//   }
+// }
+//
+// In small screen formats, the label/inputs stack rather than arrange side-by-side.
+
+
+// Form Variables
+// **************************************************
+
 $color-form-input-outline: #e6e6e6;
 $color-form-input-background: transparent;
 $color-form-input-text: #404040;
+
+
+// Basic Styles for Form Elements
+// **************************************************
 
 input,
 textarea,
@@ -45,7 +65,7 @@ textarea {
   @include border-radius(2px);
 }
 
-input[type="date"]:focus,
+input[type="date"]:focus,             // Remove that ugly outline that browsers insist on putting on focused form elements.
 input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="email"]:focus,
@@ -65,15 +85,12 @@ textarea:focus {
   border-color: $color-accent;
 }
 
-
-
-
 input[type="checkbox"],
 input[type="radio"] {}
 
 
-
-
+// Main Form SCSS
+// **************************************************
 
 form.ns-form-basic {
   @include span-columns(12 omega, 12);

@@ -2,11 +2,29 @@
 // Button SCSS
 // **************************************************
 
+
+// Button Variables
+// **************************************************
+
 $color-button-background: #191818;
 $color-button-text: #ffffff;
+
 $color-button-background-warning: red;
+$color-button-text-warning: #ffffff;
+
 $color-button-background-caution: yellow;
+$color-button-text-caution: #ffffff;
+
 $color-button-background-confirm: green;
+$color-button-text-confirm: #ffffff;
+
+$color-button-line-background: #ffffff;
+$color-button-line-line: #191818;
+$color-button-line-text: #191818;
+
+
+// Main Button SCSS
+// **************************************************
 
 .ns-button,
 input[type="submit"],
@@ -31,13 +49,26 @@ button {
   @include border-radius(2px);
 }
 
-.ns-button:active,
-input[type="submit"]:active,
+.ns-button:active,              // Shifting the buttons on click gives them a nice tactile feel.
+input[type="submit"]:active,    // When the user down clicks on a button, shift it down 2 pixels.
 input[type="button"]:active,
 input[type="reset"]:active,
 button:active {
   position: relative;
   top: 2px;
+}
+
+.ns-button:before,              // This block of code is necessary to fix the Chrome click target area bug.
+input[type="submit"]:before,    // Shifting the button's position, causes a row of pixels equal to the shift offset to become "dead".
+input[type="button"]:before,    // As "dead" pixels, when clicked, they do not fire onClick events as they should.
+input[type="reset"]:before,
+button:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
 }
 
 .ns-button:hover,
@@ -49,7 +80,7 @@ button:hover {
   @include opacity(.66);
 }
 
-.ns-button:focus,
+.ns-button:focus,               // This block of code is necessary to remove the ugly outline when buttons become focused.
 input[type="submit"]:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -57,39 +88,64 @@ button:focus {
   outline: none;
 }
 
-.ns-button:before,
-input[type="submit"]:before,
-input[type="button"]:before,
-input[type="reset"]:before,
-button:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
+
+
+// "Warning" (Red) Variation
+// **************************************************
+
+.ns-button.ns-button-warning,
+input[type="submit"].ns-button-warning,
+input[type="button"].ns-button-warning,
+input[type="reset"].ns-button-warning,
+button.ns-button-warning {
+  background: $color-button-background-warning;
+  color: $color-button-text-warning;
 }
 
-.ns-button.ns-button-red,
-input[type="submit"].ns-button-red,
-input[type="button"].ns-button-red,
-input[type="reset"].ns-button-red,
-button.ns-button-red {
-  background: $color-primary;
-  color: $color-button-text;
+
+// "Confirm" (Green) Variation
+// **************************************************
+
+.ns-button.ns-button-confirm,
+input[type="submit"].ns-button-confirm,
+input[type="button"].ns-button-confirm,
+input[type="reset"].ns-button-confirm,
+button.ns-button-warning {
+  background: $color-button-background-confirm;
+  color: $color-button-text-confirm;
 }
 
-.ns-button.ns-button-cta,
-input[type="submit"].ns-button-cta,
-input[type="button"].ns-button-cta,
-input[type="reset"].ns-button-cta,
-button.ns-button-cta {
-  text-transform: uppercase;
-  font-size: 36px;
-  line-height: 50px;
-  font-weight: 700;
-  font-family: $font-secondary;
+
+// "Caution" (Yellow) Variation
+// **************************************************
+
+.ns-button.ns-button-caution,
+input[type="submit"].ns-button-caution,
+input[type="button"].ns-button-caution,
+input[type="reset"].ns-button-caution,
+button.ns-button-caution {
+  background: $color-button-background-caution;
+  color: $color-button-text-caution;
 }
+
+
+// "Line" Variation
+// **************************************************
+
+.ns-button.ns-button-line,
+input[type="submit"].ns-button-line,
+input[type="button"].ns-button-line,
+input[type="reset"].ns-button-line,
+button.ns-button-line {
+  padding: 5px 13px 7px 13px;
+  border: 2px solid $color-button-line-line;
+  background: $color-button-line-background;
+  color: $color-button-line-text;
+}
+
+
+// "Small" Variation
+// **************************************************
 
 .ns-button.ns-button-small,
 input[type="submit"].ns-button-small,
@@ -101,5 +157,21 @@ button.ns-button-small {
   font-size: 11px;
   line-height: $font-primary-text-line-height;
   font-weight: 700;
+}
+
+
+// "Large" Variation
+// **************************************************
+
+.ns-button.ns-button-large,
+input[type="submit"].ns-button-large,
+input[type="button"].ns-button-large,
+input[type="reset"].ns-button-large,
+button.ns-button-large {
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 700;
+  font-family: $font-secondary;
 }
 

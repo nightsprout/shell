@@ -2,6 +2,10 @@
 // Table SCSS
 // **************************************************
 
+
+// Table Variables
+// **************************************************
+
 $color-table-header: #cccccc;
 $color-table-header-background: #cccccc;
 $color-table-header-background-hover: #B9E4ED;
@@ -10,6 +14,14 @@ $color-table-row-background: transparent;
 $color-table-row-background-zebra: #e6e6e6;
 $color-table-row-background-hover: #B9E4ED;
 $color-table-row-background-selected: #B9E4ED;
+
+
+// Table Utilities Row
+// **************************************************
+
+// Styles for a row above a table that has some utilities in it.
+// The left side of the row allows for a table filtering input and results summary.
+// The right side of the row allows for a table to have various associated actions (as buttons).
 
 .ns-table-utilities {
   display: inline-block;
@@ -135,6 +147,14 @@ $color-table-row-background-selected: #B9E4ED;
 }
 
 
+// Table Wrapper
+// **************************************************
+
+// Tables display poorly in responsive views.
+// We want the user to be able to scroll in wide tables to see table content.
+// This wrapper style allows us to do it.
+// The table overflows the wrapper, and the wrapper scrolls left and right to show the table.
+
 .ns-table-wrapper {
   display: inline-block;
   float: left;
@@ -142,6 +162,11 @@ $color-table-row-background-selected: #B9E4ED;
   overflow-x: scroll;
   min-height: 150px;
 }
+
+
+// Main Table SCSS
+// **************************************************
+
 table.ns-table {
   width: 100%;
   margin: 0 0 40px 0;
@@ -160,64 +185,57 @@ table.ns-table {
         text-transform: uppercase;
         background: $color-table-header-background;
       }
-      > th.ns-sortable-column {
+      > th.ns-sortable-column {                               // Utility class to format a sortable row.
         cursor: pointer;
         white-space: nowrap;
-        i.ss-icon {
+        i.ss-icon {                                           // Style sort icons. This presumes we are using Symbolset.
           display: inline-block;
           height: 8px;
           font-size: 8px;
         }
       }
-      > th.ns-sortable-column.ns-sortable-column-current {
+      > th.ns-sortable-column.ns-sortable-column-current {    // Utility class to format a sortable row that is actively sorting.
         background: $color-table-header-background-selected;
       }
-      > th.ns-sortable-column:hover {
+      > th.ns-sortable-column:hover {                         // Utility class to format a sortable row that is hovered-over.
         background: $color-table-header-background-hover;
       }
-      > th.ns-column-align-right {
+      > th.ns-column-align-right {                            // Utility class to format a row that has tablular data (right aligned).
         text-align: right;
       }
     }
   }
   > tbody {
-    // min-height: 500px;
     > tr {
       > td {
         padding: 7px 10px 8px 10px;
         background: $color-page-background;
       }
-      > td.ns-column-align-right {
+      > td.ns-column-align-right {      // Utility class to format a row that has tablular data (right aligned).
         text-align: right;
       }
     }
-    > tr:nth-child(even) {
+    > tr:nth-child(even) {              // Add zebra stripes to table.
       > td {
         background: $color-table-row-background-zebra;
       }
     }
-    > tr.ns-table-1-result {
-      > td {
-        height: 38px;
-        overflow: visible;
-      }
-    }
-    > tr.ns-row-current {
+    > tr.ns-row-current {               // Utility class to highlight a selected row.
       > td {
         background: $color-table-row-background-selected;
       }
     }
-    > tr:hover {
+    > tr:hover {                        // Utility class to highlight a hovered-over row.
       > td {
         background: $color-table-row-background-hover;
       }
     }
   }
-  > tbody.ns-table-no-results {
+  > tbody.ns-table-no-results {         // Utility class to style table when it is empty.
     display: block;
     height: 112px;
   }
-  > tbody.ns-table-no-results:after {
+  > tbody.ns-table-no-results:after {   // Utility class to return "No results." when it is empty.
     display: block;
     padding: 20px 0 20px 15px;
     font-style: italic;
