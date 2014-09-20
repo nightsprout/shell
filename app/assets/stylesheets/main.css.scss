@@ -420,6 +420,7 @@ ol.ns-module-triple {
     display: block;
     padding: 0 20px;
     margin: 0 auto;
+    overflow: hidden;
     @include legacy-pie-clearfix;
     @include screen-format(monitor) {
       width: $monitor-breakpoint - 40px;  // The subtraction of 40px accounts for the container padding.
