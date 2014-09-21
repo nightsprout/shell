@@ -26,6 +26,7 @@
 //= require angular/nightsprout/warningPopup
 //= require angular/nightsprout/dataTables
 //= require angular/nightsprout/modal
+//= require angular/nightsprout/forms
 //
 //  ANGULAR: Routing
 //= require angular/routes

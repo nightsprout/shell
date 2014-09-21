@@ -20,4 +20,8 @@ class HomeController < ApplicationController
     @angularController = 'baseController'
   end
 
+  def forms
+    @angularController = 'baseController'
+  end
+
 end

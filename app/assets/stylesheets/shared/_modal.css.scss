@@ -66,7 +66,7 @@
 
 .ns-modal.ng-enter,
 .ns-modal.ng-leave {
-  @include transition-delay(0.25s);
+  @include transition-delay(0);
   @include transition-timing-function(cubic-bezier(0.250, 0.460, 0.450, 0.940));
   @include transition-property(all);
   @include transition-duration(0.5s);
@@ -75,12 +75,13 @@
 .ns-modal.ng-enter,
 .ns-modal.ng-leave.ng-leave-active {
   @include opacity(0);
+  @include transition-delay(0);
 }
 
 .ns-modal.ng-leave,
 .ns-modal.ng-enter.ng-enter-active {
   @include opacity(1);
-  @include transition-delay(0);
+  @include transition-delay(0.25s);
 }
 
 
