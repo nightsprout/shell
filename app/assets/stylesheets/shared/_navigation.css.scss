@@ -22,6 +22,9 @@ nav.ns-section-main {
     height: 100%;
     left: 0;
   }
+  > .ns-section-wrapper {
+    height: 100%;
+  }
   a#ns-home {
     display: inline-block;
     float: left;
