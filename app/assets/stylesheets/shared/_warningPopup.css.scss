@@ -3,7 +3,8 @@
 // **************************************************
 
 #ns-warning {
-  display: block;
+  display: none;
+  visibility: hidden;
   width: 300px;
   padding: 15px 20px 20px 20px;
   background: #ffffff;
@@ -40,7 +41,10 @@
     margin: 0;
   }
 }
-
+#ns-warning.ns-warning-visible {
+  display: block;
+  visibility: visible;
+}
 
 // Modal's Animation Classes (For Angular)
 // **************************************************

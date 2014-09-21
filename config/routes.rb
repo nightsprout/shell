@@ -7,6 +7,7 @@ Shell::Application.routes.draw do
   get '/warnings'    => 'home#warnings'
   get '/buttons'     => 'home#buttons'
   get '/forms'       => 'home#forms'
+  get '/icons'       => 'home#icons'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

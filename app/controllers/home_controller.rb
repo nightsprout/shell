@@ -24,4 +24,8 @@ class HomeController < ApplicationController
     @angularController = 'baseController'
   end
 
+  def icons
+    @angularController = 'baseController'
+  end
+
 end

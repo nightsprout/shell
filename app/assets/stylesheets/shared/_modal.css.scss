@@ -16,7 +16,8 @@
 // <!-- .ns-modal -->
 
 .ns-modal {
-  display: block;
+  display: none;
+  visibility: hidden;
   width: 700px;
   min-height: 200px;
   background: #ffffff;
@@ -58,6 +59,10 @@
     @include border-radius(16px);
     @include box-shadow(0 1px 4px #000000);
   }
+}
+.ns-modal.ns-modal-visible {
+  display: block;
+  visibility: visible;
 }
 
 

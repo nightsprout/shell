@@ -1,6 +1,7 @@
   <div
     id="ns-warning"
     ng-if="nsStateMachine.warningPopup.isVisible"
+    ng-class="{ 'ns-warning-visible' : nsStateMachine.warningPopup.isVisible }"
     >
     <h3 id="ns-warning-header">{{nsStateMachine.warningPopup.headerText}}</h3><!-- #ns-warning-header -->
     <p id="ns-warning-body">{{nsStateMachine.warningPopup.bodyText}}</p><!-- #ns-warning-body -->

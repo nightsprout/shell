@@ -284,12 +284,17 @@ hr {
 // **************************************************
 
 #ns-screen-background {
-  display: block;
+  display: none;
+  visibility: hidden;
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   background: rgba(0, 0, 0, .85);
+}
+#ns-screen-background.ns-screen-background-visible {
+  display: block;
+  visibility: visible;
 }
 
 #ns-screen-background.ng-enter,

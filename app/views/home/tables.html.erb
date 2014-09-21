@@ -1,4 +1,9 @@
-  <div id="ns-test-modal-1" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-1'">
+  <div
+    id="ns-test-modal-1"
+    class="ns-modal"
+    ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-1'"
+    ng-class="{ 'ns-modal-visible' : nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-1' }"
+    >
     <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
     <h3>Modal Header 1</h3>
     <p>Modal Content 1</p>
@@ -6,7 +11,12 @@
   </div>
   <!-- .ns-modal -->
 
-  <div id="ns-test-modal-2" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-2'">
+  <div
+    id="ns-test-modal-2"
+    class="ns-modal"
+    ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-2'"
+    ng-class="{ 'ns-modal-visible' : nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-2' }"
+    >
     <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
     <h3>Modal Header 2</h3>
     <p>Modal Content 2</p>
@@ -14,7 +24,12 @@
   </div>
   <!-- .ns-modal -->
 
-  <div id="ns-test-modal-3" class="ns-modal" ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-3'">
+  <div
+    id="ns-test-modal-3"
+    class="ns-modal"
+    ng-if="nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-3'"
+    ng-class="{ 'ns-modal-visible' : nsStateMachine.modal.isVisible && nsStateMachine.modal.currentModal === 'ns-test-modal-3' }"
+    >
     <span class="ns-modal-close" ng-click="nsStateMachine.modal.close()">&times;</span><!-- .ns-modal-close -->
     <h3>Modal Header 3</h3>
     <p>Modal Content 3</p>
