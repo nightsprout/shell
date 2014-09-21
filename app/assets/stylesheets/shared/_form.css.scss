@@ -24,6 +24,12 @@ $color-form-input-outline-focus: #20484a;
 $color-form-input-background: transparent;
 $color-form-input-text: #404040;
 
+$padding-form-element-top: 9px;
+$padding-form-element-right: 10px;
+$padding-form-element-bottom: 11px;
+$padding-form-element-left: 10px;
+$padding-form-element-border: 1px;
+
 
 // Basic Styles for Form Elements
 // **************************************************
@@ -43,11 +49,11 @@ span.ns-form-label, {
 }
 
 label {
-  padding: 7px 0 9px 0;
+  padding: $padding-form-element-top 0 $padding-form-element-bottom 0;
   cursor: pointer;
 }
-span.ns-form-label {
-  padding: 7px 0 9px 0;
+span.ns-form-label {      // This is a "fake" label.
+  padding: $padding-form-element-top 0 $padding-form-element-bottom 0;
 }
 
 input[type="date"],     input[type="datetime"],
@@ -58,8 +64,8 @@ input[type="search"],   input[type="tel"],
 input[type="text"],     input[type="time"],
 input[type="url"],      input[type="week"],
 select,                 textarea {
-  padding: 6px 9px 8px 9px;
-  border: 1px solid $color-form-input-outline;
+  padding: ($padding-form-element-top - $padding-form-element-border) ($padding-form-element-right - $padding-form-element-border) ($padding-form-element-bottom - $padding-form-element-border) ($padding-form-element-right - $padding-form-element-border);
+  border: $padding-form-element-border solid $color-form-input-outline;
   background: $color-form-input-background;
   @include box-sizing(border-box);
   @include border-radius(2px);
@@ -93,7 +99,7 @@ input[type="checkbox"],
 input[type="radio"] {}
 
 select {
-  height: 36px;
+  height: ($font-primary-text-line-height + $padding-form-element-top + $padding-form-element-bottom + $padding-form-element-border + $padding-form-element-border);
 }
 
 textarea {
@@ -160,7 +166,7 @@ form.ns-form-basic {
     }
   }
   .ns-form-radio-option {
-    margin: 7px 0 3px 0;
+    margin: $padding-form-element-top 0 (10 - $padding-form-element-top) 0;
     position: relative;
     > input[type="checkbox"],
     > input[type="radio"] {
