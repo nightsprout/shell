@@ -24,11 +24,11 @@ $color-form-input-outline-focus: #20484a;
 $color-form-input-background: transparent;
 $color-form-input-text: #404040;
 
-$padding-form-element-top: 9px;
-$padding-form-element-right: 10px;
-$padding-form-element-bottom: 11px;
-$padding-form-element-left: 10px;
-$padding-form-element-border: 1px;
+$padding-form-element-top: 9px;     // This is also relevant to _button.css.scss.
+$padding-form-element-right: 10px;  // This is also relevant to _button.css.scss.
+$padding-form-element-bottom: 11px; // This is also relevant to _button.css.scss.
+$padding-form-element-left: 10px;   // This is also relevant to _button.css.scss.
+$padding-form-element-border: 1px;  // This is also relevant to _button.css.scss.
 
 
 // Basic Styles for Form Elements
@@ -163,6 +163,22 @@ form.ns-form-basic {
     @include screen-format(nano) {
       @include span-columns(12 omega, 12);
       @include prefix(0);
+    }
+    .ns-button,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"],
+    button {
+      float: left;
+      margin: 0 5px 0 0;
+      @include screen-format(phone) {
+        width: 100%;
+        margin: 0 0 10px 0;
+      }
+      @include screen-format(nano) {
+        width: 100%;
+        margin: 0 0 10px 0;
+      }
     }
   }
   .ns-form-radio-option {
