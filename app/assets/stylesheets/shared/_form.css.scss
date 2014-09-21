@@ -5,11 +5,14 @@
 
 // Basic forms have the following structure:
 //
-// form.ns-form-basic {         <= This is the class that surrounds the form, telling it how to arrange.
-//   .ns-form-row {             <= This is a wrapper that delineates form rows.
-//     .ns-form-row-left {}     <= This side is intended to hold the form element label.
-//     .ns-form-row-right {}    <= This side is intended to hold the form element.
+// form.ns-form-basic {           <= This is the class that surrounds the form, telling it how to arrange.
+//   .ns-form-row {               <= This is a wrapper that delineates form rows.
+//     .ns-form-row-left {}       <= This side is intended to hold the form element label.
+//     .ns-form-row-right {       <= This side is intended to hold the form element.
+//       .ns-form-radio-option {} <= This is a wrapper that delineates a row containing a radio group or checkbox option.
+//     }    
 //   }
+//   .ns-form-row-submit {}       <= This is a wrapper that delineates a form submit row.
 // }
 //
 // In small screen formats, the label/inputs stack rather than arrange side-by-side.
