@@ -28,6 +28,7 @@
 //= require angular/nightsprout/modal
 //= require angular/nightsprout/forms
 //= require angular/nightsprout/throbber
+//= require angular/nightsprout/notifications
 //
 //  ANGULAR: Routing
 //= require angular/routes
