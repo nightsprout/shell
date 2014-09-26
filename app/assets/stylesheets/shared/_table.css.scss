@@ -171,6 +171,13 @@ table.ns-table {
   width: 100%;
   margin: 0 0 40px 0;
   background: $color-page-background;
+  .ns-button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  button {
+    white-space: nowrap;
+  }
   > colgroup {
     > col {}
   }
