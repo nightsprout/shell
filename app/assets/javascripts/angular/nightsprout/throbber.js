@@ -3,13 +3,10 @@
 // **************************************************
 
 
-
 // This plugin creates a throbber.
 
 // The throbber shows whenever an HTTP request has been made.
 // It hides whenever that HTTP request has been completed.
-
-
 
 AngularApp.run(['$rootScope', function($rootScope){
 
@@ -19,32 +16,16 @@ AngularApp.run(['$rootScope', function($rootScope){
   // Set a property on root scope that determines whether or not the warning popup is visible.
   $rootScope.nsStateMachine.throbber.isVisible = false;
 
-    // Set a property on root scope that determines whether or not the warning popup is visible.
+  // Set a property on root scope that tracks the number of HTTP requests that are throbbing.
+  // We use this number to determine whether or not to hide the throbber.
+  // We only hide the throbber when every HTTP request has completed (i.e. property === 0).
   $rootScope.nsStateMachine.throbber.activeRequests = 0;
-
-  // Some views may have multiple tables.
-  // This object stores the the states of multiple tables.
-  // The states we track are current column and sort direction.
-  //
-  // This is the JSON schema it works with:
-  //
-  // nsStateMachine.dataTable.state = {
-  //   table1: {
-  //     currentColumn: "column1",
-  //     reverseState: true
-  //   },
-  //   table1: {
-  //     currentColumn: "column3",
-  //     reverseState: false
-  //   }
-  // }
 
 }]);
 
 
-
-
-
+// This is an Angular Interceptor that intercepts HTTP requests.
+// On interception, it sets the state of the throbber.
 AngularApp.factory('throbber', ["$rootScope", function($rootScope) {
   var throbber = {
     request: function(config) {
@@ -63,13 +44,11 @@ AngularApp.factory('throbber', ["$rootScope", function($rootScope) {
   return throbber;
 }]);
 
+
+// Add the interceptor to $httpProvider.
 AngularApp.config(['$httpProvider', function($httpProvider) {
   $httpProvider.interceptors.push('throbber');
 }]);
-
-
-
-
 
 
 // **************************************************
