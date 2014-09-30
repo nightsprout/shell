@@ -187,8 +187,11 @@ form.ns-form-basic {
   .ns-form-radio-option {
     margin: $padding-form-element-top 0 (10 - $padding-form-element-top) 0;
     position: relative;
-    > input[type="checkbox"],
     > input[type="radio"] {
+      margin: 3px 5px 0 0;
+      position: absolute;
+    }
+    > input[type="checkbox"] {
       margin: 4px 5px 0 0;
       position: absolute;
     }
