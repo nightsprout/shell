@@ -7,7 +7,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: #000000 url("/assets/core/throbber.gif") no-repeat 0 0;  
+  background: #000000 asset-url("core/throbber.gif") no-repeat 0 0;  
 }
 #ns-throbber.ng-enter,
 #ns-throbber.ng-leave {
