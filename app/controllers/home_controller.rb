@@ -28,4 +28,8 @@ class HomeController < ApplicationController
     @angularController = 'baseController'
   end
 
+  def practice
+    render layout: "revealestate"
+    @angularController = 'baseController'
+  end
 end

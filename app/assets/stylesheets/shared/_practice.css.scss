@@ -1,0 +1,233 @@
+// **************************************************
+// SCSS Guidelines
+// **************************************************
+//
+// - Write SCSS with the following structure:
+//
+//   element#id.class {                         <= Styles should be written in that order, but may not contain every specifier in the selector.
+//     display: <value>;                        <= This is optional.
+//     visibility: <value>;                     <= This is optional.
+//     float: <value>;                          <= This is optional.
+//     box-sizing-properties: <value>;          <= This is optional. Examples include: width, height, min-width, min-height, padding, margin, border. etc.
+//     superficial-properties: <value>;         <= This is optional. Examples include: font-size, line-height, font-weight, etc.
+//     positioning-properties: <value>;         <= This is optional. Examples include: position, top, right, bottom, left.
+//     @include mixin-name(<value>);            <= This is optional.
+//     @include screen-format(monitor) { ... }  <= This is optional.
+//     @include screen-format(laptop) { ... }   <= This is optional.
+//     @include screen-format(tablet) { ... }   <= This is optional.
+//     @include screen-format(phone) { ... }    <= This is optional.
+//     @include screen-format(nano) { ... }     <= This is optional.
+//     nested element#id.class { ... }          <= This is optional.
+// }
+//
+
+//color-declarations 
+$re-background-color: #fff;
+$re-bright-blue: #36b3e1;
+$re-light-gray: #efeff1;
+$re-grey: #aecbd9;
+
+body {
+  padding: 0;
+  color: #121212;
+}
+
+//Top color bar settings
+.top-color-bar {
+  display: inline-block;
+  width: 10%;
+  height: 5px;
+  background-color: #103f5c;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  &.light-blue {
+    background-color: $re-bright-blue;;
+  }
+  &.blue {
+   background-color: #0074a0;
+  }
+  &.gray {
+  background-color: #aecbd9;
+  }
+  &.light-gray {
+  background-color: $re-light-gray;
+  }
+}
+.top-color-section {
+  position: absolute;
+  left: 0px;
+  top: -10px;
+  right: 0px;
+}
+//end top color bar settings
+
+
+//header styles start
+.re-header {
+  height: 100px;
+  width: 100%;
+}
+.re-logo {
+  margin-top: 5px;
+  @include span-columns(2,12);
+  @include pre(2);
+}
+.re-nav-bar {
+  margin: 25px 0 25px 0;
+  height: 80px;
+  border: 2px solid $re-bright-blue;
+  @include span-columns(8,12);
+  @include pre(2);
+  @include post(2);
+}
+.re-nav-button-box {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 80px;
+  width: 33%;
+  & button.re-nav-button{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: none;
+    color: #000;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+  }
+}
+//header styles end
+
+//main content styles start
+img.re-video-image {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.re-video-box {
+  margin-bottom: 25px;
+  background-color: #fff;
+  @include span-columns(8,12);
+  @include pre(2);
+  @include post(2);
+}
+.re-module-box {
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border: 2px solid #aecbd9;
+  padding: 0.5em 5em 0.5em 5em;
+  background-color: $re-light-gray;
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.5em;
+  text-align: center;
+  @include span-columns(10, 12);
+  @include pre(1);
+  @include post(1);
+}
+.re-h3 {
+  position: relative;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+.re-module-box a {
+  color: #121212;
+  text-decoration: underline;
+  &:hover{
+    border-bottom-color: $re-bright-blue;
+    color: $re-bright-blue;
+  }
+}
+//main content styles stop
+
+
+
+// Main Button SCSS
+// **************************************************
+input[type="submit"],
+button {
+  margin: 1em;
+  border: 2px solid #0074a0;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #103f5c;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+input[type="submit"]:before,  // This block of code is necessary to fix the Chrome click target area bug.
+button:before {               // Shifting the button's position, causes a row of pixels equal to the shift offset to become "dead".
+  position: absolute;         // As "dead" pixels, when clicked, they do not fire onClick events as they should.
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+input[type="submit"]:hover,
+button:hover {
+  border-color: $re-bright-blue;
+  background-color: $re-bright-blue;
+  color: #f6f6f6;
+}
+input[type="submit"]:focus,         // This block of code is necessary to remove the ugly outline when buttons become focused.
+input[type="button"]:focus,
+input[type="reset"]:focus,
+button:focus {
+  outline: none;
+}
+.re-module-box .sign-up-field {     //email sign up field
+  display: inline;
+  float: none;
+  width: 65%;
+  border: 1px solid #aecbd9;
+  border-radius: 0;
+  background-color: #fff;
+}
+.re-module-box .sign-up-field:focus {
+  border: 2px solid $re-bright-blue;
+}
+//Button and form styles stop
+
+
+
+//footer styles start
+.re-footer{
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 0px;
+  background-color: #333;
+  color: $re-light-gray;
+  font-weight: 400;
+  text-align: center;
+}
+a.re-footer-link {
+  padding: 0 15px 0 15px;
+  color: $re-light-gray; 
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  text-decoration: underline;
+  &:hover{
+    border-bottom-color: $re-bright-blue;
+    color: $re-bright-blue;
+  }
+}
+.re-copyright-div{ 
+  margin-top: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #b8babc;
+  color: #333;
+}
+.re-footer-h3 {
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+//footer styles stop

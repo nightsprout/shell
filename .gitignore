@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Ignore .Ds_Store files
+*.DS_Store
+
 .powenv
