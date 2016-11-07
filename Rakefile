@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Shell::Application.load_tasks
+Tyrannosaurustechwebsite::Application.load_tasks

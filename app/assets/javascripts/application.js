@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //  RAILS: Core Rails Files
-//= require jquery
-//= require jquery_ujs
 //
 //  ANGULAR: Core Angular Files
 //= require angular

@@ -1,4 +1,4 @@
-Shell::Application.routes.draw do
+Tyrannosaurustechwebsite::Application.routes.draw do
 
   root :to => "home#index"
 
