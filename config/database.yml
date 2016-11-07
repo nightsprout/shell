@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: tyrannosaurustechwebsite_development
+  database: shell_development
   pool: 5
   username: 
   password:
@@ -11,7 +11,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: tyrannosaurustechwebsite_test
+  database: shell_test
   pool: 5
   username: 
   password:
