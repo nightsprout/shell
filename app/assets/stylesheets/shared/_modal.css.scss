@@ -58,6 +58,7 @@
     top: -8px;
     right: -8px;
     cursor: pointer;
+    z-index: 802;
     @include border-radius(16px);
     @include box-shadow(0 1px 4px #000000);
   }
