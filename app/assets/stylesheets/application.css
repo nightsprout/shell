@@ -10,9 +10,5 @@
  *
  *= require_self
  *= require main
- *= require components/ss-social-circle
- *= require components/ss-symbolicons-block
- *= require components/ss-symbolicons-line
- *= require components/ss-social-regular
- *= require components/ss-standard
+ *= require_tree ./components
  */

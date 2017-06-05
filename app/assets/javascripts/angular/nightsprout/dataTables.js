@@ -39,7 +39,6 @@ AngularApp.run(['$rootScope', function($rootScope){
   // This object holds methods for interacting with a data table.
   $rootScope.nsStateMachine.dataTable.methods = {
 
-
     'deleteItem': function(desiredTable, itemID, deleteFunction) {
       var deleteTableItemHeaderWarning = "Delete table item?";
       var deleteTableItemBodyWarning = "Are you sure you want to delete this table item?";
